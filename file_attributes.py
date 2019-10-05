@@ -19,11 +19,11 @@ def convert_bytes(byte_size):
         counter += 1 
     return round(byte_size, 1), size_units[counter]
 
-directory_path = check.path_check(Path("/home/neronicolo/programming/data/chrono24"))
+directory_path = check.path_check(Path.home()/"programming/data/chrono24/")
 file_iterator = check.gen_check(directory_path.rglob('*.jpg'))
 file_attributes = collections.defaultdict(list)
 
-# TODO: Conitune github videos by Shiffman, push code to github
+# TODO: Commit changes
 # TODO: regex.replace_path() chrono24 - ZWER
 # TODO: Check if watch model is in watch name if so return match
 # TODO: Clean up watch name

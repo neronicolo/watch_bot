@@ -24,8 +24,8 @@ def gen_check(iterable, iter_limit=None):
         return itertools.islice(next_element, iter_limit)
 
 if __name__ == "__main__":
-    folder_path = path_check(Path("/home/neronicolo/programming/data/chrono24"))
-    file_iterator = gen_check(folder_path.rglob('*.jpg'),10)
+    folder_path = path_check(Path.home()/"programming/data/chrono24/Sinn_1")
+    file_iterator = gen_check(folder_path.rglob('*.jpg'),100)
 
     for file in file_iterator:
         print(file)
