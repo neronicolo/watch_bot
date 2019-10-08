@@ -41,7 +41,7 @@ for file in file_iterator:
     file_attributes['file_size'].append(convert_bytes(file.stat().st_size))
     file_attributes['watch_brand'].append(file.parent.parts[-2])
     file_attributes['watch_model'].append(file.parent.parts[-1])
-    #file_attributes['watch_name'].append(str(file.stem.split('-')[:-1]).replace('_',' '))
+    file_attributes['watch_name'].append(str(file.stem.split('-')[:-1]).replace('_',' '))
 
 # Create pandas DataFrame
 df = pd.DataFrame.from_dict(file_attributes)
