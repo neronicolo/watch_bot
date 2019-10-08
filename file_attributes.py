@@ -1,6 +1,7 @@
 import sys
 from pathlib import Path
 import check
+import  regex
 import pandas as pd
 import collections
 from PIL import Image
@@ -23,13 +24,12 @@ directory_path = check.path_check(Path.home()/"programming/data/chrono24/")
 file_iterator = check.gen_check(directory_path.rglob('*.jpg'))
 file_attributes = collections.defaultdict(list)
 
-# TODO: Commit changes
-# TODO: regex.replace_path() chrono24 - ZWER
+# TODO: Check which attributes(colums) we need to create 
+# TODO: Test if is an image, is needed? import imghdr vs PIL. fastClass cwegner git
 # TODO: Check if watch model is in watch name if so return match
-# TODO: Clean up watch name
-# TODO: Test if is an image, is needed? import imghdr vs PIL cwegner git
+# TODO: Clean up watch name from ad related wording
 # TODO: Move logic to def main()? if __name__ == "__main__":
- 
+
 for file in file_iterator:
     try:
         file_attributes['image_size'].append(Image.open(file).size)

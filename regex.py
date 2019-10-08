@@ -32,8 +32,8 @@ if __name__ == "__main__":
 
     for count, file in enumerate(file_iterator):
         #print(count)
-        replace_path(file, r'\s', '_')
-        #rm_version = replace_name(file.stem, r'(\s|-|\.)?(\d+$)', '')
+        #replace_path(file, r'\s', '_')
+        rm_version = replace_name(file.stem, r'(\s|-|\.)?(\d+$)', '')
         #words = r'(brand|new|mint|unworn|neue|bnib|nib|rare|box|papers|b&p|&gt|bracelet|strap|leather|rubber|silicone|oem|excellent|condition|and|or|with)?(\s|-|\+|,|:|;|"|\\|/)?'
         #rm_words = replace_name(rm_version, words, '')
         #rm_underscore = replace_name(rm_words, '_+', ' ')
