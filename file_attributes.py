@@ -29,8 +29,9 @@ file_attributes = collections.defaultdict(list)
 # TODO: Check if watch model is in watch name if so return match
 # TODO: Clean up watch name from ad related wording
 # TODO: Move logic to def main()? if __name__ == "__main__":
-
-for file in file_iterator:
+# TODO: add progress bar https://tqdm.github.io
+# TODO: Do I need sorted?
+for file in sorted(file_iterator):
     try:
         file_attributes['image_size'].append(Image.open(file).size)
     except IOError:
@@ -45,7 +46,7 @@ for file in file_iterator:
 
 # Create pandas DataFrame
 df = pd.DataFrame.from_dict(file_attributes)
-print(df.iloc[:, 0:3].head())
+#print(df.iloc[:, 2].head(50))
 
 # Write to DataFrame to csv
 #df.to_csv('sinn_file_attributes.csv', index=False)
