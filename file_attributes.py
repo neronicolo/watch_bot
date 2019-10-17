@@ -24,12 +24,12 @@ directory_path = check.path_check(Path.home()/"programming/data/chrono24/")
 file_iterator = check.gen_check(directory_path.rglob('*.jpg'))
 file_attributes = collections.defaultdict(list)
 
+# TODO: add progress bar https://tqdm.github.io
 # TODO: Check which attributes(colums) we need to create 
 # TODO: Test if is an image, is needed? import imghdr vs PIL. fastClass cwegner git
 # TODO: Check if watch model is in watch name if so return match
 # TODO: Clean up watch name from ad related wording
 # TODO: Move logic to def main()? if __name__ == "__main__":
-# TODO: add progress bar https://tqdm.github.io
 # TODO: Do I need sorted?
 for file in sorted(file_iterator):
     try:
