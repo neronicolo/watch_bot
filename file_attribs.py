@@ -22,7 +22,7 @@ def convert_bytes(byte_size):
 
 directory_path = check.path_check(Path.home()/"programming/data/chrono24/")
 file_iterator = check.gen_check(directory_path.rglob('*.jpg'))
-file_attributes = collections.defaultdict(list)
+file_attribs = collections.defaultdict(list)
 
 # TODO: add progress bar https://tqdm.github.io
 # TODO: Check which attributes(colums) we need to create 
@@ -31,24 +31,25 @@ file_attributes = collections.defaultdict(list)
 # TODO: Clean up watch name from ad related wording
 # TODO: Move logic to def main()? if __name__ == "__main__":
 # TODO: Do I need sorted?
+
 for file in sorted(file_iterator):
     try:
-        file_attributes['image_size'].append(Image.open(file).size)
-    except IOError:
+        file_attribs['image_size'].append(Image.open(file).size)
+    except OSError:
         continue
-    file_attributes['file_path'].append(file)
-    file_attributes['file_name'].append(file.name)
-    file_attributes['file_extension'].append(file.suffix)
-    file_attributes['file_size'].append(convert_bytes(file.stat().st_size))
-    file_attributes['watch_brand'].append(file.parent.parts[-2])
-    file_attributes['watch_model'].append(file.parent.parts[-1])
-    file_attributes['watch_name'].append(str(file.stem.split('-')[:-1]).replace('_',' '))
+    file_attribs['file_path'].append(file)
+    file_attribs['file_name'].append(file.name)
+    file_attribs['file_extension'].append(file.suffix)
+    file_attribs['file_size'].append(convert_bytes(file.stat().st_size))
+    file_attribs['watch_brand'].append(file.parent.parts[-2])
+    file_attribs['watch_model'].append(file.parent.parts[-1])
+    file_attribs['watch_name'].append(str(file.stem.split('-')[:-1]).replace('_',' '))
 
 # Create pandas DataFrame
-df = pd.DataFrame.from_dict(file_attributes)
+df = pd.DataFrame.from_dict(file_attribs)
 #print(df.iloc[:, 2].head(50))
 
 # Write to DataFrame to csv
-#df.to_csv('sinn_file_attributes.csv', index=False)
+#df.to_csv('sinn_file_attribs.csv', index=False)
 
 print(f"{time.time() - start_time} seconds")
