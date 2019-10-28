@@ -22,5 +22,19 @@ for file in tqdm(file_iterator):
         continue
     file_attribs['name'].append(file.relative_to(dir_path))
 
+# Crate DataFrame
 df = pd.DataFrame.from_dict(file_attribs)
-#df.to_csv(dir_path/'wfc_file_attribs.csv', index=False)
+shape_init = df.shape
+
+# Remove rows where image_size_x and image_size_y are less than size.
+size = 300
+df = df[(df['image_size_x'] > size) & (df['image_size_y'] > size)]
+
+#Add columns for labeling
+df['watch_face_visibility'] = -1
+df['composition_quality'] = -1
+df['light_quality'] = -1
+df['image_quality'] = -1
+
+print(shape_init, df.shape)
+df.to_csv(dir_path/'wfc_file_attribs.csv', index=False)
