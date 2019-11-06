@@ -26,11 +26,11 @@ for file in tqdm(file_iterator):
 df = pd.DataFrame.from_dict(file_attribs)
 shape_init = df.shape
 
-# Remove rows where image_size_x and image_size_y are less than size.
+# Remove rows where image_size_x and image_size_y are less than the 'size'
 size = 300
 df = df[(df['image_size_x'] > size) & (df['image_size_y'] > size)]
 
-#Add columns for labeling
+# Adding labelling columns 
 df['watch_face_visibility'] = -1
 df['composition_quality'] = -1
 df['light_quality'] = -1

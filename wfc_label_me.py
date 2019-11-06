@@ -16,12 +16,24 @@ df = pd.read_csv(dir_path/'wfc_file_attribs.csv')
 
 # TODO: We have list of images, how to show 'next' or 'previous' image from the list.
 # How to choose which one to start from? Initially form the first image, otherwise form the first unlabeled(-1)
-start = 11111
-file_name = df.iloc[start]['name']
+start_index = -1
+file_name = df.iloc[start_index]['name']
 file_path = dir_path/file_name
 
 def display_next():
-    pass
+    global start_index 
+    global img_lbl
+    start_index += 1
+    file_name = df.iloc[start_index]['name']
+    file_path = dir_path/file_name
+
+    img = Image.open(file_path)
+    img.thumbnail((500, 500), Image.ANTIALIAS)
+
+    img = ImageTk.PhotoImage(img)
+    img_lbl = ttk.Label(mainframe, image=img)
+    img_grid = img_lbl.grid(row=0, column=0, rowspan=40)
+
 
 def display_prev():
     pass
@@ -35,7 +47,7 @@ img.thumbnail((500, 500), Image.ANTIALIAS)
 
 # Creating main class(window) and title
 root = Tk()
-root.title("LabelMe")
+root.title("LabelMe" + " - " + Path(file_name).name)
 
 # Creating frame widget which will hold all the content of our user interface
 mainframe = ttk.Frame(root, padding="5")
@@ -52,7 +64,8 @@ s.theme_use("clam")
 
 # Creating labels, buttons, radiobuttons
 img = ImageTk.PhotoImage(img)
-ttk.Label(mainframe, image=img).grid(row=0, column=0, rowspan=40)
+img_lbl = ttk.Label(mainframe, image=img)
+img_grid = img_lbl.grid(row=0, column=0, rowspan=40)
 
 ttk.Label(mainframe, text="Watch face visibility:").grid(row=34, column=1, sticky=(W, N))
 watch_face_vis = IntVar()
@@ -77,13 +90,14 @@ ttk.Radiobutton(mainframe, text="1", variable=img_quality, value=1).grid(row=37,
 ttk.Radiobutton(mainframe, text="0", variable=img_quality, value=0).grid(row=37, column=3, sticky=(W, N))
 
 ttk.Button(mainframe, text="Prev").grid(row=38, column=1, columnspan=1, sticky=())
-ttk.Button(mainframe, text="Next").grid(row=38, column=2, columnspan=3, sticky=())
+ttk.Button(mainframe, text="Next", command=display_next).grid(row=38, column=2, columnspan=3, sticky=())
 #ttk.Button(mainframe, text="Save").grid(row=39, column=1, columnspan=2, sticky=(W))
 #ttk.Button(mainframe, text="Exit").grid(row=39, column=3, columnspan=2, sticky=(E))
 #ttk.Label(mainframe, text="Status bar", relief=SUNKEN).grid(row=40, column=4, columnspan=4, sticky=(E))
 # TODO: Status bar
-
+ 
 # Walks through all of the widgets in mainframe and add padding around each
 for child in mainframe.winfo_children(): child.grid_configure(padx=5, pady=5)
+
 
 root.mainloop()
