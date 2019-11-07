@@ -7,17 +7,9 @@ from PIL import Image, ImageTk
 
 import check
 
-def image_resize(file_path, size):
-    img = Image.open(file_path)
-    img.thumbnail(size, Image.ANTIALIAS)
-
-    bg = Image.new('RGBA', size, (255, 255, 255, 0))
-    bg.paste(img, (int((size[0] - img.size[0]) / 2), int((size[1] - img.size[1]) / 2)))
-    return bg
-
 class ImageViewer(tk.Frame):
-    def __init__(self, dir_path, file_name):
-        tk.Frame.__init__(self)
+    def __init__(self, dir_path, file_name, *args, **kwargs):
+        tk.Frame.__init__(self, *args, **kwargs)
         self.dir_path = dir_path
         self.file_name = file_name
         self.start_index = -1
@@ -26,15 +18,24 @@ class ImageViewer(tk.Frame):
         self.display_next()
     
     def image_path(self):
-        self.df = pd.read_csv(self.dir_path/file_name)
-        self.img_name = self.df['name'][self.start_index]
-        self.img_path = self.dir_path/self.img_name
-        #return self.img_path
+        df = pd.read_csv(self.dir_path/file_name)
+        img_name = df['name'][self.start_index]
+        img_path = self.dir_path/img_name
+        return img_path
+
+    def image_resize(self):
+        img = Image.open(self.image_path())
+        img.thumbnail(self.size, Image.ANTIALIAS)
+
+        bg = Image.new('RGBA', self.size, (255, 255, 255, 0))
+        bg.paste(img, (int((self.size[0] - img.size[0]) / 2), int((self.size[1] - img.size[1]) / 2)))
+        return bg
 
     def image_load(self):
-        self.img = image_resize(self.img_path, self.size)
-        self.img = ImageTk.PhotoImage(self.img)
-        #return self.img
+        img = self.image_resize()
+        img = ImageTk.PhotoImage(img)
+        self.img_label.configure(image=img)
+        self.img_label.image = img
 
     def layout(self):
         self.img_label = tk.Label(self)
@@ -46,13 +47,11 @@ class ImageViewer(tk.Frame):
         self.start_index += 1
         self.image_path()
         self.image_load()
-        self.img_label.configure(image=self.img)
 
     def display_previous(self):
         self.start_index -= 1
         self.image_path()
         self.image_load()
-        self.img_label.configure(image=self.img)
 
     # TODO: Put duplicate code into one func and call it inside other func
     # TODO: Add padding around widgets recursively
@@ -63,8 +62,8 @@ def main(dir_path, file_name):
 
     app = ImageViewer(dir_path, file_name)
     app.grid(row=0, column=0)
-    print(app.start_index)
-
+    for child in app.winfo_children(): child.grid_configure(padx=2, pady=2)
+    
     # start event loop
     root.lift()
     root.attributes('-topmost',True)
