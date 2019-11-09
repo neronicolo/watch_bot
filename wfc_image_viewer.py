@@ -89,6 +89,7 @@ class Application(tk.ttk.Frame):
             self.display_next()
             return
         self.image_load()
+        self.update_widgets()
 
 def main(DIR_PATH, FILE_NAME):
     root = tk.Tk()
