@@ -53,15 +53,21 @@ class Application(tk.ttk.Frame):
         img = ImageTk.PhotoImage(img)
         self.img_label.configure(image=img)
         self.img_label.image = img
-        self.status_label.configure(text=f"({self.start_index + 1} / {self.total_items() - 1})")
+        return img
+
+    def update_widgets(self):
+        self.progress_label.configure(text=f"({self.start_index + 1} / {self.total_items() - 1})")
+        self.img_name_label.configure(text=str(Path(self.image_path()).name))
 
     def layout(self):
         self.img_label = ttk.Label(self)
         self.img_label.grid(row=0, column=0, columnspan=2)
-        self.status_label = ttk.Label(self)
-        self.status_label.grid(row=2, column=0, columnspan=2, sticky=('E'))
+        self.progress_label = ttk.Label(self)
+        self.progress_label.grid(row=2, column=1, columnspan=2, sticky=('E'))
+        self.img_name_label = ttk.Label(self)
+        self.img_name_label.grid(row=2, column=0, columnspan=2, sticky=('W'))
         ttk.Button(self, text="Previous", command=self.display_previous).grid(row=1, column=0, sticky=('E'))
-        ttk.Button(self, text="Next", command=self.display_next).grid(row=1, column=1, padx=5, pady=5, sticky=('W'))
+        ttk.Button(self, text="Next", command=self.display_next).grid(row=1, column=1, sticky=('W'))
 
     def display_next(self):
         try:
@@ -72,6 +78,7 @@ class Application(tk.ttk.Frame):
             self.display_next()
             return
         self.image_load()
+        self.update_widgets()
 
     def display_previous(self):
         try:
