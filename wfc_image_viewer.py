@@ -7,10 +7,10 @@ import pandas as pd
 from PIL import Image, ImageTk
 
 import check
-# TODO: Add title
-# TODO: Key mappings/events
-# TODO: Separate status bar by line. Maybe add file name on status West side
 # TODO: Revrite __init__ to look like tkinter_example.py
+# TODO: Key mappings/events
+# TODO: Add title
+# TODO: Separate status bar by line. Maybe add file name on status West side
 # TODO: Add docstrings
 # TODO: How to define **kwargs
 
