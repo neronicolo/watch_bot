@@ -7,6 +7,8 @@ from tqdm import tqdm
 
 
 dir_path = check.path_check(Path.home()/"programming/data/watch_bot/")
+# TODO: convert iterator to sorted list like in https://github.com/cwerner/fastclass/blob/master/fastclass/fc_clean.py
+# line 68,70
 file_iterator = check.gen_check(dir_path.rglob('*.jpg'))
 file_attribs = collections.defaultdict(list)
 
