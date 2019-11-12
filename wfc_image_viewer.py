@@ -1,7 +1,6 @@
-import collections
+from pathlib import Path
 import tkinter as tk
 from tkinter import ttk
-from pathlib import Path
 
 import pandas as pd
 from PIL import Image, ImageTk
