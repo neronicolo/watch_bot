@@ -6,11 +6,11 @@ from PIL import Image, ImageTk
 
 import check
 
-# TODO: Add title
-# TODO: Key mappings/events
-# TODO: Refractor display_next()
+# TODO: Key mappings/events 
+# TODO: Add radiobuttons
 # TODO: Separate status bar by line. Maybe add file name on status West side
 # TODO: Add padding
+# TODO: Refractor display_next()
 # TODO: Add docstrings
 
 class Application(tk.Frame):
@@ -26,10 +26,19 @@ class Application(tk.Frame):
         self.size = (520, 520)
         self.layout()
         self.display_next()
+        self.master.bind("<Key>", self.callback)
+
+    def callback(self, event):
+        if event.keysym == "Right":
+            self.display_next()
+        elif event.keysym == "Left":
+            self.display_previous()
+        print(event.keysym)
 
     def layout(self):
         self.img_label = tk.Label(self)
         self.img_label.grid(row=0, column=0, columnspan=2)
+
         tk.Button(self, text="Previous", command=self.display_previous).grid(row=1, column=0, sticky=('E'))
         tk.Button(self, text="Next", command=self.display_next).grid(row=1, column=1, sticky=('W'))
         return
@@ -48,6 +57,7 @@ class Application(tk.Frame):
         except KeyError:
             self._index = -1
             self.display_next()
+            return
         resized_img = self.image_resize(img_path)
         photoimage = ImageTk.PhotoImage(resized_img)
         self.img_label.configure(image=photoimage)
@@ -55,7 +65,18 @@ class Application(tk.Frame):
         self.master.title(img_path.name)
 
     def display_previous(self):
-        pass
+        self._index -= 1
+        try:
+            img_path = self.dir_path/self.df['name'][self._index]
+        except KeyError:
+            self._index = -1
+            self.display_next()
+            return
+        resized_img = self.image_resize(img_path)
+        photoimage = ImageTk.PhotoImage(resized_img)
+        self.img_label.configure(image=photoimage)
+        self.img_label.image = photoimage
+        self.master.title(img_path.name)
 
 if __name__ == "__main__":
 
@@ -66,4 +87,5 @@ if __name__ == "__main__":
 
     root = tk.Tk()
     app = Application(master=root, dir_path=d, file_name=f)
+ 
     root.mainloop()
