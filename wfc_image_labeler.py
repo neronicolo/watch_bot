@@ -37,13 +37,33 @@ class Application(tk.Frame):
         self.img_label = tk.Label(self)
         self.img_label.grid(row=0, column=0, rowspan=40)
 
-        # TODO: Change to float value, put all radiobuttons from same group into forech
-        self.watch_face_vis = tk.IntVar()
-        tk.Radiobutton(self, text="1", variable=self.watch_face_vis, value=1).grid(row=0, column=1, sticky=('W', 'N'))
-        tk.Radiobutton(self, text="0", variable=self.watch_face_vis, value=0).grid(row=0, column=2, sticky=('W', 'N'))
+        # TODO: Put all radiobuttons from same group into forech
+        # watch face visibility 
+        self.wfv_var = tk.DoubleVar()
+        self.wfv_labelframe = tk.LabelFrame(self, text="Watch Face Visibility", padx=5, pady=5)
+        self.wfv_labelframe.grid(row=0, column=1, columnspan=3, sticky=('W'))
+        self.wfv_button_1 = tk.Radiobutton(self.wfv_labelframe, text="1", variable=self.wfv_var, value=1)
+        self.wfv_button_1.grid(row=0, column=1, padx=5)
+        self.wfv_button_05 = tk.Radiobutton(self.wfv_labelframe, text="0.5", variable=self.wfv_var, value=0.5)
+        self.wfv_button_05.grid(row=0, column=2, padx=5)
+        self.wfv_button_0 = tk.Radiobutton(self.wfv_labelframe, text="0", variable=self.wfv_var, value=0)
+        self.wfv_button_0.grid(row=0, column=3, padx=5)
 
-        tk.Button(self, text="Previous", command=self.display_previous).grid(row=38, column=1, sticky=('E'))
-        tk.Button(self, text="Next", command=self.display_next).grid(row=38, column=2, sticky=('W'))
+        # composition quality
+        self.cq_var = tk.DoubleVar()
+        self.cq_labelframe = tk.LabelFrame(self, text="Composition quality", padx=5, pady=5)
+        self.cq_labelframe.grid(row=1, column=1, columnspan=3, sticky=('W'))
+        self.cq_button_1 = tk.Radiobutton(self.cq_labelframe, text="1", variable=self.cq_var, value=1)
+        self.cq_button_1.grid(row=1, column=2, padx=5)
+        self.cq_button_05 = tk.Radiobutton(self.cq_labelframe, text="0.5", variable=self.cq_var, value=0.5)
+        self.cq_button_05.grid(row=1, column=3, padx=5)
+       
+
+
+        self.next_button = tk.Button(self, text="Previous", command=self.display_previous)
+        self.next_button.grid(row=38, column=1, columnspan=2, sticky=('E'))
+        self.previous_button = tk.Button(self, text="Next", command=self.display_next)
+        self.previous_button.grid(row=38, column=3, sticky=('W'))
         return
 
     def image_resize(self, image_path):
@@ -54,8 +74,8 @@ class Application(tk.Frame):
         return new_img
 
     def display_next(self):
-        print(self.watch_face_vis.get())
-        self.watch_face_vis.set(0)
+        print(self.wfv_var.get())
+        self.wfv_var.set(0)
         self._index += 1
         try:
             img_path = self.dir_path/self.df['name'][self._index]
@@ -68,7 +88,6 @@ class Application(tk.Frame):
         self.img_label.configure(image=photoimage)
         self.img_label.image = photoimage
         self.master.title(img_path.name)
-
 
     def display_previous(self):
         self._index -= 1
