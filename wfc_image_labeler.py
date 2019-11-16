@@ -6,10 +6,14 @@ from PIL import Image, ImageTk
 
 import check
 
-# TODO: Key mappings/events 
 # TODO: Add radiobuttons
+# TODO: Key mappings/events 
 # TODO: Separate status bar by line. Maybe add file name on status West side
-# TODO: Add padding
+# TODO: Add padding for each child in frame class and for frame itself 
+#for child in app.winfo_children(): child.grid_configure(padx=2, pady=2)
+# TODO: Raise above oter windows
+# TODO: Change style
+# tk.ttk.Style().theme_use("clam")
 # TODO: Refractor display_next()
 # TODO: Add docstrings
 
@@ -17,6 +21,8 @@ class Application(tk.Frame):
     def __init__(self, master=None, dir_path=None, file_name=None, **kw):
         super().__init__(master=master, **kw)
         self.master = master
+        self.master.bind("<Key>", self.callback)
+        self.config(padx=5, pady=5)
         self.pack()
 
         self.dir_path = dir_path
@@ -26,19 +32,11 @@ class Application(tk.Frame):
         self.size = (520, 520)
         self.layout()
         self.display_next()
-        self.master.bind("<Key>", self.callback)
-
-    def callback(self, event):
-        if event.keysym == "Right":
-            self.display_next()
-        elif event.keysym == "Left":
-            self.display_previous()
-        print(event.keysym)
 
     def layout(self):
         self.img_label = tk.Label(self)
         self.img_label.grid(row=0, column=0, columnspan=2)
-
+        
         tk.Button(self, text="Previous", command=self.display_previous).grid(row=1, column=0, sticky=('E'))
         tk.Button(self, text="Next", command=self.display_next).grid(row=1, column=1, sticky=('W'))
         return
@@ -77,6 +75,13 @@ class Application(tk.Frame):
         self.img_label.configure(image=photoimage)
         self.img_label.image = photoimage
         self.master.title(img_path.name)
+
+    def callback(self, event):
+        if event.keysym == "Right":
+            self.display_next()
+        elif event.keysym == "Left":
+            self.display_previous()
+        #print(event.keysym)
 
 if __name__ == "__main__":
 
