@@ -13,7 +13,7 @@ import check
 #for child in app.winfo_children(): child.grid_configure(padx=2, pady=2)
 # TODO: Raise above oter windows
 # TODO: Change style
-# tk.ttk.Style().theme_use("clam")
+# tk.tk.Style().theme_use("clam")
 # TODO: Refractor display_next()
 # TODO: Add docstrings
 
@@ -35,10 +35,15 @@ class Application(tk.Frame):
 
     def layout(self):
         self.img_label = tk.Label(self)
-        self.img_label.grid(row=0, column=0, columnspan=2)
-        
-        tk.Button(self, text="Previous", command=self.display_previous).grid(row=1, column=0, sticky=('E'))
-        tk.Button(self, text="Next", command=self.display_next).grid(row=1, column=1, sticky=('W'))
+        self.img_label.grid(row=0, column=0, rowspan=40)
+
+        # TODO: Change to float value, put all radiobuttons from same group into forech
+        self.watch_face_vis = tk.IntVar()
+        tk.Radiobutton(self, text="1", variable=self.watch_face_vis, value=1).grid(row=0, column=1, sticky=('W', 'N'))
+        tk.Radiobutton(self, text="0", variable=self.watch_face_vis, value=0).grid(row=0, column=2, sticky=('W', 'N'))
+
+        tk.Button(self, text="Previous", command=self.display_previous).grid(row=38, column=1, sticky=('E'))
+        tk.Button(self, text="Next", command=self.display_next).grid(row=38, column=2, sticky=('W'))
         return
 
     def image_resize(self, image_path):
@@ -49,6 +54,8 @@ class Application(tk.Frame):
         return new_img
 
     def display_next(self):
+        print(self.watch_face_vis.get())
+        self.watch_face_vis.set(0)
         self._index += 1
         try:
             img_path = self.dir_path/self.df['name'][self._index]
@@ -61,6 +68,7 @@ class Application(tk.Frame):
         self.img_label.configure(image=photoimage)
         self.img_label.image = photoimage
         self.master.title(img_path.name)
+
 
     def display_previous(self):
         self._index -= 1
