@@ -6,6 +6,13 @@ from PIL import Image, ImageTk
 
 import check
 
+# TODO: Watch *args, **kwargs.
+#       How to initialize instance attibute passed from **kwargs?
+#       d = ("a":3, "b":4, "c":6) -->
+#       def __init__(self, **kwargs):
+#           self.a=3
+#           self.b=4
+#           self.c=6
 # TODO: set radiobuttons initial value to 0,
 #       get radiobutton value before moving to next image,
 #       store captured value into dataframe
@@ -34,20 +41,19 @@ class Application(tk.Frame):
         self.df = pd.read_csv(self.dir_path/self.file_name)
         self._index = -1
         self.size = (520, 520)
+        self.wfv_var = tk.DoubleVar(value=0)
+        self.cq_var = tk.DoubleVar(value=0)
+        self.lq_var = tk.DoubleVar(value=0)
+        self.iq_var = tk.DoubleVar(value=0)
         self.layout()
         self.display_next()
 
     def layout(self):
+        # image
         self.img_label = tk.Label(self)
         self.img_label.grid(row=0, column=0, rowspan=40)
 
-        # Radiobuttons and LabelFrame
-        # how to dinamically create instance attributes and assign them value?
-        self.wfv_var = tk.DoubleVar()
-        self.cq_var = tk.DoubleVar()
-        self.lq_var = tk.DoubleVar()
-        self.iq_var = tk.DoubleVar()
-
+        # radiobuttons and labelframe
         s = {"lf_txt":["Watch Face Visibility:","Composition quality:","Lighting quality:","Image quality:"],
             "rb_var":[self.wfv_var, self.cq_var, self.lq_var, self.iq_var],
             "rb_txt":["1", "0.5", "0"],
@@ -77,7 +83,6 @@ class Application(tk.Frame):
 
     def display_next(self):
         print(self.wfv_var.get())
-        self.wfv_var.set(0)
         self._index += 1
         try:
             img_path = self.dir_path/self.df['name'][self._index]
