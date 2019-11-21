@@ -6,14 +6,18 @@ from PIL import Image, ImageTk
 
 import check
 
-# TODO: Add radiobuttons
+# TODO: set radiobuttons initial value to 0,
+#       get radiobutton value before moving to next image,
+#       store captured value into dataframe
+#       reset value to 0
+#       For previous button set to read value from data frame and writing will be handled with next button
 # TODO: Key mappings/events 
 # TODO: Separate status bar by line. Maybe add file name on status West side
 # TODO: Add padding for each child in frame class and for frame itself 
-#for child in app.winfo_children(): child.grid_configure(padx=2, pady=2)
+#       for child in app.winfo_children(): child.grid_configure(padx=2, pady=2)
 # TODO: Raise above oter windows
 # TODO: Change style
-# tk.tk.Style().theme_use("clam")
+#       tk.tk.Style().theme_use("clam")
 # TODO: Refractor display_next()
 # TODO: Add docstrings
 
@@ -37,29 +41,27 @@ class Application(tk.Frame):
         self.img_label = tk.Label(self)
         self.img_label.grid(row=0, column=0, rowspan=40)
 
-        # TODO: Put all radiobuttons from same group into forech
-        # watch face visibility 
+        # Radiobuttons and LabelFrame
+        # how to dinamically create instance attributes and assign them value?
         self.wfv_var = tk.DoubleVar()
-        self.wfv_labelframe = tk.LabelFrame(self, text="Watch Face Visibility", padx=5, pady=5)
-        self.wfv_labelframe.grid(row=0, column=1, columnspan=3, sticky=('W'))
-        self.wfv_button_1 = tk.Radiobutton(self.wfv_labelframe, text="1", variable=self.wfv_var, value=1)
-        self.wfv_button_1.grid(row=0, column=1, padx=5)
-        self.wfv_button_05 = tk.Radiobutton(self.wfv_labelframe, text="0.5", variable=self.wfv_var, value=0.5)
-        self.wfv_button_05.grid(row=0, column=2, padx=5)
-        self.wfv_button_0 = tk.Radiobutton(self.wfv_labelframe, text="0", variable=self.wfv_var, value=0)
-        self.wfv_button_0.grid(row=0, column=3, padx=5)
-
-        # composition quality
         self.cq_var = tk.DoubleVar()
-        self.cq_labelframe = tk.LabelFrame(self, text="Composition quality", padx=5, pady=5)
-        self.cq_labelframe.grid(row=1, column=1, columnspan=3, sticky=('W'))
-        self.cq_button_1 = tk.Radiobutton(self.cq_labelframe, text="1", variable=self.cq_var, value=1)
-        self.cq_button_1.grid(row=1, column=2, padx=5)
-        self.cq_button_05 = tk.Radiobutton(self.cq_labelframe, text="0.5", variable=self.cq_var, value=0.5)
-        self.cq_button_05.grid(row=1, column=3, padx=5)
-       
+        self.lq_var = tk.DoubleVar()
+        self.iq_var = tk.DoubleVar()
 
+        s = {"lf_txt":["Watch Face Visibility:","Composition quality:","Lighting quality:","Image quality:"],
+            "rb_var":[self.wfv_var, self.cq_var, self.lq_var, self.iq_var],
+            "rb_txt":["1", "0.5", "0"],
+            "rb_val":[1, 0.5, 0]}
 
+        for i, text in enumerate(s["lf_txt"]):
+            label_frame = tk.LabelFrame(self, text=text, padx=5, pady=5)
+            label_frame.grid(row=i, column=1, columnspan=3, sticky=('W'))
+
+            for j, value in enumerate(s["rb_val"]):
+                radiobutton = tk.Radiobutton(label_frame, text=s["rb_txt"][j], variable=s["rb_var"][i], value=value)
+                radiobutton.grid(row=i, column=j+1, padx=5) 
+    
+        # previous, next button
         self.next_button = tk.Button(self, text="Previous", command=self.display_previous)
         self.next_button.grid(row=38, column=1, columnspan=2, sticky=('E'))
         self.previous_button = tk.Button(self, text="Next", command=self.display_next)
