@@ -88,6 +88,7 @@ class Application(tk.Frame):
     def display_next(self):
         self._index += 1
         try:
+            # TODO: change to self.dir_path/self.df.loc[self._index, 'name']
             img_path = self.dir_path/self.df['name'][self._index]
         except KeyError:
             self._index = -1
@@ -109,12 +110,13 @@ class Application(tk.Frame):
             val = v.get()
             self.df.loc[self._index-1, k]= val
             v.set(-1)
-            print(f"{k} --> {self.df.loc[self._index-1, k]}, {self.df.loc[self._index, 'name']}")
+            print(f"{k} --> ({self.df.loc[self._index-1, k]}), {self.df.loc[self._index, 'name']}")
      
     # TODO: modify self._index of display_next() with decorator, reuse func() since only one var is different
     def display_previous(self):
         self._index -= 1
         try:
+            # TODO: Why we get exception?
             img_path = self.dir_path/self.df['name'][self._index]
         except KeyError:
             self._index = -1
@@ -146,4 +148,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = Application(master=root, dir_path=d, file_name=f)
  
-    #root.mainloop()
+    root.mainloop()
