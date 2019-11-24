@@ -6,6 +6,7 @@ from PIL import Image, ImageTk
 
 import check
 
+# TODO: write file to csv
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
 #       d = ("a":3, "b":4, "c":6) -->
@@ -13,7 +14,6 @@ import check
 #           self.a=3
 #           self.b=4
 #           self.c=6
-# TODO: write file to csv
 # TODO: Key mappings/events 
 # TODO: Separate status bar by line. Maybe add file name on status West side
 # TODO: Add padding for each child in frame class and for frame itself 
