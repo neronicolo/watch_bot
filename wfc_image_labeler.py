@@ -13,10 +13,7 @@ import check
 #           self.a=3
 #           self.b=4
 #           self.c=6
-# TODO: get radiobutton value before moving to next image,
-#       store captured value into dataframe
-#       reset value to 0
-#       For previous button set to read value from data frame and writing will be handled with next button
+# TODO: write file to csv
 # TODO: Key mappings/events 
 # TODO: Separate status bar by line. Maybe add file name on status West side
 # TODO: Add padding for each child in frame class and for frame itself 
@@ -24,8 +21,9 @@ import check
 # TODO: Raise above oter windows
 # TODO: Change style
 #       tk.tk.Style().theme_use("clam")
+# TODO: @property?
 # TODO: Refractor display_next()
-# TODO: Add docstrings
+# TODO: Add docstrings and comments
 
 class Application(tk.Frame):
     def __init__(self, master=None, dir_path=None, file_name=None, **kw):
@@ -86,38 +84,37 @@ class Application(tk.Frame):
         return new_img
 
     def display_next(self):
-        self._index += 1
-        try:
-            # TODO: change to self.dir_path/self.df.loc[self._index, 'name']
-            img_path = self.dir_path/self.df['name'][self._index]
-        except KeyError:
-            self._index = -1
-            self.display_next()
-            return
-        resized_img = self.image_resize(img_path)
-        photoimage = ImageTk.PhotoImage(resized_img)
-        self.img_label.configure(image=photoimage)
-        self.img_label.image = photoimage
-        self.master.title(img_path.name)
-
-        # TODO: Look at TODO #2
         d = {'watch_face_visibility':self.wfv_var,
             'composition_quality':self.cq_var,
             'light_quality':self.lq_var,
             'image_quality':self.iq_var}
-
+       
         for k,v in d.items():
-            val = v.get()
-            self.df.loc[self._index-1, k]= val
+            if (self._index == -1):
+                continue
+            else:
+                self.df.loc[self._index, k] = v.get()
+                print(f"{k} --> ({self.df.loc[self._index, k]}), {self.df.loc[self._index, 'name']}")
             v.set(-1)
-            print(f"{k} --> ({self.df.loc[self._index-1, k]}), {self.df.loc[self._index, 'name']}")
-     
-    # TODO: modify self._index of display_next() with decorator, reuse func() since only one var is different
+
+        self._index += 1
+        try:
+            img_path = self.dir_path/self.df.loc[self._index, 'name']
+        except KeyError:
+            self._index = -1
+            self.display_next()
+            return
+        resized_img = self.image_resize(img_path)
+        photoimage = ImageTk.PhotoImage(resized_img)
+        self.img_label.configure(image=photoimage)
+        self.img_label.image = photoimage
+        self.master.title(img_path.name)       
+                 
+    # TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
     def display_previous(self):
         self._index -= 1
         try:
-            # TODO: Why we get exception?
-            img_path = self.dir_path/self.df['name'][self._index]
+            img_path = self.dir_path/self.df.loc[self._index, 'name']
         except KeyError:
             self._index = -1
             self.display_next()
@@ -127,6 +124,16 @@ class Application(tk.Frame):
         self.img_label.configure(image=photoimage)
         self.img_label.image = photoimage
         self.master.title(img_path.name)
+
+        d = {'watch_face_visibility':self.wfv_var,
+            'composition_quality':self.cq_var,
+            'light_quality':self.lq_var,
+            'image_quality':self.iq_var}
+       
+        for k,v in d.items():
+            # remove ".0" form float numbers
+            float_num = lambda n: int(n) if not n%1 else n
+            v.set(float_num(self.df.loc[self._index, k]))
 
     def callback(self, event):
         if event.keysym == "Right":
