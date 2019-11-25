@@ -6,7 +6,7 @@ from PIL import Image, ImageTk
 
 import check
 
-# TODO: write file to csv
+# TODO: write file to csv, create menu bar
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
 #       d = ("a":3, "b":4, "c":6) -->
@@ -84,6 +84,7 @@ class Application(tk.Frame):
         return new_img
 
     def display_next(self):
+        # add values from radiobuttons to dataframe columns
         d = {'watch_face_visibility':self.wfv_var,
             'composition_quality':self.cq_var,
             'light_quality':self.lq_var,
@@ -97,6 +98,7 @@ class Application(tk.Frame):
                 print(f"{k} --> ({self.df.loc[self._index, k]}), {self.df.loc[self._index, 'name']}")
             v.set(-1)
 
+        # get next image path, resize image, show image
         self._index += 1
         try:
             img_path = self.dir_path/self.df.loc[self._index, 'name']
@@ -112,6 +114,7 @@ class Application(tk.Frame):
                  
     # TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
     def display_previous(self):
+        # get previous image path, resize image, show image
         self._index -= 1
         try:
             img_path = self.dir_path/self.df.loc[self._index, 'name']
@@ -125,6 +128,7 @@ class Application(tk.Frame):
         self.img_label.image = photoimage
         self.master.title(img_path.name)
 
+        # geta and set values from dataframe columns to radiobuttons
         d = {'watch_face_visibility':self.wfv_var,
             'composition_quality':self.cq_var,
             'light_quality':self.lq_var,
@@ -142,7 +146,7 @@ class Application(tk.Frame):
             self.display_previous()
         #print(event.keysym)
 
-    def store_and_reset(self):
+    def save_to_csv(self):
         pass
 
 if __name__ == "__main__":
