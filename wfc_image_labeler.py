@@ -33,8 +33,8 @@ class Application(tk.Frame):
         self.config(padx=5, pady=5)
         self.pack()
 
-        self.dir_path = dir_path
-        self.file_name = file_name
+        self.dir_path = Path(dir_path)
+        self.file_name = Path(file_name)
         self._index = -1
         self.size = (520, 520)
         self.df = pd.read_csv(self.dir_path/self.file_name)
@@ -51,6 +51,16 @@ class Application(tk.Frame):
         self.display_next()
 
     def layout(self):
+        # menu bar
+        menubar = tk.Menu(self.master)
+        filemenu =tk. Menu(menubar, tearoff=0)
+        filemenu.add_command(label="Open")
+        filemenu.add_command(label="Save", command=self.save_to_csv)
+        filemenu.add_separator()
+        filemenu.add_command(label="Exit", command=root.quit)
+        menubar.add_cascade(label="File", menu=filemenu)
+        self.master.config(menu=menubar)
+
         # image label
         self.img_label = tk.Label(self)
         self.img_label.grid(row=0, column=0, rowspan=40)
@@ -147,7 +157,15 @@ class Application(tk.Frame):
         #print(event.keysym)
 
     def save_to_csv(self):
-        pass
+        # TODO: Overwrite or increment file
+        counter = 1
+        while True:
+            file_name = self.dir_path/(self.file_name.stem + '_' + str(counter) + self.file_name.suffix)
+            if file_name.exists():
+                counter = +1
+            break
+        print(f'File name: {file_name}')
+        #self.df.to_csv(self.dir_path/'wfc_labels.csv', index=False)
 
 if __name__ == "__main__":
 
