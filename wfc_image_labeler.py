@@ -6,7 +6,8 @@ from PIL import Image, ImageTk
 
 import check
 
-# TODO: write file to csv, create menu bar
+# TODO: resume, write file to csv, create menu bar
+# TODO; Add status bar to display image number/total images, saved file report... 
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
 #       d = ("a":3, "b":4, "c":6) -->
@@ -37,7 +38,7 @@ class Application(tk.Frame):
         self.file_name = Path(file_name)
         self._index = -1
         self.size = (520, 520)
-        self.df = pd.read_csv(self.dir_path/self.file_name)
+        self.df = pd.read_csv(self.dir_path/self.file_name).head()
         # we don't need this since every time we start a program it will reset previously saved values
         #self.df['watch_face_visibility'] = -1
         #self.df['composition_quality'] = -1
@@ -48,6 +49,7 @@ class Application(tk.Frame):
         self.lq_var = tk.DoubleVar(value=-1)
         self.iq_var = tk.DoubleVar(value=-1)
         self.layout()
+        self.resume()
         self.display_next()
 
     def layout(self):
@@ -105,7 +107,7 @@ class Application(tk.Frame):
                 continue
             else:
                 self.df.loc[self._index, k] = v.get()
-                print(f"{k} --> ({self.df.loc[self._index, k]}), {self.df.loc[self._index, 'name']}")
+                #print(f"{k} --> ({self.df.loc[self._index, k]}), {self.df.loc[self._index, 'name']}")
             v.set(-1)
 
         # get next image path, resize image, show image
@@ -156,22 +158,45 @@ class Application(tk.Frame):
             self.display_previous()
         #print(event.keysym)
 
+    def resume(self):
+        # TODO: Dialog popup - Resume or start from begininng. Or start with resume and put button for reset?
+        df = self.df[['watch_face_visibility', 'composition_quality', 'light_quality', 'image_quality']]
+        # Return index of first occurrence of minimum value over requested axis
+        ser = df.idxmin(axis=0)
+        # get minimum value of index for returned indexes
+        idx_min = ser.min()
+        print(df, ser, idx_min)
+
+        # if True don't subtract index by 1 because we are at the begininning of the list
+        # else subtract index by 1 because display_next() is called next and it will increment it
+        # TODO: display_previous() not loading values when resume on
+        if idx_min == 0:
+            pass
+        else:
+            self._index = idx_min - 1
+
     def save_to_csv(self):
-        # TODO: Overwrite or increment file
-        counter = 1
-        while True:
-            file_name = self.dir_path/(self.file_name.stem + '_' + str(counter) + self.file_name.suffix)
-            if file_name.exists():
-                counter = +1
-            break
+        # TODO: Dialog popup - Overwrite or increment file?
+        increment = False
+        if increment == True:
+            counter = 1
+            while True:
+                file_name = self.dir_path/(self.file_name.stem + '_' + str(counter) + self.file_name.suffix)
+                if file_name.exists():
+                    counter = +1
+                break
+        else:
+            file_name = self.dir_path/self.file_name
+
         print(f'File name: {file_name}')
-        #self.df.to_csv(self.dir_path/'wfc_labels.csv', index=False)
+        self.df.to_csv(self.dir_path/'wfc_labels.csv', index=False)
 
 if __name__ == "__main__":
 
     # Path to csv file
     d = Path.home()/'programming/data/watch_bot/'
-    f = 'wfc_file_attribs.csv'
+    #f = 'wfc_file_attribs.csv'
+    f = 'wfc_labels.csv'
     check.path_check(d/f)
 
     root = tk.Tk()
