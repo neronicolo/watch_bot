@@ -37,6 +37,7 @@ class Application(tk.Frame):
         self.dir_path = Path(dir_path)
         self.file_name = Path(file_name)
         self._index = -1
+        self._resume_min_val = -1
         self.size = (520, 520)
         self.df = pd.read_csv(self.dir_path/self.file_name).head()
         # we don't need this since every time we start a program it will reset previously saved values
@@ -108,7 +109,7 @@ class Application(tk.Frame):
             else:
                 self.df.loc[self._index, k] = v.get()
                 #print(f"{k} --> ({self.df.loc[self._index, k]}), {self.df.loc[self._index, 'name']}")
-            v.set(-1)
+                v.set(-1)
 
         # get next image path, resize image, show image
         self._index += 1
@@ -165,9 +166,10 @@ class Application(tk.Frame):
         ser = df.idxmin(axis=0)
         # get minimum value of index for returned indexes
         idx_min = ser.min()
-        print(f'{df}\n{ser}\nidx_min={idx_min}')
-
+        self._resume_min_val = None
         self._index = idx_min - 1
+        print(f'{df}\n{ser}\nidx_min={idx_min}\n{self._resume_min_val}')
+        # TODO: use value from dataframe to check if index needs to be skiped in display_next()
 
     def save_to_csv(self):
         # TODO: Dialog popup - Overwrite or increment file?
@@ -189,8 +191,8 @@ if __name__ == "__main__":
 
     # Path to csv file
     d = Path.home()/'programming/data/watch_bot/'
-    f = 'wfc_file_attribs.csv'
-    #f = 'wfc_labels.csv'
+    #f = 'wfc_file_attribs.csv'
+    f = 'wfc_labels.csv'
     check.path_check(d/f)
 
     root = tk.Tk()
