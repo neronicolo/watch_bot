@@ -165,15 +165,9 @@ class Application(tk.Frame):
         ser = df.idxmin(axis=0)
         # get minimum value of index for returned indexes
         idx_min = ser.min()
-        print(df, ser, idx_min)
+        print(f'{df}\n{ser}\nidx_min={idx_min}')
 
-        # if True don't subtract index by 1 because we are at the begininning of the list
-        # else subtract index by 1 because display_next() is called next and it will increment it
-        # TODO: display_previous() not loading values when resume on
-        if idx_min == 0:
-            pass
-        else:
-            self._index = idx_min - 1
+        self._index = idx_min - 1
 
     def save_to_csv(self):
         # TODO: Dialog popup - Overwrite or increment file?
@@ -195,8 +189,8 @@ if __name__ == "__main__":
 
     # Path to csv file
     d = Path.home()/'programming/data/watch_bot/'
-    #f = 'wfc_file_attribs.csv'
-    f = 'wfc_labels.csv'
+    f = 'wfc_file_attribs.csv'
+    #f = 'wfc_labels.csv'
     check.path_check(d/f)
 
     root = tk.Tk()
