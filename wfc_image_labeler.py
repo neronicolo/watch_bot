@@ -6,7 +6,10 @@ from PIL import Image, ImageTk
 
 import check
 
-# TODO: resume, write file to csv, create menu bar
+# TODO: revisit resume func
+# TODO: what happens wit dataframe and radio button values when we hit last image, reset to first?
+# TODO: save current label values to df when pressing save
+# TODO: status bar
 # TODO; Add status bar to display image number/total images, saved file report... 
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
@@ -37,7 +40,7 @@ class Application(tk.Frame):
         self.dir_path = Path(dir_path)
         self.file_name = Path(file_name)
         self._index = -1
-        self._resume_min_val = -1
+        self._resume = 0
         self.size = (520, 520)
         self.df = pd.read_csv(self.dir_path/self.file_name).head()
         # we don't need this since every time we start a program it will reset previously saved values
@@ -97,18 +100,21 @@ class Application(tk.Frame):
         return new_img
 
     def display_next(self):
-        # add values from radiobuttons to dataframe columns
+        # add values from radiobuttons to dataframe columns and resume where left off
         d = {'watch_face_visibility':self.wfv_var,
             'composition_quality':self.cq_var,
             'light_quality':self.lq_var,
             'image_quality':self.iq_var}
-       
-        for k,v in d.items():
-            if (self._index == -1):
-                continue
-            else:
+
+        # if resume = 1, turn off resume and move forward
+        if (self._resume == 1):
+            self._resume = 0
+            print("resume = on")
+        # if resume = 0, add values to dataframe and clear radiobutton values
+        else:    
+            print("resume = off")
+            for k,v in d.items():
                 self.df.loc[self._index, k] = v.get()
-                #print(f"{k} --> ({self.df.loc[self._index, k]}), {self.df.loc[self._index, 'name']}")
                 v.set(-1)
 
         # get next image path, resize image, show image
@@ -160,16 +166,21 @@ class Application(tk.Frame):
         #print(event.keysym)
 
     def resume(self):
-        # TODO: Dialog popup - Resume or start from begininng. Or start with resume and put button for reset?
         df = self.df[['watch_face_visibility', 'composition_quality', 'light_quality', 'image_quality']]
-        # Return index of first occurrence of minimum value over requested axis
+        # get index of first occurrence of minimum value for each column
         ser = df.idxmin(axis=0)
-        # get minimum value of index for returned indexes
-        idx_min = ser.min()
-        self._resume_min_val = None
-        self._index = idx_min - 1
-        print(f'{df}\n{ser}\nidx_min={idx_min}\n{self._resume_min_val}')
-        # TODO: use value from dataframe to check if index needs to be skiped in display_next()
+        # get the label of min index 
+        resume_label = ser.idxmin()
+        # get min index
+        resume_idx = ser[resume_label]
+        # check if column values for min index are == -1, not labeled
+        if df.loc[resume_idx, resume_label] == -1:
+            # set index to be one before index of min value found
+            self._index = resume_idx - 1
+            self._resume = 1
+        else:
+            pass
+        #print(f'{df}\n{ser}\n{resume_label}\n{resume_idx}\n{df.iloc[resume_idx]}')
 
     def save_to_csv(self):
         # TODO: Dialog popup - Overwrite or increment file?
@@ -191,8 +202,8 @@ if __name__ == "__main__":
 
     # Path to csv file
     d = Path.home()/'programming/data/watch_bot/'
-    #f = 'wfc_file_attribs.csv'
-    f = 'wfc_labels.csv'
+    f = 'wfc_file_attribs.csv'
+    #f = 'wfc_labels.csv'
     check.path_check(d/f)
 
     root = tk.Tk()
