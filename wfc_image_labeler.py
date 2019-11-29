@@ -22,6 +22,7 @@ import check
 # TODO: Separate status bar by line. Maybe add file name on status West side
 # TODO: Add padding for each child in frame class and for frame itself 
 #       for child in app.winfo_children(): child.grid_configure(padx=2, pady=2)
+# TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
 # TODO: Raise above oter windows
 # TODO: Change style
 #       tk.tk.Style().theme_use("clam")
@@ -40,7 +41,7 @@ class Application(tk.Frame):
         self.dir_path = Path(dir_path)
         self.file_name = Path(file_name)
         self._index = -1
-        self._resume = 0
+        self._init_start = 1
         self.size = (520, 520)
         self.df = pd.read_csv(self.dir_path/self.file_name).head()
         # we don't need this since every time we start a program it will reset previously saved values
@@ -91,7 +92,7 @@ class Application(tk.Frame):
         self.next_button = tk.Button(self, text="Next", command=self.display_next)
         self.next_button.grid(row=38, column=3, sticky=('W'))
         return
-
+ 
     def image_resize(self, image_path):
         img = Image.open(image_path)
         img.thumbnail(self.size, Image.ANTIALIAS)
@@ -100,22 +101,18 @@ class Application(tk.Frame):
         return new_img
 
     def display_next(self):
-        # add values from radiobuttons to dataframe columns and resume where left off
         d = {'watch_face_visibility':self.wfv_var,
             'composition_quality':self.cq_var,
             'light_quality':self.lq_var,
             'image_quality':self.iq_var}
 
-        # if resume = 1, turn off resume and move forward
-        if (self._resume == 1):
-            self._resume = 0
-            print("resume = on")
-        # if resume = 0, add values to dataframe and clear radiobutton values
-        else:    
-            print("resume = off")
+        # if initial start of the programm or index == -1        
+        if self._init_start == 1 or self._index == -1:
+            self._init_start = 0
+        else:
             for k,v in d.items():
+                # get values from radiobuttons and add them to dataframe
                 self.df.loc[self._index, k] = v.get()
-                v.set(-1)
 
         # get next image path, resize image, show image
         self._index += 1
@@ -129,10 +126,28 @@ class Application(tk.Frame):
         photoimage = ImageTk.PhotoImage(resized_img)
         self.img_label.configure(image=photoimage)
         self.img_label.image = photoimage
-        self.master.title(img_path.name)       
-                 
-    # TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
+        self.master.title(img_path.name)
+
+        # set values from dataframe columns to radiobuttons
+        for k,v in d.items():
+            # remove ".0" form float numbers
+            float_num = lambda n: int(n) if not n%1 else n
+            v.set(float_num(self.df.loc[self._index, k]))
+                       
     def display_previous(self):
+        d = {'watch_face_visibility':self.wfv_var,
+            'composition_quality':self.cq_var,
+            'light_quality':self.lq_var,
+            'image_quality':self.iq_var}
+            
+        # if initial start of the programm or index == -1        
+        if self._init_start == 1 or self._index == -1:
+            self._init_start = 0
+        else:
+            for k,v in d.items():
+                # get values from radiobuttons and add them to dataframe
+                self.df.loc[self._index, k] = v.get()
+
         # get previous image path, resize image, show image
         self._index -= 1
         try:
@@ -147,17 +162,12 @@ class Application(tk.Frame):
         self.img_label.image = photoimage
         self.master.title(img_path.name)
 
-        # geta and set values from dataframe columns to radiobuttons
-        d = {'watch_face_visibility':self.wfv_var,
-            'composition_quality':self.cq_var,
-            'light_quality':self.lq_var,
-            'image_quality':self.iq_var}
-       
+        # set values from dataframe columns to radiobuttons
         for k,v in d.items():
             # remove ".0" form float numbers
             float_num = lambda n: int(n) if not n%1 else n
             v.set(float_num(self.df.loc[self._index, k]))
-
+            
     def callback(self, event):
         if event.keysym == "Right":
             self.display_next()
@@ -175,12 +185,10 @@ class Application(tk.Frame):
         resume_idx = ser[resume_label]
         # check if column values for min index are == -1, not labeled
         if df.loc[resume_idx, resume_label] == -1:
-            # set index to be one before index of min value found
-            self._index = resume_idx - 1
-            self._resume = 1
-        else:
-            pass
-        #print(f'{df}\n{ser}\n{resume_label}\n{resume_idx}\n{df.iloc[resume_idx]}')
+            # set index to be one before index of min value found 
+            self._index = resume_idx - 1 
+        
+        #print(f'{df}\n{ser}\n{resume_label}\n{resume_idx}\n{self._resume_index}')
 
     def save_to_csv(self):
         # TODO: Dialog popup - Overwrite or increment file?
@@ -203,7 +211,7 @@ if __name__ == "__main__":
     # Path to csv file
     d = Path.home()/'programming/data/watch_bot/'
     f = 'wfc_file_attribs.csv'
-    #f = 'wfc_labels.csv'
+    f = 'wfc_labels.csv'
     check.path_check(d/f)
 
     root = tk.Tk()
