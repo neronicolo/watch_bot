@@ -106,7 +106,7 @@ class Application(tk.Frame):
             'light_quality':self.lq_var,
             'image_quality':self.iq_var}
 
-        # if initial start of the programm or index == -1        
+        # initial start of the programm or index == -1        
         if self._init_start == 1 or self._index == -1:
             self._init_start = 0
         else:
@@ -139,8 +139,8 @@ class Application(tk.Frame):
             'composition_quality':self.cq_var,
             'light_quality':self.lq_var,
             'image_quality':self.iq_var}
-            
-        # if initial start of the programm or index == -1        
+
+        # initial start of the programm or index == -1        
         if self._init_start == 1 or self._index == -1:
             self._init_start = 0
         else:
