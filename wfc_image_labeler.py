@@ -6,8 +6,8 @@ from PIL import Image, ImageTk
 
 import check
 
-# TODO: Create Save as, Open 
-# TODO: Add status bar to display image number/total images, saved file report... 
+# TODO: Save(added expression to update statusbar), Save as, Exit, Open
+# TODO: @property
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
 #       d = ("a":3, "b":4, "c":6) -->
@@ -87,6 +87,10 @@ class Application(tk.Frame):
         self.previous_button.grid(row=38, column=2, columnspan=1, sticky=('E'))
         self.next_button = tk.Button(self, text="Next", command=self.display_next)
         self.next_button.grid(row=38, column=3, sticky=('W'))
+        
+        # status bar
+        self.statusbar = tk.Label(self, bd=2)
+        self.statusbar.grid(row=40, column=0, columnspan=4, sticky=('E'))
         return
 
     def image_resize(self, image_path):
@@ -117,6 +121,7 @@ class Application(tk.Frame):
         self.img_label.image = photoimage
         self.master.title(img_path.name)
         self.set_rbutton_values()
+        self.statusbar.configure(text=f"({self._index}/{self.total_images})")
                        
     def display_previous(self):
         # if initial start of the programm or index == -1        
@@ -137,6 +142,7 @@ class Application(tk.Frame):
         self.img_label.image = photoimage
         self.master.title(img_path.name)
         self.set_rbutton_values()
+        self.statusbar.configure(text=f"({self._index}/{self.total_images})")
             
     def callback(self, event):
         if event.keysym == "Right":
@@ -186,8 +192,8 @@ class Application(tk.Frame):
         csv_path = self.dir_path/file_name 
         
         self.get_rbutton_values()
-        self.df.to_csv(self.dir_path/file_name, index=False)
-        print(f'Saved to: {csv_path}')
+        #self.df.to_csv(self.dir_path/file_name, index=False)
+        self.statusbar.configure(text=f"Saved to:{csv_path}")
         return csv_path
 
     def remove_zero(self, num):
@@ -196,13 +202,17 @@ class Application(tk.Frame):
             return int(num)
         else:
             return num
+    
+    @property
+    def total_images(self):
+        return self.df['name'].size
 
 if __name__ == "__main__":
 
     # Path to csv file
     d = Path.home()/'programming/data/watch_bot/'
     f = 'wfc_file_attribs.csv'
-    f = 'wfc_labels.csv'
+    #f = 'wfc_labels.csv'
     check.path_check(d/f)
 
     root = tk.Tk()
