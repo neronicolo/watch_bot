@@ -6,7 +6,8 @@ from PIL import Image, ImageTk
 
 import check
 
-# TODO; Add status bar to display image number/total images, saved file report... 
+# TODO: Create Save as, Open 
+# TODO: Add status bar to display image number/total images, saved file report... 
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
 #       d = ("a":3, "b":4, "c":6) -->
@@ -15,7 +16,6 @@ import check
 #           self.b=4
 #           self.c=6
 # TODO: Key mappings/events 
-# TODO: Separate status bar by line. Maybe add file name on status West side
 # TODO: Add padding for each child in frame class and for frame itself 
 #       for child in app.winfo_children(): child.grid_configure(padx=2, pady=2)
 # TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
@@ -58,7 +58,7 @@ class Application(tk.Frame):
         menubar = tk.Menu(self.master)
         filemenu =tk. Menu(menubar, tearoff=0)
         filemenu.add_command(label="Open")
-        filemenu.add_command(label="Save", command=self.save_to_csv)
+        filemenu.add_command(label="Save", command=self.save)
         filemenu.add_separator()
         filemenu.add_command(label="Exit", command=root.quit)
         menubar.add_cascade(label="File", menu=filemenu)
@@ -170,7 +170,7 @@ class Application(tk.Frame):
         for k,v in self.d.items():
             v.set(self.remove_zero(self.df.loc[self._index, k]))
 
-    def save_to_csv(self):
+    def save(self):
         # TODO: Dialog popup - Overwrite or increment file?
         increment = False
         if increment == True:
