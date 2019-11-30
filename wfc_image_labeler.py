@@ -6,6 +6,7 @@ from PIL import Image, ImageTk
 
 import check
 
+# TODO: why git push is asking me for password
 # TODO: Save(added expression to update statusbar), Save as, Exit, Open
 # TODO: @property
 # TODO: Watch *args, **kwargs.
