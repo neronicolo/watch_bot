@@ -6,10 +6,6 @@ from PIL import Image, ImageTk
 
 import check
 
-# TODO: revisit resume func
-# TODO: what happens wit dataframe and radio button values when we hit last image, reset to first?
-# TODO: save current label values to df when pressing save
-# TODO: status bar
 # TODO; Add status bar to display image number/total images, saved file report... 
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
@@ -44,15 +40,15 @@ class Application(tk.Frame):
         self._init_start = 1
         self.size = (520, 520)
         self.df = pd.read_csv(self.dir_path/self.file_name).head()
-        # we don't need this since every time we start a program it will reset previously saved values
-        #self.df['watch_face_visibility'] = -1
-        #self.df['composition_quality'] = -1
-        #self.df['light_quality'] = -1
-        #self.df['image_quality'] = -1
         self.wfv_var = tk.DoubleVar(value=-1)
         self.cq_var = tk.DoubleVar(value=-1)
         self.lq_var = tk.DoubleVar(value=-1)
         self.iq_var = tk.DoubleVar(value=-1)
+        self.d = {'watch_face_visibility':self.wfv_var,
+                'composition_quality':self.cq_var,
+                'light_quality':self.lq_var,
+                'image_quality':self.iq_var}
+
         self.layout()
         self.resume()
         self.display_next()
@@ -92,7 +88,7 @@ class Application(tk.Frame):
         self.next_button = tk.Button(self, text="Next", command=self.display_next)
         self.next_button.grid(row=38, column=3, sticky=('W'))
         return
- 
+
     def image_resize(self, image_path):
         img = Image.open(image_path)
         img.thumbnail(self.size, Image.ANTIALIAS)
@@ -101,18 +97,11 @@ class Application(tk.Frame):
         return new_img
 
     def display_next(self):
-        d = {'watch_face_visibility':self.wfv_var,
-            'composition_quality':self.cq_var,
-            'light_quality':self.lq_var,
-            'image_quality':self.iq_var}
-
         # initial start of the programm or index == -1        
         if self._init_start == 1 or self._index == -1:
             self._init_start = 0
         else:
-            for k,v in d.items():
-                # get values from radiobuttons and add them to dataframe
-                self.df.loc[self._index, k] = v.get()
+            self.get_rbutton_values()
 
         # get next image path, resize image, show image
         self._index += 1
@@ -127,26 +116,12 @@ class Application(tk.Frame):
         self.img_label.configure(image=photoimage)
         self.img_label.image = photoimage
         self.master.title(img_path.name)
-
-        # set values from dataframe columns to radiobuttons
-        for k,v in d.items():
-            # remove ".0" form float numbers
-            float_num = lambda n: int(n) if not n%1 else n
-            v.set(float_num(self.df.loc[self._index, k]))
+        self.set_rbutton_values()
                        
     def display_previous(self):
-        d = {'watch_face_visibility':self.wfv_var,
-            'composition_quality':self.cq_var,
-            'light_quality':self.lq_var,
-            'image_quality':self.iq_var}
-
-        # initial start of the programm or index == -1        
-        if self._init_start == 1 or self._index == -1:
-            self._init_start = 0
-        else:
-            for k,v in d.items():
-                # get values from radiobuttons and add them to dataframe
-                self.df.loc[self._index, k] = v.get()
+        # if initial start of the programm or index == -1        
+        if self._index != -1:
+            self.get_rbutton_values()
 
         # get previous image path, resize image, show image
         self._index -= 1
@@ -161,12 +136,7 @@ class Application(tk.Frame):
         self.img_label.configure(image=photoimage)
         self.img_label.image = photoimage
         self.master.title(img_path.name)
-
-        # set values from dataframe columns to radiobuttons
-        for k,v in d.items():
-            # remove ".0" form float numbers
-            float_num = lambda n: int(n) if not n%1 else n
-            v.set(float_num(self.df.loc[self._index, k]))
+        self.set_rbutton_values()
             
     def callback(self, event):
         if event.keysym == "Right":
@@ -190,6 +160,16 @@ class Application(tk.Frame):
         
         #print(f'{df}\n{ser}\n{resume_label}\n{resume_idx}\n{self._resume_index}')
 
+    def get_rbutton_values(self):
+        """Get values from radiobuttons and add them to dataframe"""
+        for k,v in self.d.items():
+            self.df.loc[self._index, k] = v.get()
+
+    def set_rbutton_values(self):
+        """Set values from dataframe columns to radiobuttons"""       
+        for k,v in self.d.items():
+            v.set(self.remove_zero(self.df.loc[self._index, k]))
+
     def save_to_csv(self):
         # TODO: Dialog popup - Overwrite or increment file?
         increment = False
@@ -203,8 +183,19 @@ class Application(tk.Frame):
         else:
             file_name = self.dir_path/self.file_name
 
-        print(f'File name: {file_name}')
-        self.df.to_csv(self.dir_path/'wfc_labels.csv', index=False)
+        csv_path = self.dir_path/file_name 
+        
+        self.get_rbutton_values()
+        self.df.to_csv(self.dir_path/file_name, index=False)
+        print(f'Saved to: {csv_path}')
+        return csv_path
+
+    def remove_zero(self, num):
+        """Remove zero from number if it's a whole nummber. Example: 1.0 --> 1"""
+        if num % 1 == 0:
+            return int(num)
+        else:
+            return num
 
 if __name__ == "__main__":
 
