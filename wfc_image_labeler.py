@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import filedialog
 from pathlib import Path
 
 import pandas as pd
@@ -6,8 +7,7 @@ from PIL import Image, ImageTk
 
 import check
 
-# TODO: Save(added expression to update statusbar), Save as, Exit, Open
-# TODO: @property
+# TODO: Save(added expression to update statusbar), Save as, Exit
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
 #       d = ("a":3, "b":4, "c":6) -->
@@ -30,7 +30,12 @@ class Application(tk.Frame):
     def __init__(self, master=None, dir_path=None, file_name=None, **kw):
         super().__init__(master=master, **kw)
         self.master = master
+        # bind keys 
         self.master.bind("<Key>", self.callback)
+        # raise window to top
+        self.master.lift()
+        self.master.attributes("-topmost", True)
+        # add padding around frame and pack it into main window
         self.config(padx=5, pady=5)
         self.pack()
 
@@ -59,6 +64,7 @@ class Application(tk.Frame):
         filemenu =tk. Menu(menubar, tearoff=0)
         filemenu.add_command(label="Open")
         filemenu.add_command(label="Save", command=self.save)
+        filemenu.add_command(label="Save As", command=self.save_as)
         filemenu.add_separator()
         filemenu.add_command(label="Exit", command=root.quit)
         menubar.add_cascade(label="File", menu=filemenu)
@@ -195,6 +201,9 @@ class Application(tk.Frame):
         #self.df.to_csv(self.dir_path/file_name, index=False)
         self.statusbar.configure(text=f"Saved to:{csv_path}")
         return csv_path
+
+    def save_as(self):
+        filename = filedialog.asksaveasfilename()
 
     def remove_zero(self, num):
         """Remove zero from number if it's a whole nummber. Example: 1.0 --> 1"""
