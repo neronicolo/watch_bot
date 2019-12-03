@@ -19,28 +19,27 @@ import check
 # TODO: Add padding for each child in frame class and for frame itself 
 #       for child in app.winfo_children(): child.grid_configure(padx=2, pady=2)
 # TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
-# TODO: Raise above oter windows
 # TODO: Change style
 #       tk.ttk.Style().theme_use("clam")
 # TODO: @property?
 # TODO: Refractor display_next()
-# TODO: Add docstrings and comments
+
 
 class Application(tk.Frame):
-    def __init__(self, master=None, dir_path=None, file_name=None, **kw):
+    def __init__(self, master=None, file_path=None, **kw):
         super().__init__(master=master, **kw)
         self.master = master
         # bind keys 
         self.master.bind("<Key>", self.callback)
-        # raise window to top
+        # raise window to the top
         self.master.lift()
         self.master.attributes("-topmost", True)
         # add padding around frame and pack it into main window
         self.config(padx=5, pady=5)
         self.pack()
 
-        self.dir_path = Path(dir_path)
-        self.file_name = Path(file_name)
+        self.dir_path = Path(file_path).parent
+        self.file_name = Path(file_path).name
         self._index = -1
         self._init_start = 1
         self.size = (520, 520)
@@ -218,12 +217,11 @@ class Application(tk.Frame):
 if __name__ == "__main__":
 
     # Path to csv file
-    d = Path.home()/'programming/data/watch_bot/'
-    f = 'wfc_file_attribs.csv'
-    #f = 'wfc_labels.csv'
-    check.path_check(d/f)
+    f = Path.home()/'programming/data/watch_bot/wfc_file_attribs.csv'
+    #f = Path.home()/'programming/data/watch_bot/wfc_labels.csv'
+    check.path_check(f)
 
     root = tk.Tk()
-    app = Application(master=root, dir_path=d, file_name=f)
+    app = Application(master=root, file_path=f)
  
     root.mainloop()
