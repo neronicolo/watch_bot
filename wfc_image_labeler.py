@@ -59,6 +59,7 @@ class Application(tk.Frame):
         self.display_next()
 
     def layout(self):
+        "Widget layout"
         # menu bar
         menubar = tk.Menu(self.master)
         filemenu =tk. Menu(menubar, tearoff=0)
@@ -100,6 +101,7 @@ class Application(tk.Frame):
         return
 
     def image_resize(self, image_path):
+        """Resize image"""
         img = Image.open(image_path)
         img.thumbnail(self.size, Image.ANTIALIAS)
         new_img = Image.new('RGBA', self.size, (255, 255, 255, 0))
@@ -107,6 +109,7 @@ class Application(tk.Frame):
         return new_img
 
     def display_next(self):
+        """Display next image. Get values form rbuttons and add them to the dataframe. Set values of rbuttons form dataframe. Update status bar"""
         # initial start of the programm or index == -1        
         if self._init_start == 1 or self._index == -1:
             self._init_start = 0
@@ -127,9 +130,10 @@ class Application(tk.Frame):
         self.img_label.image = photoimage
         self.master.title(img_path.name)
         self.set_rbutton_values()
-        self.statusbar.configure(text=f"({self._index}/{self.total_images})")
+        self.statusbar.configure(text=f"({self._index + 1}/{self.total_images})")
                        
     def display_previous(self):
+        """Display previous image. Get values form rbuttons and add them to the dataframe. Set values of rbuttons form dataframe. Update status bar"""
         # if initial start of the programm or index == -1        
         if self._index != -1:
             self.get_rbutton_values()
@@ -148,7 +152,7 @@ class Application(tk.Frame):
         self.img_label.image = photoimage
         self.master.title(img_path.name)
         self.set_rbutton_values()
-        self.statusbar.configure(text=f"({self._index}/{self.total_images})")
+        self.statusbar.configure(text=f"({self._index + 1}/{self.total_images})")
             
     def callback(self, event):
         if event.keysym == "Right":
@@ -158,6 +162,7 @@ class Application(tk.Frame):
         #print(event.keysym)
 
     def resume(self):
+        """Get index of first unlabeled image."""
         df = self.df[['watch_face_visibility', 'composition_quality', 'light_quality', 'image_quality']]
         # get index of first occurrence of minimum value for each column
         ser = df.idxmin(axis=0)
@@ -183,6 +188,7 @@ class Application(tk.Frame):
             v.set(self.remove_zero(self.df.loc[self._index, k]))
 
     def save(self):
+        """Save file."""
         self.get_rbutton_values()
         file_path = self.dir_path/self.file_name 
         self.df.to_csv(file_path, index=False)
@@ -190,6 +196,7 @@ class Application(tk.Frame):
         return
 
     def save_as(self):
+        """Save file as."""
         self.get_rbutton_values()
         file_path = filedialog.asksaveasfilename()
         self.df.to_csv(file_path, index=False)
@@ -197,7 +204,7 @@ class Application(tk.Frame):
         return
 
     def remove_zero(self, num):
-        """Remove zero from number if it's a whole nummber. Example: 1.0 --> 1"""
+        """Remove zero from whole float number. Example: 1.0 --> 1"""
         if num % 1 == 0:
             return int(num)
         else:
@@ -205,6 +212,7 @@ class Application(tk.Frame):
     
     @property
     def total_images(self):
+        "Total number of images"
         return self.df['name'].size
 
 if __name__ == "__main__":
@@ -212,7 +220,7 @@ if __name__ == "__main__":
     # Path to csv file
     d = Path.home()/'programming/data/watch_bot/'
     f = 'wfc_file_attribs.csv'
-    f = 'wfc_labels1.csv'
+    #f = 'wfc_labels.csv'
     check.path_check(d/f)
 
     root = tk.Tk()
