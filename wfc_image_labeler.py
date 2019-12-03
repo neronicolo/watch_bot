@@ -157,7 +157,35 @@ class Application(tk.Frame):
         if event.keysym == "Right":
             self.display_next()
         elif event.keysym == "Left":
-            self.display_previous()
+            self.display_previous()    
+        # watch face visibility
+        elif event.keysym in "1":
+            self.wfv_var.set(1)
+        elif event.keysym in "2":
+            self.wfv_var.set(0.5)
+        elif event.keysym in "3":
+            self.wfv_var.set(0)
+        # composition quality
+        elif event.keysym in "q":
+            self.cq_var.set(1)
+        elif event.keysym in "w":
+            self.cq_var.set(0.5)
+        elif event.keysym in "e":
+            self.cq_var.set(0)
+        # light quality
+        elif event.keysym in "a":
+            self.lq_var.set(1)
+        elif event.keysym in "s":
+            self.lq_var.set(0.5)
+        elif event.keysym in "d":
+            self.lq_var.set(0)
+        # image quality
+        elif event.keysym in "z":
+            self.iq_var.set(1)
+        elif event.keysym in "x":
+            self.iq_var.set(0.5)
+        elif event.keysym in "c":
+            self.iq_var.set(0)    
         #print(event.keysym)
 
     def resume(self):
