@@ -7,7 +7,6 @@ from PIL import Image, ImageTk
 
 import check
 
-# TODO: Save(added expression to update statusbar), Save as, Exit
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
 #       d = ("a":3, "b":4, "c":6) -->
@@ -15,13 +14,14 @@ import check
 #           self.a=3
 #           self.b=4
 #           self.c=6
+# TODO: @property, meaning, usage?
 # TODO: Key mappings/events 
 # TODO: Add padding for each child in frame class and for frame itself 
 #       for child in app.winfo_children(): child.grid_configure(padx=2, pady=2)
 # TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
 # TODO: Raise above oter windows
 # TODO: Change style
-#       tk.tk.Style().theme_use("clam")
+#       tk.ttk.Style().theme_use("clam")
 # TODO: @property?
 # TODO: Refractor display_next()
 # TODO: Add docstrings and comments
@@ -62,7 +62,7 @@ class Application(tk.Frame):
         # menu bar
         menubar = tk.Menu(self.master)
         filemenu =tk. Menu(menubar, tearoff=0)
-        filemenu.add_command(label="Open")
+        #filemenu.add_command(label="Open")
         filemenu.add_command(label="Save", command=self.save)
         filemenu.add_command(label="Save As", command=self.save_as)
         filemenu.add_separator()
@@ -173,37 +173,28 @@ class Application(tk.Frame):
         #print(f'{df}\n{ser}\n{resume_label}\n{resume_idx}\n{self._resume_index}')
 
     def get_rbutton_values(self):
-        """Get values from radiobuttons and add them to dataframe"""
+        """Get values from radiobuttons and add them to the dataframe"""
         for k,v in self.d.items():
             self.df.loc[self._index, k] = v.get()
 
     def set_rbutton_values(self):
-        """Set values from dataframe columns to radiobuttons"""       
+        """Set values from dataframe columns to the radiobuttons"""       
         for k,v in self.d.items():
             v.set(self.remove_zero(self.df.loc[self._index, k]))
 
     def save(self):
-        # TODO: Dialog popup - Overwrite or increment file?
-        increment = False
-        if increment == True:
-            counter = 1
-            while True:
-                file_name = self.dir_path/(self.file_name.stem + '_' + str(counter) + self.file_name.suffix)
-                if file_name.exists():
-                    counter = +1
-                break
-        else:
-            file_name = self.dir_path/self.file_name
-
-        csv_path = self.dir_path/file_name 
-        
         self.get_rbutton_values()
-        #self.df.to_csv(self.dir_path/file_name, index=False)
-        self.statusbar.configure(text=f"Saved to:{csv_path}")
-        return csv_path
+        file_path = self.dir_path/self.file_name 
+        self.df.to_csv(file_path, index=False)
+        self.statusbar.configure(text=f"Saved to:{file_path}")
+        return
 
     def save_as(self):
-        filename = filedialog.asksaveasfilename()
+        self.get_rbutton_values()
+        file_path = filedialog.asksaveasfilename()
+        self.df.to_csv(file_path, index=False)
+        self.statusbar.configure(text=f"Saved to:{file_path}")
+        return
 
     def remove_zero(self, num):
         """Remove zero from number if it's a whole nummber. Example: 1.0 --> 1"""
@@ -221,7 +212,7 @@ if __name__ == "__main__":
     # Path to csv file
     d = Path.home()/'programming/data/watch_bot/'
     f = 'wfc_file_attribs.csv'
-    #f = 'wfc_labels.csv'
+    f = 'wfc_labels1.csv'
     check.path_check(d/f)
 
     root = tk.Tk()
