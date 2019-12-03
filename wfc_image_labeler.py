@@ -7,6 +7,13 @@ from PIL import Image, ImageTk
 
 import check
 
+# TODO: Sort list from generator, aoutomate boring stuff pathlib section 
+# TODO: Status bar separator
+# TODO: Add padding for each child in frame class and for frame itself 
+#       for child in app.winfo_children(): child.grid_configure(padx=2, pady=2)
+# TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
+# TODO: Change style
+#       tk.ttk.Style().theme_use("clam")
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
 #       d = ("a":3, "b":4, "c":6) -->
@@ -15,15 +22,7 @@ import check
 #           self.b=4
 #           self.c=6
 # TODO: @property, meaning, usage?
-# TODO: Key mappings/events 
-# TODO: Add padding for each child in frame class and for frame itself 
-#       for child in app.winfo_children(): child.grid_configure(padx=2, pady=2)
-# TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
-# TODO: Change style
-#       tk.ttk.Style().theme_use("clam")
-# TODO: @property?
 # TODO: Refractor display_next()
-
 
 class Application(tk.Frame):
     def __init__(self, master=None, file_path=None, **kw):
