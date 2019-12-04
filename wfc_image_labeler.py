@@ -1,4 +1,5 @@
 import tkinter as tk
+
 from tkinter import filedialog
 from pathlib import Path
 
@@ -8,10 +9,10 @@ from PIL import Image, ImageTk
 import check
 import sys
 
-# TODO: reset rbutton values to -1 button ?
-# TODO: Sort list from generator, aoutomate boring stuff pathlib section 
-# TODO: Change style
-#       tk.ttk.Style().theme_use("clam")
+# TODO: Sort list from generator, aoutomate boring stuff pathlib section  
+# TODO: Change style.
+#   import tkinter.ttk as ttk 
+#   ttk.Style().theme_use("clam")
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
 #       d = ("a":3, "b":4, "c":6) -->
@@ -259,6 +260,6 @@ def main(csv_path):
 
 if __name__ == "__main__":
     #main(sys.argv[1])
-    main('/home/neronicolo/programming/data/watch_bot/wfc_file_attribs.csv')
+    main(Path().home()/'programming/data/watch_bot/wfc_file_attribs.csv')
     
     
