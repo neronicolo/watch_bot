@@ -6,9 +6,10 @@ import pandas as pd
 from PIL import Image, ImageTk
 
 import check
+import sys
 
+# TODO: reset rbutton values to -1 button ?
 # TODO: Sort list from generator, aoutomate boring stuff pathlib section 
-# TODO: cli()
 # TODO: Change style
 #       tk.ttk.Style().theme_use("clam")
 # TODO: Watch *args, **kwargs.
@@ -56,7 +57,8 @@ class Application(tk.Frame):
 
         # raise window to the top
         self.master.lift()
-        self.master.attributes("-topmost", True)
+        self.master.attributes('-topmost', True)
+        self.master.after_idle(self.master.attributes, '-topmost', False)
 
     def layout(self):
         "Widget layout"
@@ -67,7 +69,7 @@ class Application(tk.Frame):
         filemenu.add_command(label="Save", command=self.save)
         filemenu.add_command(label="Save As", command=self.save_as)
         filemenu.add_separator()
-        filemenu.add_command(label="Exit", command=root.quit)
+        filemenu.add_command(label="Exit", command=self.master.quit)
         menubar.add_cascade(label="File", menu=filemenu)
         self.master.config(menu=menubar)
 
@@ -128,7 +130,7 @@ class Application(tk.Frame):
         photoimage = ImageTk.PhotoImage(resized_img)
         self.img_label.configure(image=photoimage)
         self.img_label.image = photoimage
-        self.master.title(img_path.name)
+        self.master.title(self.file_name + ' - ' + img_path.name)
         self.set_rbutton_values()
         self.statusbar.configure(text=f"({self._index + 1}/{self.total_images})")
                        
@@ -150,7 +152,7 @@ class Application(tk.Frame):
         photoimage = ImageTk.PhotoImage(resized_img)
         self.img_label.configure(image=photoimage)
         self.img_label.image = photoimage
-        self.master.title(img_path.name)
+        self.master.title(self.file_name + ' - ' + img_path.name)
         self.set_rbutton_values()
         self.statusbar.configure(text=f"({self._index + 1}/{self.total_images})")
             
@@ -247,14 +249,16 @@ class Application(tk.Frame):
         "Total number of images"
         return self.df['name'].size
 
-if __name__ == "__main__":
-
-    # Path to csv file
-    f = Path.home()/'programming/data/watch_bot/wfc_file_attribs.csv'
-    #f = Path.home()/'programming/data/watch_bot/wfc_labels.csv'
-    check.path_check(f)
+def main(csv_path):
+    check.path_check(csv_path)
 
     root = tk.Tk()
-    app = Application(master=root, file_path=f)
+    Application(master=root, file_path=csv_path)
 
     root.mainloop()
+
+if __name__ == "__main__":
+    #main(sys.argv[1])
+    main('/home/neronicolo/programming/data/watch_bot/wfc_file_attribs.csv')
+    
+    
