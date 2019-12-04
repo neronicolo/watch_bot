@@ -7,9 +7,8 @@ from PIL import Image, ImageTk
 
 import check
 
-# TODO: Fix when save as 
 # TODO: Sort list from generator, aoutomate boring stuff pathlib section 
-# TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
+# TODO: cli()
 # TODO: Change style
 #       tk.ttk.Style().theme_use("clam")
 # TODO: Watch *args, **kwargs.
@@ -20,6 +19,7 @@ import check
 #           self.b=4
 #           self.c=6
 # TODO: @property, meaning, usage?
+# TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
 # TODO: Refractor display_next()
 
 class Application(tk.Frame):
