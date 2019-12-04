@@ -5,7 +5,7 @@ import sys
 def path_check(path):
     """Check if path exists. If True return path, if False raise FileNotFoundError."""
     try:
-        path.resolve(strict=True)
+        Path(path).resolve(strict=True)
     except FileNotFoundError:
         print("Path doesn't exist.")
         sys.exit(1)
