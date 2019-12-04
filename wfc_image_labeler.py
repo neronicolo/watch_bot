@@ -7,10 +7,8 @@ from PIL import Image, ImageTk
 
 import check
 
+# TODO: Fix when save as 
 # TODO: Sort list from generator, aoutomate boring stuff pathlib section 
-# TODO: Status bar separator
-# TODO: Add padding for each child in frame class and for frame itself 
-#       for child in app.winfo_children(): child.grid_configure(padx=2, pady=2)
 # TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
 # TODO: Change style
 #       tk.ttk.Style().theme_use("clam")
@@ -30,12 +28,6 @@ class Application(tk.Frame):
         self.master = master
         # bind keys 
         self.master.bind("<Key>", self.callback)
-        # raise window to the top
-        self.master.lift()
-        self.master.attributes("-topmost", True)
-        # add padding around frame and pack it into main window
-        self.config(padx=5, pady=5)
-        self.pack()
 
         self.dir_path = Path(file_path).parent
         self.file_name = Path(file_path).name
@@ -56,6 +48,16 @@ class Application(tk.Frame):
         self.resume()
         self.display_next()
 
+        # add padding around frame, widgets and pack it into main window
+        for child in self.winfo_children():
+            child.grid_configure(padx=2, pady=2)
+        self.config(padx=5, pady=5)
+        self.pack()
+
+        # raise window to the top
+        self.master.lift()
+        self.master.attributes("-topmost", True)
+
     def layout(self):
         "Widget layout"
         # menu bar
@@ -71,7 +73,7 @@ class Application(tk.Frame):
 
         # image label
         self.img_label = tk.Label(self)
-        self.img_label.grid(row=0, column=0, rowspan=40)
+        self.img_label.grid(row=0, column=0, rowspan=39)
 
         # radiobuttons(rb) and labelframe(lf)
         s = {'lf_txt':["Watch Face Visibility:","Composition quality:","Lighting quality:","Image quality:"],
@@ -94,8 +96,8 @@ class Application(tk.Frame):
         self.next_button.grid(row=38, column=3, sticky=('W'))
         
         # status bar
-        self.statusbar = tk.Label(self, bd=2)
-        self.statusbar.grid(row=40, column=0, columnspan=4, sticky=('E'))
+        self.statusbar = tk.Label(self)
+        self.statusbar.grid(row=39, column=0, columnspan=4, sticky=('E'))
         return
 
     def image_resize(self, image_path):
@@ -218,15 +220,19 @@ class Application(tk.Frame):
         self.get_rbutton_values()
         file_path = self.dir_path/self.file_name 
         self.df.to_csv(file_path, index=False)
-        self.statusbar.configure(text=f"Saved to:{file_path}")
+        self.statusbar.configure(text=f"Saved to: {file_path}")
         return
 
     def save_as(self):
         """Save file as."""
         self.get_rbutton_values()
         file_path = filedialog.asksaveasfilename()
-        self.df.to_csv(file_path, index=False)
-        self.statusbar.configure(text=f"Saved to:{file_path}")
+        try:
+            self.df.to_csv(file_path, index=False)
+        except ValueError:
+            pass
+        else:
+            self.statusbar.configure(text=f"Saved to: {file_path}")
         return
 
     def remove_zero(self, num):
@@ -250,5 +256,5 @@ if __name__ == "__main__":
 
     root = tk.Tk()
     app = Application(master=root, file_path=f)
- 
+
     root.mainloop()
