@@ -8,8 +8,7 @@ from PIL import Image, ImageTk
 
 import check
 import sys
-
-# TODO: Sort list from generator, aoutomate boring stuff pathlib section  
+ 
 # TODO: Change style.
 #   import tkinter.ttk as ttk 
 #   ttk.Style().theme_use("clam")
@@ -36,7 +35,7 @@ class Application(tk.Frame):
         self._index = -1
         self._init_start = 1
         self.size = (520, 520)
-        self.df = pd.read_csv(self.dir_path/self.file_name).head()
+        self.df = pd.read_csv(self.dir_path/self.file_name)
         self.wfv_var = tk.DoubleVar(value=-1)
         self.cq_var = tk.DoubleVar(value=-1)
         self.lq_var = tk.DoubleVar(value=-1)
@@ -260,6 +259,6 @@ def main(csv_path):
 
 if __name__ == "__main__":
     #main(sys.argv[1])
-    main(Path().home()/'programming/data/watch_bot/wfc_file_attribs.csv')
+    main(Path.home()/'programming/data/watch_bot/wfc_file_attribs.csv')
     
     
