@@ -5,16 +5,14 @@ from PIL import Image
 import collections
 from tqdm import tqdm
 
-
 dir_path = check.path_check(Path.home()/"programming/data/watch_bot/")
-# TODO: convert iterator to sorted list like in https://github.com/cwerner/fastclass/blob/master/fastclass/fc_clean.py
-# line 68,70
-file_iterator = check.gen_check(dir_path.rglob('*.jpg'))
+file_list = list(check.gen_check(dir_path.rglob('*.jpg')))
+file_list_sorted = sorted(set(file_list))
 file_attribs = collections.defaultdict(list)
 
 # TODO: Check which attributes(colums) we need to create 
 
-for file in tqdm(file_iterator):
+for file in tqdm(file_list_sorted):
     try:
         with Image.open(file) as img:
             image_size_x, image_size_y = img.size
@@ -38,5 +36,6 @@ df['composition_quality'] = -1
 df['light_quality'] = -1
 df['image_quality'] = -1
 
-print(shape_init, df.shape)
-df.to_csv(dir_path/'wfc_file_attribs.csv', index=False)
+print(f'initial dataframe shape: {shape_init}, new dataframe shape: {df.shape}')
+print(file_list[:5], file_list_sorted[:5])
+#df.to_csv(dir_path/'wfc_file_attribs.csv', index=False)
