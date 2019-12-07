@@ -20,10 +20,12 @@
 """
 
 from pathlib import Path
-import zipfile
+import rarfile
 import argparse
 import sys
 import itertools
+
+# TODO: Add Exception if file can not be unrared
 
 # creating ArgumentParser object
 parser = argparse.ArgumentParser(description='Recursively extracts files inside given folder.')
@@ -37,7 +39,7 @@ args = parser.parse_args()
 paths = {'src_path':args.src_path, 'dest_path':args.dest_path}
 
 # Check whether paths exist or not.
-for path in paths:
+for path in paths.keys():
     try:
         paths[path] = Path(paths[path]).resolve(strict=True)
         # If path is not a directory.
@@ -53,12 +55,12 @@ def files_found(iterable):
     try:
         first = next(iterable)
     except StopIteration:
-        print('No ZIP files found.')
+        print('No RAR files found.')
         sys.exit(1)
     return itertools.chain([first], iterable)
 
 # If extract_folder folder exist, increment it.
-for file in files_found(paths['src_path'].rglob('*.zip')):
+for file in files_found(paths['src_path'].rglob('*.rar')):
     print(f'File:{file}')
     counter = 1
     while True:
@@ -68,6 +70,10 @@ for file in files_found(paths['src_path'].rglob('*.zip')):
         counter += 1
     print(f'Extract folder: {extract_folder}')
 
-    # Extract zip archive to destination folder.
-    with zipfile.ZipFile(file) as zip_archive:
-        zip_archive.extractall(extract_folder)
+    # Convert pathlib objects to strings.
+    file_str = str(file)
+    extract_folder_str = str(extract_folder)
+
+    # Extract rar archive to destination folder.
+    with rarfile.RarFile(file_str) as rar_archive:
+        rar_archive.extractall(extract_folder_str)

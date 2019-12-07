@@ -2,7 +2,8 @@ import re
 import itertools
 import sys
 from pathlib import Path
-import check
+
+# TODO: Add commnets for each line in the main part of the program
 
 def replace_path(path, pattern, replace):
     """Return the pathlib Path object obtained by replacing occurrences of 'pattern' in string by the 'replace'.
@@ -25,15 +26,28 @@ def replace_name(name, pattern, replace):
     if current_name is not new_name:
         print(f"{current_name} -> {new_name}")
         return new_name
-        
+
+def gen_check(iterable, iter_limit=None):
+    """Check if generator is empty. If True raise StopIteration, if False return iterator until iteration limit is met."""
+    try:
+        first_item = next(iterable)
+    except StopIteration:
+        print("No files found")
+        sys.exit(1)
+    else:
+        next_element = itertools.chain([first_item], iterable)
+        return itertools.islice(next_element, iter_limit)
+
 if __name__ == "__main__":
-    folder_path = check.path_check(Path.home()/"programming/data/chrono24/")
-    file_iterator = check.gen_check(folder_path.rglob('*.jpg'))
+    folder_path = Path.home()/'programming/data/chrono24/'
+    file_iterator = gen_check(folder_path.rglob('*'))
 
     for count, file in enumerate(file_iterator):
-        #print(count)
+        print(count)
+        if count > 10:
+            break
         #replace_path(file, r'\s', '_')
-        rm_version = replace_name(file.stem, r'(\s|-|\.)?(\d+$)', '')
+        #rm_version = replace_name(file.stem, r'(\s|-|\.)?(\d+$)', '')
         #words = r'(brand|new|mint|unworn|neue|bnib|nib|rare|box|papers|b&p|&gt|bracelet|strap|leather|rubber|silicone|oem|excellent|condition|and|or|with)?(\s|-|\+|,|:|;|"|\\|/)?'
         #rm_words = replace_name(rm_version, words, '')
         #rm_underscore = replace_name(rm_words, '_+', ' ')

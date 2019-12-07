@@ -5,15 +5,19 @@ from PIL import Image
 import collections
 from tqdm import tqdm
 
+# TODO: Sort files
+# TODO: Do we need list if we have sorted infront of the generator:
+#   https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob
+#   file_list = sorted(dir_path.rglob('*.jpg'))
 # TODO: make cli version of this program:
 #   file_attrib(source folder(starting folder for recursion), csv_path(where to save), **kwargs(column for labelin))
 
-dir_path = check.path_check(Path.home()/"programming/data/watch_bot/")
-file_list = list(check.gen_check(dir_path.rglob('*.jpg')))
+dir_path = Path.home()/'programming/data/watch_bot/'
+file_list = list(dir_path.rglob('*.jpg'))
 file_list_sorted = sorted(set(file_list))
 file_attribs = collections.defaultdict(list)
 
-for file in tqdm(file_list_sorted):
+for file in tqdm(file_list_sorted[:20]):
     try:
         with Image.open(file) as img:
             image_size_x, image_size_y = img.size
@@ -38,5 +42,5 @@ df['light_quality'] = -1
 df['image_quality'] = -1
 
 print(f'initial dataframe shape: {shape_init}, new dataframe shape: {df.shape}')
-print(file_list[:5], file_list_sorted[:5])
-df.to_csv(dir_path/'wfc_file_attribs.csv', index=False)
+print(file_list[:1], file_list_sorted[:1])
+#df.to_csv(dir_path/'wfc_file_attribs.csv', index=False)

@@ -6,7 +6,6 @@ from pathlib import Path
 import pandas as pd
 from PIL import Image, ImageTk
 
-import check
 import sys
  
 # TODO: Change style.
@@ -250,8 +249,6 @@ class Application(tk.Frame):
         return self.df['name'].size
 
 def main(csv_path):
-    check.path_check(csv_path)
-
     root = tk.Tk()
     Application(master=root, file_path=csv_path)
 
