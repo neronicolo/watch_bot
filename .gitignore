@@ -3,7 +3,7 @@
 .vscode/.ropeproject/config.py
 .vscode/.ropeproject/objectdb
 __pycache__/
-__pycache__/check.cpython-37.pyc
+data_prep/__pycache__/check.cpython-37.pyc
 __pycache__/regex.cpython-37.pyc
 .ipynb_checkpoints/
 .ipynb_checkpoints/wfc_look_at_the_data-checkpoint.ipynb
