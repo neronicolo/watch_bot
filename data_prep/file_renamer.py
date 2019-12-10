@@ -4,8 +4,6 @@ import sys
 from pathlib import Path
 from tqdm import tqdm
 
-# TODO: Add commnets for each line in the main part of the program
-
 def replace_path(path, pattern, replace):
     """Return the pathlib Path object obtained by replacing occurrences of 'pattern' in string by the 'replace'. Converts path to lower key. Meant to be used on files and directories"""
     current_path = path.resolve()
