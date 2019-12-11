@@ -28,6 +28,7 @@ import itertools
 # TODO: Add Exception if file can not be unrared. Test without and figure out what exception to use
 # TODO: Combina zip and rar into one program
 #   https://stackoverflow.com/questions/18653025/python-zip-extraction-exception
+# TODO: Why it's not working on WSL
 
 # creating ArgumentParser object
 parser = argparse.ArgumentParser(description='Recursively extracts files inside given folder.')
