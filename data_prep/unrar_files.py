@@ -25,7 +25,9 @@ import argparse
 import sys
 import itertools
 
-# TODO: Add Exception if file can not be unrared
+# TODO: Add Exception if file can not be unrared. Test without and figure out what exception to use
+# TODO: Combina zip and rar into one program
+#   https://stackoverflow.com/questions/18653025/python-zip-extraction-exception
 
 # creating ArgumentParser object
 parser = argparse.ArgumentParser(description='Recursively extracts files inside given folder.')
@@ -76,4 +78,7 @@ for file in files_found(paths['src_path'].rglob('*.rar')):
 
     # Extract rar archive to destination folder.
     with rarfile.RarFile(file_str) as rar_archive:
-        rar_archive.extractall(extract_folder_str)
+        try:
+            rar_archive.extractall(extract_folder_str)
+        except rarfile.Error:
+            continue
