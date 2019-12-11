@@ -25,8 +25,6 @@ import argparse
 import sys
 import itertools
 
-# TODO: Add Exception if file can not be unzipped
-
 # creating ArgumentParser object
 parser = argparse.ArgumentParser(description='Recursively extracts files inside given folder.')
 # adding positional arguments
@@ -72,4 +70,7 @@ for file in files_found(paths['src_path'].rglob('*.zip')):
 
     # Extract zip archive to destination folder.
     with zipfile.ZipFile(file) as zip_archive:
-        zip_archive.extractall(extract_folder)
+        try:
+            zip_archive.extractall(extract_folder)
+        except zipfile.BadZipFile:
+            continue
