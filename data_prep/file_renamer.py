@@ -13,8 +13,8 @@ def replace_path(path, pattern, replace):
     new_path = current_path.with_name(new_name.lower())
     # if path doesn't exist
     if not new_path.exists():
-        #print(f"{current_path} -> {new_path}")  
-        return current_path.replace(new_path)
+        print(f"{current_path} -> {new_path}")  
+        #return current_path.replace(new_path)
 
 def replace_name(name, pattern, replace):
     """Return the string obtained by replacing occurrences of 'pattern' in string by the 'replace'. Meant to be used on strings."""
@@ -37,14 +37,14 @@ def gen_check(iterable, iter_limit=None):
         return itertools.islice(next_element, iter_limit)
 
 if __name__ == "__main__":
-    folder_path = Path.home()/'programming/data/watch_bot'
+    folder_path = Path.home()/'programming/data/watch_bot/'
     file_list = sorted(gen_check(folder_path.rglob('*')))
 
-    for file in tqdm(file_list):
+    for file in tqdm(file_list[:10]):
         # replace "spaces" in path with "_" and also make everything lower key
         replace_path(file, r'\s', '_')
         # remove dashes from version 
-        rm_version = replace_name(file.stem, r'(\s|-|\.)?(\d+$)', '')
+        #rm_version = replace_name(file.stem, r'(\s|-|\.)?(\d+$)', '')
         
         # TODO: Add comments to the lines below
         #words = r'(brand|new|mint|unworn|neue|bnib|nib|rare|box|papers|b&p|&gt|bracelet|strap|leather|rubber|silicone|oem|excellent|condition|and|or|with)?(\s|-|\+|,|:|;|"|\\|/)?'
