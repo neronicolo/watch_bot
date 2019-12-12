@@ -23,18 +23,18 @@ import sys
 # TODO: Refractor display_next()
 
 class Application(tk.Frame):
-    def __init__(self, master=None, file_path=None, **kw):
+    def __init__(self, master=None, imgs_dir_path=None, csv_file_path=None, **kw):
         super().__init__(master=master, **kw)
         self.master = master
         # bind keys 
         self.master.bind("<Key>", self.callback)
 
-        self.dir_path = Path(file_path).parent
-        self.file_name = Path(file_path).name
+        self.imgs_dir_path = Path(imgs_dir_path).resolve(strict=True)
+        self.csv_file_path = Path(csv_file_path).resolve(strict=True)
         self._index = -1
         self._init_start = 1
         self.size = (520, 520)
-        self.df = pd.read_csv(self.dir_path/self.file_name)
+        self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path)
         self.wfv_var = tk.DoubleVar(value=-1)
         self.cq_var = tk.DoubleVar(value=-1)
         self.lq_var = tk.DoubleVar(value=-1)
@@ -120,7 +120,7 @@ class Application(tk.Frame):
         # get next image path, resize image, show image
         self._index += 1
         try:
-            img_path = self.dir_path/self.df.loc[self._index, 'name']
+            img_path = self.imgs_dir_path/self.df.loc[self._index, 'name']
         except KeyError:
             self._index = -1
             self.display_next()
@@ -129,7 +129,7 @@ class Application(tk.Frame):
         photoimage = ImageTk.PhotoImage(resized_img)
         self.img_label.configure(image=photoimage)
         self.img_label.image = photoimage
-        self.master.title(self.file_name + ' - ' + img_path.name)
+        self.master.title(self.csv_file_path.name + ' - ' + img_path.name)
         self.set_rbutton_values()
         self.statusbar.configure(text=f"({self._index + 1}/{self.total_images})")
                        
@@ -142,7 +142,7 @@ class Application(tk.Frame):
         # get previous image path, resize image, show image
         self._index -= 1
         try:
-            img_path = self.dir_path/self.df.loc[self._index, 'name']
+            img_path = self.imgs_dir_path/self.df.loc[self._index, 'name']
         except KeyError:
             self._index = -1
             self.display_next()
@@ -151,7 +151,7 @@ class Application(tk.Frame):
         photoimage = ImageTk.PhotoImage(resized_img)
         self.img_label.configure(image=photoimage)
         self.img_label.image = photoimage
-        self.master.title(self.file_name + ' - ' + img_path.name)
+        self.master.title(self.csv_file_path.name + ' - ' + img_path.name)
         self.set_rbutton_values()
         self.statusbar.configure(text=f"({self._index + 1}/{self.total_images})")
             
@@ -219,7 +219,7 @@ class Application(tk.Frame):
     def save(self):
         """Save file."""
         self.get_rbutton_values()
-        file_path = self.dir_path/self.file_name 
+        file_path = self.imgs_dir_path/self.csv_file_path 
         self.df.to_csv(file_path, index=False)
         self.statusbar.configure(text=f"Saved to: {file_path}")
         return
@@ -248,14 +248,16 @@ class Application(tk.Frame):
         "Total number of images"
         return self.df['name'].size
 
-def main(csv_path):
+def main(imgs_path, csv_path):
     root = tk.Tk()
-    Application(master=root, file_path=csv_path)
+    Application(master=root, imgs_dir_path=imgs_path, csv_file_path=csv_path)
 
     root.mainloop()
 
 if __name__ == "__main__":
-    #main(sys.argv[1])
-    main(Path.home()/'programming/data/watch_bot/wfc_file_attribs.csv')
+    imgs = Path.home()/'programming/data/watch_bot/'
+    csv = Path.home()/'programming/projects/watch_bot/data_prep/wfc_file_attribs.csv'
+    main(imgs, csv)
     
+    #main(sys.argv[1], sys.argv[2])
     
