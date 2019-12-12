@@ -12,11 +12,10 @@ from tqdm import tqdm
 #   file_attrib(source folder(starting folder for recursion), csv_path(where to save), **kwargs(column for labelin))
 
 dir_path = Path.home()/'programming/data/watch_bot/'
-file_list = list(dir_path.rglob('*.jpg'))
-file_list_sorted = sorted(set(file_list))
+file_list = sorted(dir_path.rglob('*.jpg'))
 file_attribs = collections.defaultdict(list)
 
-for file in tqdm(file_list_sorted[:20]):
+for file in tqdm(file_list[:20]):
     try:
         with Image.open(file) as img:
             image_size_x, image_size_y = img.size
@@ -41,5 +40,4 @@ df['light_quality'] = -1
 df['image_quality'] = -1
 
 print(f'initial dataframe shape: {shape_init}, new dataframe shape: {df.shape}')
-print(file_list[:1], file_list_sorted[:1])
 #df.to_csv(dir_path/'wfc_file_attribs.csv', index=False)
