@@ -24,6 +24,7 @@ import rarfile
 import argparse
 import sys
 import itertools
+from tqdm import tqdm
 
 # TODO: Add Exception if file can not be unrared. Test without and figure out what exception to use
 # TODO: Combina zip and rar into one program
@@ -71,7 +72,7 @@ for file in files_found(paths['src_path'].rglob('*.rar')):
         if not extract_folder.exists():
             break
         counter += 1
-    print(f'Extract folder: {extract_folder}')
+    print(f'Extract to folder: {extract_folder}')
 
     # Convert pathlib objects to strings.
     file_str = str(file)
@@ -83,3 +84,4 @@ for file in files_found(paths['src_path'].rglob('*.rar')):
             rar_archive.extractall(extract_folder_str)
         except rarfile.Error:
             continue
+        print("Done.")

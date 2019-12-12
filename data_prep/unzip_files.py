@@ -66,7 +66,7 @@ for file in files_found(paths['src_path'].rglob('*.zip')):
         if not extract_folder.exists():
             break
         counter += 1
-    print(f'Extract folder: {extract_folder}')
+    print(f'Extract to folder: {extract_folder}')
 
     # Extract zip archive to destination folder.
     with zipfile.ZipFile(file) as zip_archive:
@@ -74,3 +74,4 @@ for file in files_found(paths['src_path'].rglob('*.zip')):
             zip_archive.extractall(extract_folder)
         except zipfile.BadZipFile:
             continue
+        print("Done.")
