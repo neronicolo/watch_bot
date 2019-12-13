@@ -77,10 +77,10 @@ class Application(tk.Frame):
         self.img_label.grid(row=0, column=0, rowspan=39)
 
         # radiobuttons(rb) and labelframe(lf)
-        s = {'lf_txt':["Watch Face Visibility:","Composition quality:","Lighting quality:","Image quality:"],
+        s = {'lf_txt':["Watch Face Visibility:","Composition Quality:","Lighting Quality:","Image Quality:"],
             'rb_var':[self.wfv_var, self.cq_var, self.lq_var, self.iq_var],
-            'rb_txt':["1", "0.5", "0"],
-            'rb_val':[1, 0.5, 0]}
+            'rb_txt':["1", "0"],
+            'rb_val':[1, 0]}
 
         for i, text in enumerate(s['lf_txt']):
             label_frame = tk.LabelFrame(self, text=text, padx=5, pady=5)
@@ -159,35 +159,28 @@ class Application(tk.Frame):
         if event.keysym == "Right":
             self.display_next()
         elif event.keysym == "Left":
-            self.display_previous()    
+            self.display_previous()       
         # watch face visibility
         elif event.keysym in "1":
             self.wfv_var.set(1)
         elif event.keysym in "2":
-            self.wfv_var.set(0.5)
-        elif event.keysym in "3":
-            self.wfv_var.set(0)
+            self.wfv_var.set(0)       
         # composition quality
         elif event.keysym in "q":
             self.cq_var.set(1)
         elif event.keysym in "w":
-            self.cq_var.set(0.5)
-        elif event.keysym in "e":
             self.cq_var.set(0)
         # light quality
         elif event.keysym in "a":
             self.lq_var.set(1)
         elif event.keysym in "s":
-            self.lq_var.set(0.5)
-        elif event.keysym in "d":
             self.lq_var.set(0)
         # image quality
         elif event.keysym in "z":
             self.iq_var.set(1)
         elif event.keysym in "x":
-            self.iq_var.set(0.5)
-        elif event.keysym in "c":
-            self.iq_var.set(0)    
+            self.iq_var.set(0)
+    
         #print(event.keysym)
 
     def resume(self):
