@@ -37,8 +37,8 @@ def gen_check(iterable, iter_limit=None):
         return itertools.islice(next_element, iter_limit)
 
 if __name__ == "__main__":
-    folder_path = Path.home()/'programming/data/watch_bot/'
-    file_iterator = gen_check(folder_path.rglob('*'))
+    imgs_dir_path = Path.home()/'programming/data/watch_bot/'
+    file_iterator = gen_check(imgs_dir_path.rglob('*'))
 
     for file in tqdm(file_iterator):
         # replace "spaces" in path with "_" and also make everything lower key
