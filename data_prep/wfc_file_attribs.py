@@ -4,10 +4,6 @@ from PIL import Image
 import collections
 from tqdm import tqdm
 
-# TODO: Sort files
-# TODO: Do we need list if we have sorted infront of the generator:
-#   https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob
-#   file_list = sorted(dir_path.rglob('*.jpg'))
 # TODO: make cli version of this program:
 #   file_attrib(source folder(starting folder for recursion), csv_path(where to save), **kwargs(column for labelin))
 
