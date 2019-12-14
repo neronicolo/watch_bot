@@ -169,9 +169,9 @@ class Application(tk.Frame):
         elif event.keysym in "w":
             self.lk_var.set(0)
         # image quality
-        elif event.keysym in "z":
+        elif event.keysym in "a":
             self.iq_var.set(1)
-        elif event.keysym in "x":
+        elif event.keysym in "s":
             self.iq_var.set(0)
     
         #print(event.keysym)
