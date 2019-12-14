@@ -34,9 +34,8 @@ size = 300
 df = df[(df['image_size_x'] > size) & (df['image_size_y'] > size)]
 
 # Adding labelling columns 
-df['watch_face_visibility'] = -1
-df['composition_quality'] = -1
-df['light_quality'] = -1
+df['dial_visibility'] = -1
+df['like'] = -1 
 df['image_quality'] = -1
 
 print(f'initial dataframe shape: {shape_init}, new dataframe shape: {df.shape}')

@@ -33,15 +33,13 @@ class Application(tk.Frame):
         self.csv_file_path = Path(csv_file_path).resolve(strict=True)
         self._index = -1
         self._init_start = 1
-        self.size = (640, 640)
+        self.size = (580, 580)
         self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path)
-        self.wfv_var = tk.DoubleVar(value=-1)
-        self.cq_var = tk.DoubleVar(value=-1)
-        self.lq_var = tk.DoubleVar(value=-1)
+        self.dv_var = tk.DoubleVar(value=-1)
+        self.lk_var = tk.DoubleVar(value=-1)
         self.iq_var = tk.DoubleVar(value=-1)
-        self.d = {'watch_face_visibility':self.wfv_var,
-                'composition_quality':self.cq_var,
-                'light_quality':self.lq_var,
+        self.d = {'dial_visibility':self.dv_var,
+                'like':self.lk_var,
                 'image_quality':self.iq_var}
 
         self.layout()
@@ -77,14 +75,14 @@ class Application(tk.Frame):
         self.img_label.grid(row=0, column=0, rowspan=39)
 
         # radiobuttons(rb) and labelframe(lf)
-        s = {'lf_txt':["Watch Face Visibility:","Composition Quality:","Lighting Quality:","Image Quality:"],
-            'rb_var':[self.wfv_var, self.cq_var, self.lq_var, self.iq_var],
+        s = {'lf_txt':["Dial Visibility:", "Like:", "Image Quality:"],
+            'rb_var':[self.dv_var, self.lk_var, self.iq_var],
             'rb_txt':["1", "0"],
             'rb_val':[1, 0]}
 
         for i, text in enumerate(s['lf_txt']):
             label_frame = tk.LabelFrame(self, text=text, padx=5, pady=5)
-            label_frame.grid(row=i, column=1, columnspan=3, sticky=('W'))
+            label_frame.grid(row=i, column=1, columnspan=2)
 
             for j, value in enumerate(s['rb_val']):
                 radiobutton = tk.Radiobutton(label_frame, text=s['rb_txt'][j], variable=s['rb_var'][i], value=value)
@@ -92,9 +90,9 @@ class Application(tk.Frame):
     
         # previous, next button
         self.previous_button = tk.Button(self, text="Previous", command=self.display_previous)
-        self.previous_button.grid(row=38, column=2, columnspan=1, sticky=('E'))
+        self.previous_button.grid(row=38, column=1, columnspan=1, sticky=('E'))
         self.next_button = tk.Button(self, text="Next", command=self.display_next)
-        self.next_button.grid(row=38, column=3, sticky=('W'))
+        self.next_button.grid(row=38, column=2, sticky=('W'))
         
         # status bar
         self.statusbar = tk.Label(self)
@@ -162,19 +160,14 @@ class Application(tk.Frame):
             self.display_previous()       
         # watch face visibility
         elif event.keysym in "1":
-            self.wfv_var.set(1)
+            self.dv_var.set(1)
         elif event.keysym in "2":
-            self.wfv_var.set(0)       
-        # composition quality
+            self.dv_var.set(0)       
+        # like
         elif event.keysym in "q":
-            self.cq_var.set(1)
+            self.lk_var.set(1)
         elif event.keysym in "w":
-            self.cq_var.set(0)
-        # light quality
-        elif event.keysym in "a":
-            self.lq_var.set(1)
-        elif event.keysym in "s":
-            self.lq_var.set(0)
+            self.lk_var.set(0)
         # image quality
         elif event.keysym in "z":
             self.iq_var.set(1)
@@ -185,7 +178,7 @@ class Application(tk.Frame):
 
     def resume(self):
         """Get index of first unlabeled image."""
-        df = self.df[['watch_face_visibility', 'composition_quality', 'light_quality', 'image_quality']]
+        df = self.df[self.d.keys()]
         # get index of first occurrence of minimum value for each column
         ser = df.idxmin(axis=0)
         # get the label of min index 
