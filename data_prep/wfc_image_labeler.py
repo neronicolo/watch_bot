@@ -18,6 +18,8 @@ import sys
 #           self.a=3
 #           self.b=4
 #           self.c=6
+#       https://www.fast.ai/2019/08/06/delegation/
+#       https://www.udemy.com/course/complete-python-bootcamp/learn/lecture/9442732#overview
 # TODO: @property, meaning, usage?
 # TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
 # TODO: Refractor display_next()
@@ -228,7 +230,7 @@ class Application(tk.Frame):
             return int(num)
         else:
             return num
-    
+                
     @property
     def total_images(self):
         "Total number of images"
