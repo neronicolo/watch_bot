@@ -119,6 +119,7 @@ class Application(tk.Frame):
 
         # get next image path, resize image, show image
         self._index += 1
+        self.filter()
         try:
             img_path = self.imgs_dir_path/self.df.loc[self._index, 'name']
         except KeyError:
@@ -230,7 +231,15 @@ class Application(tk.Frame):
             return int(num)
         else:
             return num
-                
+
+    def filter(self):
+        """Skip images that don't mathch filter"""
+        for i in range(10):
+            for k in self.d.keys():
+                val = self.df.loc[self._index-i, k]
+                print(val)
+
+
     @property
     def total_images(self):
         "Total number of images"
