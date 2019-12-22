@@ -8,9 +8,6 @@ from PIL import Image, ImageTk
 
 import sys
  
-# TODO: Change style.
-#   import tkinter.ttk as ttk 
-#   ttk.Style().theme_use("clam")
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
 #       d = ("a":3, "b":4, "c":6) -->
@@ -23,6 +20,9 @@ import sys
 # TODO: @property, meaning, usage?
 # TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
 # TODO: Refractor display_next()
+# TODO: Change style.
+#   import tkinter.ttk as ttk 
+#   ttk.Style().theme_use("clam")
 
 class Application(tk.Frame):
     def __init__(self, master=None, imgs_dir_path=None, csv_file_path=None, **kw):
@@ -119,7 +119,6 @@ class Application(tk.Frame):
 
         # get next image path, resize image, show image
         self._index += 1
-        self.filter()
         try:
             img_path = self.imgs_dir_path/self.df.loc[self._index, 'name']
         except KeyError:
@@ -231,14 +230,6 @@ class Application(tk.Frame):
             return int(num)
         else:
             return num
-
-    def filter(self):
-        """Skip images that don't mathch filter"""
-        for i in range(10):
-            for k in self.d.keys():
-                val = self.df.loc[self._index-i, k]
-                print(val)
-
 
     @property
     def total_images(self):
