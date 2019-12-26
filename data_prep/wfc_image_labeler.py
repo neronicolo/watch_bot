@@ -47,6 +47,7 @@ class Application(tk.Frame):
         self.layout()
         self.resume()
         self.display_next()
+        self.filter_df()
 
         # add padding around frame, widgets and pack it into main window
         for child in self.winfo_children():
@@ -236,16 +237,33 @@ class Application(tk.Frame):
         "Total number of images"
         return self.df['name'].size
 
+    def filter_df(self):
+        # test notebook for this can be found ../sandbox/pandas
+
+        # column names to use when comparing against filter values
+        filter_columns = list(self.d.keys())
+        # filter values to compare against column values
+        filter_values = [1,1,1]
+
+        # check if values in filter_columns are equal to filter_values
+        # all() returns True if all values are True 
+        df_filtered = self.df[filter_columns].eq(filter_values).all(1)
+        df_filtered = self.df.loc[df_filtered]
+        img_filtered = self.imgs_dir_path/self.df.loc[df_filtered.index[2], 'name']
+        print(img_filtered)
+
+        # TODO: Add filter menu, rbuttons and so on. Bind functions to UI
+
 def main(imgs_path, csv_path):
     root = tk.Tk()
     Application(master=root, imgs_dir_path=imgs_path, csv_file_path=csv_path)
 
-    root.mainloop()
+    #root.mainloop()
 
 if __name__ == "__main__":
     imgs = Path.home()/'programming/data/watch_bot/'
     csv = Path.home()/'programming/projects/watch_bot/data_prep/wfc_file_attribs.csv'
     main(imgs, csv)
     
-    #main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], sys.argv[2])
     
