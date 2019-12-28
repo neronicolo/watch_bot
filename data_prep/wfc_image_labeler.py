@@ -37,9 +37,17 @@ class Application(tk.Frame):
         self._init_start = 1
         self.size = (580, 580)
         self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path)
+
+        
+        # store radiobutton values for image labels 
         self.dv_var = tk.DoubleVar(value=-1)
         self.lk_var = tk.DoubleVar(value=-1)
         self.iq_var = tk.DoubleVar(value=-1)
+        
+        # store radiobutton values for filter images 
+        self.filter_pattern_var = tk.StringVar()
+
+        # helper dict
         self.d = {'dial_visibility':self.dv_var,
                 'like':self.lk_var,
                 'image_quality':self.iq_var}
@@ -47,7 +55,6 @@ class Application(tk.Frame):
         self.layout()
         self.resume()
         self.display_next()
-        self.filter_df()
 
         # add padding around frame, widgets and pack it into main window
         for child in self.winfo_children():
@@ -77,20 +84,36 @@ class Application(tk.Frame):
         self.img_label = tk.Label(self)
         self.img_label.grid(row=0, column=0, rowspan=39)
 
-        # radiobuttons(rb) and labelframe(lf)
+        # label radiobuttons(rb) and labelframe(lf)
         s = {'lf_txt':["Dial Visibility:", "Like:", "Image Quality:"],
             'rb_var':[self.dv_var, self.lk_var, self.iq_var],
             'rb_txt':["1", "0"],
             'rb_val':[1, 0]}
 
+        label_frame_outer = tk.LabelFrame(self, text="Label Images", padx=10, pady=10)
+        label_frame_outer.grid(row=0, column=1, columnspan=2)
+
         for i, text in enumerate(s['lf_txt']):
-            label_frame = tk.LabelFrame(self, text=text, padx=5, pady=5)
+            label_frame = tk.LabelFrame(label_frame_outer, text=text, padx=10, pady=10)
             label_frame.grid(row=i, column=1, columnspan=2)
 
             for j, value in enumerate(s['rb_val']):
                 radiobutton = tk.Radiobutton(label_frame, text=s['rb_txt'][j], variable=s['rb_var'][i], value=value)
-                radiobutton.grid(row=i, column=j+1, padx=5) 
-    
+                radiobutton.grid(row=i, column=j+1, padx=10)
+        
+        # filter labelframe, entry, button
+        filter_frame_outer = tk.LabelFrame(self, text="Filter Images", padx=10, pady=5)
+        filter_frame_outer.grid(row=3, column=1, columnspan=2)
+
+        filter_pattern_label_frame = tk.LabelFrame(filter_frame_outer, text="Filter Pattern", padx=10, pady=5)
+        filter_pattern_label_frame.grid(row=5, column=1, columnspan=2)            
+
+        filter_pattern_entry = tk.Entry(filter_pattern_label_frame, width=14, textvariable=self.filter_pattern_var)
+        filter_pattern_entry.grid(row=5, column=1, columnspan=2, pady=5)
+
+        self.filter_button = tk.Button(filter_frame_outer, text="Filter", command=self.filter_df)
+        self.filter_button.grid(row=6, column=1, columnspan=1, sticky=('E'))
+
         # previous, next button
         self.previous_button = tk.Button(self, text="Previous", command=self.display_previous)
         self.previous_button.grid(row=38, column=1, columnspan=1, sticky=('E'))
@@ -122,7 +145,7 @@ class Application(tk.Frame):
         self._index += 1
         try:
             img_path = self.imgs_dir_path/self.df.loc[self._index, 'name']
-        except KeyError:
+        except (KeyError):
             self._index = -1
             self.display_next()
             return
@@ -144,7 +167,7 @@ class Application(tk.Frame):
         self._index -= 1
         try:
             img_path = self.imgs_dir_path/self.df.loc[self._index, 'name']
-        except KeyError:
+        except (KeyError):
             self._index = -1
             self.display_next()
             return
@@ -157,26 +180,27 @@ class Application(tk.Frame):
         self.statusbar.configure(text=f"({self._index + 1}/{self.total_images})")
             
     def callback(self, event):
-        if event.keysym == "Right":
+        if event.keysym == "bracketleft":
+            self.display_previous()
+        elif event.keysym == "bracketright":
             self.display_next()
-        elif event.keysym == "Left":
-            self.display_previous()       
         # watch face visibility
-        elif event.keysym in "1":
+        elif event.keysym in "e":
             self.dv_var.set(1)
-        elif event.keysym in "2":
+        elif event.keysym in "r":
             self.dv_var.set(0)       
         # like
-        elif event.keysym in "q":
+        elif event.keysym in "d":
             self.lk_var.set(1)
-        elif event.keysym in "w":
+        elif event.keysym in "f":
             self.lk_var.set(0)
         # image quality
-        elif event.keysym in "a":
+        elif event.keysym in "c":
             self.iq_var.set(1)
-        elif event.keysym in "s":
+        elif event.keysym in "v":
             self.iq_var.set(0)
-    
+        elif event.keysym in "Return":
+            self.filter_df()
         #print(event.keysym)
 
     def resume(self):
@@ -239,31 +263,40 @@ class Application(tk.Frame):
 
     def filter_df(self):
         # test notebook for this can be found ../sandbox/pandas
-
+        # set focus to
+        self.filter_button.focus()
+        
         # column names to use when comparing against filter values
         filter_columns = list(self.d.keys())
         # filter values to compare against column values
-        filter_values = [1,1,1]
+        filter_values = self.filter_pattern_var.get().split(',')
+        # convert list of strings to list of int
+        filter_values = list(map(int, filter_values))
 
         # check if values in filter_columns are equal to filter_values
         # all() returns True if all values are True 
         df_filtered = self.df[filter_columns].eq(filter_values).all(1)
-        df_filtered = self.df.loc[df_filtered]
-        img_filtered = self.imgs_dir_path/self.df.loc[df_filtered.index[2], 'name']
-        print(img_filtered)
-
-        # TODO: Add filter menu, rbuttons and so on. Bind functions to UI
+        # filtered dataframe
+        #self.df = self.df.loc[df_filtered]
+#
+        #try:
+        #    img_path = self.imgs_dir_path/self.df.loc[self.df.index[self._index], 'name']
+        #except (IndexError):
+        #    self._index = -1
+        #    self.display_next()
+        #    return
+     
 
 def main(imgs_path, csv_path):
     root = tk.Tk()
     Application(master=root, imgs_dir_path=imgs_path, csv_file_path=csv_path)
 
-    #root.mainloop()
+    root.mainloop()
 
 if __name__ == "__main__":
     imgs = Path.home()/'programming/data/watch_bot/'
     csv = Path.home()/'programming/projects/watch_bot/data_prep/wfc_file_attribs.csv'
     main(imgs, csv)
     
-    main(sys.argv[1], sys.argv[2])
+    #main(sys.argv[1], sys.argv[2])
     
