@@ -36,7 +36,7 @@ class Application(tk.Frame):
         self._index = -1
         self._init_start = 1
         self.size = (580, 580)
-        self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path)
+        self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path).head()
 
         
         # store radiobutton values for image labels 
@@ -144,8 +144,8 @@ class Application(tk.Frame):
         # get next image path, resize image, show image
         self._index += 1
         try:
-            img_path = self.imgs_dir_path/self.df.loc[self._index, 'name']
-        except (KeyError):
+            img_path = self.imgs_dir_path/self.df.loc[self.df.index[self._index], 'name']
+        except (IndexError):
             self._index = -1
             self.display_next()
             return
@@ -155,7 +155,7 @@ class Application(tk.Frame):
         self.img_label.image = photoimage
         self.master.title(self.csv_file_path.name + ' - ' + img_path.name)
         self.set_rbutton_values()
-        self.statusbar.configure(text=f"({self._index + 1}/{self.total_images})")
+        self.statusbar.configure(text=f"({self.df.index[self._index] + 1}/{self.total_images})")
                        
     def display_previous(self):
         """Display previous image. Get values form rbuttons and add them to the dataframe. Set values of rbuttons form dataframe. Update status bar"""
@@ -166,10 +166,10 @@ class Application(tk.Frame):
         # get previous image path, resize image, show image
         self._index -= 1
         try:
-            img_path = self.imgs_dir_path/self.df.loc[self._index, 'name']
-        except (KeyError):
-            self._index = -1
-            self.display_next()
+            img_path = self.imgs_dir_path/self.df.loc[self.df.index[self._index], 'name']
+        except (IndexError):
+            self._index = 0
+            self.display_previous()
             return
         resized_img = self.image_resize(img_path)
         photoimage = ImageTk.PhotoImage(resized_img)
@@ -177,7 +177,7 @@ class Application(tk.Frame):
         self.img_label.image = photoimage
         self.master.title(self.csv_file_path.name + ' - ' + img_path.name)
         self.set_rbutton_values()
-        self.statusbar.configure(text=f"({self._index + 1}/{self.total_images})")
+        self.statusbar.configure(text=f"({self.df.index[self._index] + 1}/{self.total_images})")
             
     def callback(self, event):
         if event.keysym == "bracketleft":
@@ -222,12 +222,12 @@ class Application(tk.Frame):
     def get_rbutton_values(self):
         """Get values from radiobuttons and add them to the dataframe"""
         for k,v in self.d.items():
-            self.df.loc[self._index, k] = v.get()
+            self.df.loc[self.df.index[self._index], k] = v.get()
 
     def set_rbutton_values(self):
         """Set values from dataframe columns to the radiobuttons"""       
         for k,v in self.d.items():
-            v.set(self.remove_zero(self.df.loc[self._index, k]))
+            v.set(self.remove_zero(self.df.loc[self.df.index[self._index], k]))
 
     def save(self):
         """Save file."""
