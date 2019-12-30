@@ -8,6 +8,10 @@ from PIL import Image, ImageTk
 
 import sys
  
+# TODO: Rewriter resume() to work with filter_df(). Think something is wrong with indexing
+# TODO: Add jupm to img function
+# TODO: Test labeling, saving, resume, filter on small img set(20 images)
+
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
 #       d = ("a":3, "b":4, "c":6) -->
@@ -36,8 +40,8 @@ class Application(tk.Frame):
         self._index = -1
         self._init_start = 1
         self.size = (580, 580)
-        self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path).head()
-
+        self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path)
+        self.df_filtered = self.df.copy()
         
         # store radiobutton values for image labels 
         self.dv_var = tk.DoubleVar(value=-1)
@@ -108,7 +112,7 @@ class Application(tk.Frame):
         filter_pattern_label_frame = tk.LabelFrame(filter_frame_outer, text="Filter Pattern", padx=10, pady=5)
         filter_pattern_label_frame.grid(row=5, column=1, columnspan=2)            
 
-        filter_pattern_entry = tk.Entry(filter_pattern_label_frame, width=14, textvariable=self.filter_pattern_var)
+        filter_pattern_entry = tk.Entry(filter_pattern_label_frame, text='Test', width=14, textvariable=self.filter_pattern_var)
         filter_pattern_entry.grid(row=5, column=1, columnspan=2, pady=5)
 
         self.filter_button = tk.Button(filter_frame_outer, text="Filter", command=self.filter_df)
@@ -144,7 +148,7 @@ class Application(tk.Frame):
         # get next image path, resize image, show image
         self._index += 1
         try:
-            img_path = self.imgs_dir_path/self.df.loc[self.df.index[self._index], 'name']
+            img_path = self.imgs_dir_path/self.df.loc[self.df_filtered.index[self._index], 'name']
         except (IndexError):
             self._index = -1
             self.display_next()
@@ -155,7 +159,7 @@ class Application(tk.Frame):
         self.img_label.image = photoimage
         self.master.title(self.csv_file_path.name + ' - ' + img_path.name)
         self.set_rbutton_values()
-        self.statusbar.configure(text=f"({self.df.index[self._index] + 1}/{self.total_images})")
+        self.statusbar.configure(text=f"{self.df_filtered.index[self._index] + 1}/{self.total_images}")
                        
     def display_previous(self):
         """Display previous image. Get values form rbuttons and add them to the dataframe. Set values of rbuttons form dataframe. Update status bar"""
@@ -166,7 +170,7 @@ class Application(tk.Frame):
         # get previous image path, resize image, show image
         self._index -= 1
         try:
-            img_path = self.imgs_dir_path/self.df.loc[self.df.index[self._index], 'name']
+            img_path = self.imgs_dir_path/self.df.loc[self.df_filtered.index[self._index], 'name']
         except (IndexError):
             self._index = 0
             self.display_previous()
@@ -177,7 +181,7 @@ class Application(tk.Frame):
         self.img_label.image = photoimage
         self.master.title(self.csv_file_path.name + ' - ' + img_path.name)
         self.set_rbutton_values()
-        self.statusbar.configure(text=f"({self.df.index[self._index] + 1}/{self.total_images})")
+        self.statusbar.configure(text=f"{self.df_filtered.index[self._index] + 1}/{self.total_images}")
             
     def callback(self, event):
         if event.keysym == "bracketleft":
@@ -216,18 +220,17 @@ class Application(tk.Frame):
         if df.loc[resume_idx, resume_label] == -1:
             # set index to be one before index of min value found 
             self._index = resume_idx - 1 
-        
-        #print(f'{df}\n{ser}\n{resume_label}\n{resume_idx}\n{self._resume_index}')
+            print(resume_idx)
 
     def get_rbutton_values(self):
         """Get values from radiobuttons and add them to the dataframe"""
         for k,v in self.d.items():
-            self.df.loc[self.df.index[self._index], k] = v.get()
+            self.df.loc[self.df_filtered.index[self._index], k] = v.get()
 
     def set_rbutton_values(self):
         """Set values from dataframe columns to the radiobuttons"""       
         for k,v in self.d.items():
-            v.set(self.remove_zero(self.df.loc[self.df.index[self._index], k]))
+            v.set(self.remove_zero(self.df.loc[self.df_filtered.index[self._index], k]))
 
     def save(self):
         """Save file."""
@@ -259,6 +262,7 @@ class Application(tk.Frame):
     @property
     def total_images(self):
         "Total number of images"
+        #return self.df_filtered['name'].size
         return self.df['name'].size
 
     def filter_df(self):
@@ -270,22 +274,23 @@ class Application(tk.Frame):
         filter_columns = list(self.d.keys())
         # filter values to compare against column values
         filter_values = self.filter_pattern_var.get().split(',')
-        # convert list of strings to list of int
-        filter_values = list(map(int, filter_values))
-
-        # check if values in filter_columns are equal to filter_values
-        # all() returns True if all values are True 
-        df_filtered = self.df[filter_columns].eq(filter_values).all(1)
+        try:
+            # convert list of strings to list of int
+            filter_values = list(map(int, filter_values))
+            # check if values in filter_columns are equal to filter_values
+            # all() returns True if all values are True 
+            df_filtered = self.df[filter_columns].eq(filter_values).all(1)
+        except ValueError:
+            self.statusbar.configure(text=f"Invalid Filter Pattern")    
+            #self.df_filtered = self.df.copy()
+            self.resume()
+            #self.display_next()
+            return
         # filtered dataframe
-        #self.df = self.df.loc[df_filtered]
-#
-        #try:
-        #    img_path = self.imgs_dir_path/self.df.loc[self.df.index[self._index], 'name']
-        #except (IndexError):
-        #    self._index = -1
-        #    self.display_next()
-        #    return
-     
+        self.df_filtered = self.df.loc[df_filtered]
+        # reset to the first image and display it
+        self._index = -1
+        self.display_next()    
 
 def main(imgs_path, csv_path):
     root = tk.Tk()
