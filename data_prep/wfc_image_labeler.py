@@ -8,7 +8,7 @@ from PIL import Image, ImageTk
 
 import sys
  
-# TODO: Rewriter resume() to work with filter_df(). Think something is wrong with indexing
+# TODO: Resume() not giving expected value when called 
 # TODO: Add jupm to img function
 # TODO: Test labeling, saving, resume, filter on small img set(20 images)
 
@@ -37,8 +37,6 @@ class Application(tk.Frame):
 
         self.imgs_dir_path = Path(imgs_dir_path).resolve(strict=True)
         self.csv_file_path = Path(csv_file_path).resolve(strict=True)
-        self._index = -1
-        self._init_start = 1
         self.size = (580, 580)
         self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path)
         self.df_filtered = self.df.copy()
@@ -50,6 +48,7 @@ class Application(tk.Frame):
         
         # store radiobutton values for filter images 
         self.filter_pattern_var = tk.StringVar()
+        self.jump_to_image_var = tk.StringVar()
 
         # helper dict
         self.d = {'dial_visibility':self.dv_var,
@@ -57,7 +56,9 @@ class Application(tk.Frame):
                 'image_quality':self.iq_var}
 
         self.layout()
-        self.resume()
+        self.resume_idx = self.resume()
+        self._index = self.resume_idx
+        self._init_start = 1
         self.display_next()
 
         # add padding around frame, widgets and pack it into main window
@@ -105,18 +106,31 @@ class Application(tk.Frame):
                 radiobutton = tk.Radiobutton(label_frame, text=s['rb_txt'][j], variable=s['rb_var'][i], value=value)
                 radiobutton.grid(row=i, column=j+1, padx=10)
         
-        # filter labelframe, entry, button
+        # filter image
         filter_frame_outer = tk.LabelFrame(self, text="Filter Images", padx=10, pady=5)
         filter_frame_outer.grid(row=3, column=1, columnspan=2)
 
-        filter_pattern_label_frame = tk.LabelFrame(filter_frame_outer, text="Filter Pattern", padx=10, pady=5)
-        filter_pattern_label_frame.grid(row=5, column=1, columnspan=2)            
+        label_pattern_label_frame = tk.LabelFrame(filter_frame_outer, text="Label Pattern", padx=10, pady=5)
+        label_pattern_label_frame.grid(row=5, column=1, columnspan=2)            
 
-        filter_pattern_entry = tk.Entry(filter_pattern_label_frame, text='Test', width=14, textvariable=self.filter_pattern_var)
-        filter_pattern_entry.grid(row=5, column=1, columnspan=2, pady=5)
+        self.label_pattern_entry = tk.Entry(label_pattern_label_frame, width=14, textvariable=self.filter_pattern_var)
+        self.label_pattern_entry.grid(row=5, column=1, columnspan=2, pady=5)
 
-        self.filter_button = tk.Button(filter_frame_outer, text="Filter", command=self.filter_df)
-        self.filter_button.grid(row=6, column=1, columnspan=1, sticky=('E'))
+        self.label_filter_button = tk.Button(label_pattern_label_frame, text="Filter", command=self.filter_df)
+        self.label_filter_button.grid(row=6, column=1, columnspan=2)
+
+        # jump to image
+        jump_to_image_label_frame = tk.LabelFrame(filter_frame_outer, text="Image Number", padx=10, pady=5)
+        jump_to_image_label_frame.grid(row=8, column=1, columnspan=2)            
+
+        self.jump_to_image_entry = tk.Entry(jump_to_image_label_frame, width=14, textvariable=self.jump_to_image_var)
+        self.jump_to_image_entry.grid(row=8, column=1, columnspan=2, pady=5)
+
+        self.jump_button = tk.Button(jump_to_image_label_frame, text="Jump", command=self.jump_to_image)
+        self.jump_button.grid(row=9, column=1, columnspan=2)
+
+        self.reset_filter_button = tk.Button(filter_frame_outer, text="Reset", command=self.reset_filter_df)
+        self.reset_filter_button.grid(row=69, column=1, columnspan=2)
 
         # previous, next button
         self.previous_button = tk.Button(self, text="Previous", command=self.display_previous)
@@ -159,7 +173,7 @@ class Application(tk.Frame):
         self.img_label.image = photoimage
         self.master.title(self.csv_file_path.name + ' - ' + img_path.name)
         self.set_rbutton_values()
-        self.statusbar.configure(text=f"{self.df_filtered.index[self._index] + 1}/{self.total_images}")
+        self.statusbar.configure(text=f"{self.df_filtered.index[self._index]}/{self.total_images - 1}")
                        
     def display_previous(self):
         """Display previous image. Get values form rbuttons and add them to the dataframe. Set values of rbuttons form dataframe. Update status bar"""
@@ -181,7 +195,7 @@ class Application(tk.Frame):
         self.img_label.image = photoimage
         self.master.title(self.csv_file_path.name + ' - ' + img_path.name)
         self.set_rbutton_values()
-        self.statusbar.configure(text=f"{self.df_filtered.index[self._index] + 1}/{self.total_images}")
+        self.statusbar.configure(text=f"{self.df_filtered.index[self._index]}/{self.total_images-1}")
             
     def callback(self, event):
         if event.keysym == "bracketleft":
@@ -189,19 +203,19 @@ class Application(tk.Frame):
         elif event.keysym == "bracketright":
             self.display_next()
         # watch face visibility
-        elif event.keysym in "e":
+        elif event.keysym in "q":
             self.dv_var.set(1)
-        elif event.keysym in "r":
+        elif event.keysym in "w":
             self.dv_var.set(0)       
         # like
-        elif event.keysym in "d":
+        elif event.keysym in "a":
             self.lk_var.set(1)
-        elif event.keysym in "f":
+        elif event.keysym in "s":
             self.lk_var.set(0)
         # image quality
-        elif event.keysym in "c":
+        elif event.keysym in "z":
             self.iq_var.set(1)
-        elif event.keysym in "v":
+        elif event.keysym in "x":
             self.iq_var.set(0)
         elif event.keysym in "Return":
             self.filter_df()
@@ -219,8 +233,9 @@ class Application(tk.Frame):
         # check if column values for min index are == -1, not labeled
         if df.loc[resume_idx, resume_label] == -1:
             # set index to be one before index of min value found 
-            self._index = resume_idx - 1 
-            print(resume_idx)
+            return resume_idx - 1
+        else:
+             return -1
 
     def get_rbutton_values(self):
         """Get values from radiobuttons and add them to the dataframe"""
@@ -238,7 +253,8 @@ class Application(tk.Frame):
         file_path = self.imgs_dir_path/self.csv_file_path 
         self.df.to_csv(file_path, index=False)
         self.statusbar.configure(text=f"Saved to: {file_path}")
-        return
+        # update resume index
+        self.resume_idx = self.resume()
 
     def save_as(self):
         """Save file as."""
@@ -250,7 +266,8 @@ class Application(tk.Frame):
             pass
         else:
             self.statusbar.configure(text=f"Saved to: {file_path}")
-        return
+            # update resume index
+            self.resume_idx = self.resume()
 
     def remove_zero(self, num):
         """Remove zero from whole float number. Example: 1.0 --> 1"""
@@ -263,13 +280,11 @@ class Application(tk.Frame):
     def total_images(self):
         "Total number of images"
         #return self.df_filtered['name'].size
-        return self.df['name'].size
+        return self.df_filtered['name'].size
 
     def filter_df(self):
         # test notebook for this can be found ../sandbox/pandas
-        # set focus to
-        self.filter_button.focus()
-        
+        self.focus()
         # column names to use when comparing against filter values
         filter_columns = list(self.d.keys())
         # filter values to compare against column values
@@ -281,16 +296,29 @@ class Application(tk.Frame):
             # all() returns True if all values are True 
             df_filtered = self.df[filter_columns].eq(filter_values).all(1)
         except ValueError:
-            self.statusbar.configure(text=f"Invalid Filter Pattern")    
-            #self.df_filtered = self.df.copy()
-            self.resume()
-            #self.display_next()
+            self.statusbar.configure(text=f"Invalid Filter Pattern")
             return
         # filtered dataframe
         self.df_filtered = self.df.loc[df_filtered]
         # reset to the first image and display it
         self._index = -1
         self.display_next()    
+
+    def reset_filter_df(self):
+        self.df_filtered = self.df.copy()
+        self._index = self.resume_idx
+        self.display_next()
+        self.label_pattern_entry.delete(0,'end')
+        self.focus()
+
+    def jump_to_image(self):
+        '''Jump to image number'''
+        try:
+            self._index = int(self.jump_to_image_var.get()) - 1
+            self.display_next()
+        except (IndexError, ValueError):
+            self.statusbar.configure(text=f"Invalid Image Number")
+            return
 
 def main(imgs_path, csv_path):
     root = tk.Tk()
