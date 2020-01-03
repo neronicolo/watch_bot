@@ -8,10 +8,7 @@ from PIL import Image, ImageTk
 
 import sys
  
-# TODO: Resume() not giving expected value when called 
-# TODO: Add jupm to img function
-# TODO: Test labeling, saving, resume, filter on small img set(20 images)
-
+# TODO: Test labeling, saving, resume, filter on small img set(20 images
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
 #       d = ("a":3, "b":4, "c":6) -->
@@ -37,6 +34,8 @@ class Application(tk.Frame):
 
         self.imgs_dir_path = Path(imgs_dir_path).resolve(strict=True)
         self.csv_file_path = Path(csv_file_path).resolve(strict=True)
+        self._index = -1
+        self._init_start = 1
         self.size = (580, 580)
         self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path)
         self.df_filtered = self.df.copy()
@@ -56,9 +55,7 @@ class Application(tk.Frame):
                 'image_quality':self.iq_var}
 
         self.layout()
-        self.resume_idx = self.resume()
-        self._index = self.resume_idx
-        self._init_start = 1
+        self.resume()
         self.display_next()
 
         # add padding around frame, widgets and pack it into main window
@@ -153,8 +150,8 @@ class Application(tk.Frame):
 
     def display_next(self):
         """Display next image. Get values form rbuttons and add them to the dataframe. Set values of rbuttons form dataframe. Update status bar"""
-        # initial start of the programm or index == -1        
-        if self._init_start == 1 or self._index == -1:
+        # initial start of the programm
+        if self._init_start == 1:
             self._init_start = 0
         else:
             self.get_rbutton_values()
@@ -177,8 +174,10 @@ class Application(tk.Frame):
                        
     def display_previous(self):
         """Display previous image. Get values form rbuttons and add them to the dataframe. Set values of rbuttons form dataframe. Update status bar"""
-        # if initial start of the programm or index == -1        
-        if self._index != -1:
+        # initial start of the programm
+        if self._init_start == 1:
+            self._init_start = 0
+        else:
             self.get_rbutton_values()
 
         # get previous image path, resize image, show image
@@ -217,12 +216,17 @@ class Application(tk.Frame):
             self.iq_var.set(1)
         elif event.keysym in "x":
             self.iq_var.set(0)
-        elif event.keysym in "Return":
+        elif event.keysym in "f":
             self.filter_df()
+        elif event.keysym in "j":
+            self.jump_to_image()
+        elif event.keysym in "r":
+            self.reset_filter_df
         #print(event.keysym)
 
     def resume(self):
         """Get index of first unlabeled image."""
+        self._init_start = 1
         df = self.df[self.d.keys()]
         # get index of first occurrence of minimum value for each column
         ser = df.idxmin(axis=0)
@@ -233,9 +237,9 @@ class Application(tk.Frame):
         # check if column values for min index are == -1, not labeled
         if df.loc[resume_idx, resume_label] == -1:
             # set index to be one before index of min value found 
-            return resume_idx - 1
+            self._index = resume_idx - 1
         else:
-             return -1
+            self._index = -1
 
     def get_rbutton_values(self):
         """Get values from radiobuttons and add them to the dataframe"""
@@ -253,8 +257,8 @@ class Application(tk.Frame):
         file_path = self.imgs_dir_path/self.csv_file_path 
         self.df.to_csv(file_path, index=False)
         self.statusbar.configure(text=f"Saved to: {file_path}")
-        # update resume index
-        self.resume_idx = self.resume()
+        # update index
+        self.resume()
 
     def save_as(self):
         """Save file as."""
@@ -266,8 +270,8 @@ class Application(tk.Frame):
             pass
         else:
             self.statusbar.configure(text=f"Saved to: {file_path}")
-            # update resume index
-            self.resume_idx = self.resume()
+            # update index
+            self.resume()
 
     def remove_zero(self, num):
         """Remove zero from whole float number. Example: 1.0 --> 1"""
@@ -289,34 +293,45 @@ class Application(tk.Frame):
         filter_columns = list(self.d.keys())
         # filter values to compare against column values
         filter_values = self.filter_pattern_var.get().split(',')
+        # clear entry field
+        self.label_pattern_entry.delete(0,'end')   
         try:
             # convert list of strings to list of int
             filter_values = list(map(int, filter_values))
             # check if values in filter_columns are equal to filter_values
             # all() returns True if all values are True 
             df_filtered = self.df[filter_columns].eq(filter_values).all(1)
-        except ValueError:
+        except (ValueError):
             self.statusbar.configure(text=f"Invalid Filter Pattern")
             return
         # filtered dataframe
         self.df_filtered = self.df.loc[df_filtered]
         # reset to the first image and display it
+        self._init_start = 1
         self._index = -1
-        self.display_next()    
+        self.display_next() 
 
     def reset_filter_df(self):
-        self.df_filtered = self.df.copy()
-        self._index = self.resume_idx
-        self.display_next()
-        self.label_pattern_entry.delete(0,'end')
         self.focus()
+        self.label_pattern_entry.delete(0,'end')
+        self.jump_to_image_entry.delete(0,'end')
+
+        self.resume()
+        self.display_next()
+        self.df_filtered = self.df.copy()
 
     def jump_to_image(self):
         '''Jump to image number'''
+        self.focus()
+        self.df_filtered = self.df.copy()
+        image_value = self.jump_to_image_var.get()
+        # clear entry field
+        self.jump_to_image_entry.delete(0,'end')
         try:
-            self._index = int(self.jump_to_image_var.get()) - 1
+            self._init_start = 1
+            self._index = int(image_value) - 1
             self.display_next()
-        except (IndexError, ValueError):
+        except (ValueError):
             self.statusbar.configure(text=f"Invalid Image Number")
             return
 
