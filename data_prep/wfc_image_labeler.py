@@ -254,8 +254,6 @@ class Application(tk.Frame):
         file_path = self.imgs_dir_path/self.csv_file_path 
         self.df.to_csv(file_path, index=False)
         self.statusbar.configure(text=f"Saved to: {file_path}")
-        # update index
-        self.resume()
 
     def save_as(self):
         """Save file as."""
@@ -267,8 +265,6 @@ class Application(tk.Frame):
             pass
         else:
             self.statusbar.configure(text=f"Saved to: {file_path}")
-            # update index
-            self.resume()
 
     def remove_zero(self, num):
         """Remove zero from whole float number. Example: 1.0 --> 1"""
