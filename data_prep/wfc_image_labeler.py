@@ -7,8 +7,7 @@ import pandas as pd
 from PIL import Image, ImageTk
 
 import sys
- 
-# TODO: Test labeling, saving, resume, filter on small img set(20 images
+
 # TODO: Watch *args, **kwargs.
 #       How to initialize instance attibute passed from **kwargs?
 #       d = ("a":3, "b":4, "c":6) -->
@@ -18,9 +17,7 @@ import sys
 #           self.c=6
 #       https://www.fast.ai/2019/08/06/delegation/
 #       https://www.udemy.com/course/complete-python-bootcamp/learn/lecture/9442732#overview
-# TODO: @property, meaning, usage?
-# TODO: modify self._index of display_next() with decorator, reuse func() since only self.index is different
-# TODO: Refractor display_next()
+# TODO: Refractor display_next(), display_previous(), @decorator?
 # TODO: Change style.
 #   import tkinter.ttk as ttk 
 #   ttk.Style().theme_use("clam")
@@ -138,7 +135,7 @@ class Application(tk.Frame):
         
         # status bar
         self.statusbar = tk.Label(self)
-        self.statusbar.grid(row=39, column=0, columnspan=3, sticky=('E'))
+        self.statusbar.grid(row=39, column=0, columnspan=4, sticky=('E'))
         return
 
     def image_resize(self, image_path):
