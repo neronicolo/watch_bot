@@ -107,8 +107,8 @@ class Application(tk.Frame):
         filter_frame_outer = tk.LabelFrame(self, text="Filter Images", padx=10, pady=5)
         filter_frame_outer.grid(row=3, column=1, columnspan=2)
 
-        label_pattern_label_frame = tk.LabelFrame(filter_frame_outer, text="Label Pattern", padx=10, pady=5)
-        label_pattern_label_frame.grid(row=5, column=1, columnspan=2)            
+        label_pattern_label_frame = tk.LabelFrame(filter_frame_outer, text="Label Pattern:", padx=10, pady=5)
+        label_pattern_label_frame.grid(row=4, column=1, columnspan=2)            
 
         self.label_pattern_entry = tk.Entry(label_pattern_label_frame, width=14, textvariable=self.filter_pattern_var)
         self.label_pattern_entry.grid(row=5, column=1, columnspan=2, pady=5)
@@ -117,8 +117,8 @@ class Application(tk.Frame):
         self.label_filter_button.grid(row=6, column=1, columnspan=2)
 
         # jump to image
-        jump_to_image_label_frame = tk.LabelFrame(filter_frame_outer, text="Image Number", padx=10, pady=5)
-        jump_to_image_label_frame.grid(row=8, column=1, columnspan=2)            
+        jump_to_image_label_frame = tk.LabelFrame(filter_frame_outer, text="Image Number:", padx=10, pady=5)
+        jump_to_image_label_frame.grid(row=7, column=1, columnspan=2)            
 
         self.jump_to_image_entry = tk.Entry(jump_to_image_label_frame, width=14, textvariable=self.jump_to_image_var)
         self.jump_to_image_entry.grid(row=8, column=1, columnspan=2, pady=5)
@@ -126,8 +126,9 @@ class Application(tk.Frame):
         self.jump_button = tk.Button(jump_to_image_label_frame, text="Jump", command=self.jump_to_image)
         self.jump_button.grid(row=9, column=1, columnspan=2)
 
+        # reset to initial image
         self.reset_filter_button = tk.Button(filter_frame_outer, text="Reset", command=self.reset_filter_df)
-        self.reset_filter_button.grid(row=69, column=1, columnspan=2)
+        self.reset_filter_button.grid(row=11, column=1, columnspan=2, pady=5)
 
         # previous, next button
         self.previous_button = tk.Button(self, text="Previous", command=self.display_previous)
@@ -137,7 +138,7 @@ class Application(tk.Frame):
         
         # status bar
         self.statusbar = tk.Label(self)
-        self.statusbar.grid(row=39, column=0, columnspan=4, sticky=('E'))
+        self.statusbar.grid(row=39, column=0, columnspan=3, sticky=('E'))
         return
 
     def image_resize(self, image_path):
@@ -161,6 +162,7 @@ class Application(tk.Frame):
         try:
             img_path = self.imgs_dir_path/self.df.loc[self.df_filtered.index[self._index], 'name']
         except (IndexError):
+            self._init_start = 1
             self._index = -1
             self.display_next()
             return
@@ -185,6 +187,7 @@ class Application(tk.Frame):
         try:
             img_path = self.imgs_dir_path/self.df.loc[self.df_filtered.index[self._index], 'name']
         except (IndexError):
+            self._init_start = 1
             self._index = 0
             self.display_previous()
             return
@@ -216,12 +219,6 @@ class Application(tk.Frame):
             self.iq_var.set(1)
         elif event.keysym in "x":
             self.iq_var.set(0)
-        elif event.keysym in "f":
-            self.filter_df()
-        elif event.keysym in "j":
-            self.jump_to_image()
-        elif event.keysym in "r":
-            self.reset_filter_df
         #print(event.keysym)
 
     def resume(self):
@@ -289,12 +286,11 @@ class Application(tk.Frame):
     def filter_df(self):
         # test notebook for this can be found ../sandbox/pandas
         self.focus()
+        self.jump_to_image_entry.delete(0,'end')
         # column names to use when comparing against filter values
         filter_columns = list(self.d.keys())
         # filter values to compare against column values
-        filter_values = self.filter_pattern_var.get().split(',')
-        # clear entry field
-        self.label_pattern_entry.delete(0,'end')   
+        filter_values = self.filter_pattern_var.get().split(',') 
         try:
             # convert list of strings to list of int
             filter_values = list(map(int, filter_values))
@@ -302,14 +298,21 @@ class Application(tk.Frame):
             # all() returns True if all values are True 
             df_filtered = self.df[filter_columns].eq(filter_values).all(1)
         except (ValueError):
+            self.label_pattern_entry.delete(0,'end')
             self.statusbar.configure(text=f"Invalid Filter Pattern")
             return
         # filtered dataframe
         self.df_filtered = self.df.loc[df_filtered]
-        # reset to the first image and display it
-        self._init_start = 1
-        self._index = -1
-        self.display_next() 
+        
+        if not self.df_filtered.empty:
+            # reset to the first image and display it
+            self._init_start = 1
+            self._index = -1
+            self.display_next()
+        else:
+            self.label_pattern_entry.delete(0,'end')  
+            self.statusbar.configure(text=f"Invalid Filter Pattern")
+            return
 
     def reset_filter_df(self):
         self.focus()
@@ -323,15 +326,15 @@ class Application(tk.Frame):
     def jump_to_image(self):
         '''Jump to image number'''
         self.focus()
+        self.label_pattern_entry.delete(0,'end')
         self.df_filtered = self.df.copy()
         image_value = self.jump_to_image_var.get()
-        # clear entry field
-        self.jump_to_image_entry.delete(0,'end')
         try:
             self._init_start = 1
             self._index = int(image_value) - 1
             self.display_next()
         except (ValueError):
+            self.jump_to_image_entry.delete(0,'end')
             self.statusbar.configure(text=f"Invalid Image Number")
             return
 
