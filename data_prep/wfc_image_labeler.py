@@ -22,7 +22,7 @@ import sys
 #   import tkinter.ttk as ttk 
 #   ttk.Style().theme_use("clam")
 
-class Application(tk.Frame):
+class Application(tk.Frame): 
     def __init__(self, master=None, imgs_dir_path=None, csv_file_path=None, **kw):
         super().__init__(master=master, **kw)
         self.master = master
