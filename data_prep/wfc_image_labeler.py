@@ -33,7 +33,7 @@ class Application(tk.Frame):
         self.csv_file_path = Path(csv_file_path).resolve(strict=True)
         self._index = -1
         self._init_start = 1
-        self.size = (640, 640)
+        self.size = (580, 580)
         self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path)
         self.df_filtered = self.df.copy()
         
@@ -146,9 +146,9 @@ class Application(tk.Frame):
         new_img.paste(img, (int((self.size[0] - img.size[0]) / 2), int((self.size[1] - img.size[1]) / 2)))
 
         # small thumbnail version    
-        img.thumbnail((120,120), Image.ANTIALIAS)
-        thumbnail_size = (128,128)
-        thumbnail_img = Image.new('RGB', thumbnail_size, (128, 128, 128))
+        img.thumbnail(tuple(map(lambda x: int(x/5)-8, self.size)), Image.ANTIALIAS)
+        thumbnail_size = tuple(map(lambda x: int(x/5), self.size))
+        thumbnail_img = Image.new('RGB', thumbnail_size, (64, 64, 64))
         thumbnail_img.paste(img, (int((thumbnail_size[0] - img.size[0]) / 2), int((thumbnail_size[1] - img.size[1]) / 2)))
         new_img.paste(thumbnail_img)
         
