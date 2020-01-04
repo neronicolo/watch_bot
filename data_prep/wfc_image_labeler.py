@@ -278,8 +278,6 @@ class Application(tk.Frame):
 
     def filter_df(self):
         # test notebook for this can be found ../sandbox/pandas
-        self.focus()
-        self.jump_to_image_entry.delete(0,'end')
         # column names to use when comparing against filter values
         filter_columns = list(self.d.keys())
         # filter values to compare against column values
@@ -294,32 +292,32 @@ class Application(tk.Frame):
             self.label_pattern_entry.delete(0,'end')
             self.statusbar.configure(text=f"Invalid Filter Pattern")
             return
+        finally:
+            self.focus()
+            self.jump_to_image_entry.delete(0,'end')            
+            self.label_pattern_entry.delete(0,'end') 
         # filtered dataframe
         self.df_filtered = self.df.loc[df_filtered]
-        
         if not self.df_filtered.empty:
             # reset to the first image and display it
             self._init_start = 1
             self._index = -1
             self.display_next()
-        else:
-            self.label_pattern_entry.delete(0,'end')  
+        else: 
             self.statusbar.configure(text=f"Invalid Filter Pattern")
             return
 
     def reset_filter_df(self):
+        self.df_filtered = self.df.copy()
+        self.resume()
+        self.display_next()
+
         self.focus()
         self.label_pattern_entry.delete(0,'end')
         self.jump_to_image_entry.delete(0,'end')
 
-        self.resume()
-        self.display_next()
-        self.df_filtered = self.df.copy()
-
     def jump_to_image(self):
         '''Jump to image number'''
-        self.focus()
-        self.label_pattern_entry.delete(0,'end')
         self.df_filtered = self.df.copy()
         image_value = self.jump_to_image_var.get()
         try:
@@ -327,9 +325,12 @@ class Application(tk.Frame):
             self._index = int(image_value) - 1
             self.display_next()
         except (ValueError):
-            self.jump_to_image_entry.delete(0,'end')
             self.statusbar.configure(text=f"Invalid Image Number")
             return
+        finally:
+            self.focus()
+            self.label_pattern_entry.delete(0,'end')
+            self.jump_to_image_entry.delete(0,'end')
 
 def main(imgs_path, csv_path):
     root = tk.Tk()
