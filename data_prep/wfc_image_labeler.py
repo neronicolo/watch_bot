@@ -33,7 +33,7 @@ class Application(tk.Frame):
         self.csv_file_path = Path(csv_file_path).resolve(strict=True)
         self._index = -1
         self._init_start = 1
-        self.size = (580, 580)
+        self.size = (480, 480)
         self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path)
         self.df_filtered = self.df.copy()
         
@@ -89,11 +89,11 @@ class Application(tk.Frame):
             'rb_txt':["1", "0"],
             'rb_val':[1, 0]}
 
-        label_frame_outer = tk.LabelFrame(self, text="Label Images", padx=10, pady=10)
+        label_frame_outer = tk.LabelFrame(self, text="Label Images", padx=8, pady=8)
         label_frame_outer.grid(row=0, column=1, columnspan=2)
 
         for i, text in enumerate(s['lf_txt']):
-            label_frame = tk.LabelFrame(label_frame_outer, text=text, padx=10, pady=10)
+            label_frame = tk.LabelFrame(label_frame_outer, text=text, padx=8, pady=8)
             label_frame.grid(row=i, column=1, columnspan=2)
 
             for j, value in enumerate(s['rb_val']):
@@ -101,31 +101,31 @@ class Application(tk.Frame):
                 radiobutton.grid(row=i, column=j+1, padx=10)
         
         # filter image
-        filter_frame_outer = tk.LabelFrame(self, text="Filter Images", padx=10, pady=5)
+        filter_frame_outer = tk.LabelFrame(self, text="Filter Images", padx=8, pady=4)
         filter_frame_outer.grid(row=3, column=1, columnspan=2)
 
-        label_pattern_label_frame = tk.LabelFrame(filter_frame_outer, text="Label Pattern:", padx=10, pady=5)
+        label_pattern_label_frame = tk.LabelFrame(filter_frame_outer, text="Label Pattern:", padx=8, pady=4)
         label_pattern_label_frame.grid(row=4, column=1, columnspan=2)            
 
         self.label_pattern_entry = tk.Entry(label_pattern_label_frame, width=14, textvariable=self.filter_pattern_var)
-        self.label_pattern_entry.grid(row=5, column=1, columnspan=2, pady=5)
+        self.label_pattern_entry.grid(row=5, column=1, columnspan=2, pady=4)
 
         self.label_filter_button = tk.Button(label_pattern_label_frame, text="Filter", command=self.filter_df)
         self.label_filter_button.grid(row=6, column=1, columnspan=2)
 
         # jump to image
-        jump_to_image_label_frame = tk.LabelFrame(filter_frame_outer, text="Image Number:", padx=10, pady=5)
+        jump_to_image_label_frame = tk.LabelFrame(filter_frame_outer, text="Image Number:", padx=8, pady=4)
         jump_to_image_label_frame.grid(row=7, column=1, columnspan=2)            
 
         self.jump_to_image_entry = tk.Entry(jump_to_image_label_frame, width=14, textvariable=self.jump_to_image_var)
-        self.jump_to_image_entry.grid(row=8, column=1, columnspan=2, pady=5)
+        self.jump_to_image_entry.grid(row=8, column=1, columnspan=2, pady=4)
 
         self.jump_button = tk.Button(jump_to_image_label_frame, text="Jump", command=self.jump_to_image)
         self.jump_button.grid(row=9, column=1, columnspan=2)
 
         # reset to initial image
         self.reset_filter_button = tk.Button(filter_frame_outer, text="Reset", command=self.reset_filter_df)
-        self.reset_filter_button.grid(row=11, column=1, columnspan=2, pady=5)
+        self.reset_filter_button.grid(row=11, column=1, columnspan=2, pady=4)
 
         # previous, next button
         self.previous_button = tk.Button(self, text="Previous", command=self.display_previous)
