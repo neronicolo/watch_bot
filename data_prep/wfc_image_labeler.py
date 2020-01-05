@@ -177,7 +177,7 @@ class Application(tk.Frame):
         self.img_label.image = photoimage
         self.master.title(self.csv_file_path.name + ' - ' + img_path.name)
         self.set_rbutton_values()
-        self.statusbar.configure(text=f"{self.df_filtered.index[self._index]}/{self.total_images - 1}")
+        self.statusbar.configure(text=f"{self._index}({self.df_filtered.index[self._index]})/{self.total_images - 1}")
                        
     def display_previous(self):
         """Display previous image. Get values form rbuttons and add them to the dataframe. Set values of rbuttons form dataframe. Update status bar"""
@@ -202,7 +202,7 @@ class Application(tk.Frame):
         self.img_label.image = photoimage
         self.master.title(self.csv_file_path.name + ' - ' + img_path.name)
         self.set_rbutton_values()
-        self.statusbar.configure(text=f"{self.df_filtered.index[self._index]}/{self.total_images-1}")
+        self.statusbar.configure(text=f"{self._index}({self.df_filtered.index[self._index]})/{self.total_images - 1}")
             
     def callback(self, event):
         if event.keysym == "bracketleft":
@@ -352,4 +352,3 @@ if __name__ == "__main__":
     main(imgs, csv)
     
     #main(sys.argv[1], sys.argv[2])
-    
