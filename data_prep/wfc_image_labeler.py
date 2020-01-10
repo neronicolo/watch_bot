@@ -33,7 +33,8 @@ class Application(tk.Frame):
         self.csv_file_path = Path(csv_file_path).resolve(strict=True)
         self._index = -1
         self._init_start = 1
-        self.size = (640, 640)
+        #self.size = (640, 640)
+        self.size = (480, 480)
         self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path)
         self.df_filtered = self.df.copy()
         
