@@ -30,6 +30,7 @@ class Application(tk.Frame):
         self.master.bind("<Key>", self.callback)
         self.master.bind("<Control-s>", self.save)
         self.master.bind("<Control-a>", self.save_as)
+        self.master.bind("<Control-r>", self.reset_filter_df)
 
         self.imgs_dir_path = Path(imgs_dir_path).resolve(strict=True)
         self.csv_file_path = Path(csv_file_path).resolve(strict=True)
@@ -318,7 +319,7 @@ class Application(tk.Frame):
             self.statusbar.configure(text=f"Invalid Filter Pattern")
             return
 
-    def reset_filter_df(self):
+    def reset_filter_df(self, event=None):
         self.df_filtered = self.df.copy()
         self.resume()
         self.display_next()
