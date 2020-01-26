@@ -28,13 +28,15 @@ class Application(tk.Frame):
         self.master = master
         # bind keys 
         self.master.bind("<Key>", self.callback)
+        self.master.bind("<Control-s>", self.save)
+        self.master.bind("<Control-a>", self.save_as)
 
         self.imgs_dir_path = Path(imgs_dir_path).resolve(strict=True)
         self.csv_file_path = Path(csv_file_path).resolve(strict=True)
         self._index = -1
         self._init_start = 1
-        #self.size = (640, 640)
-        self.size = (540, 540)
+        self.size = (640, 640)
+        #self.size = (540, 540)
         self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path)
         self.df_filtered = self.df.copy()
         
@@ -254,14 +256,14 @@ class Application(tk.Frame):
         for k,v in self.d.items():
             v.set(self.remove_zero(self.df.loc[self.df_filtered.index[self._index], k]))
 
-    def save(self):
+    def save(self,event=None):
         """Save file."""
         self.get_rbutton_values()
         file_path = self.imgs_dir_path/self.csv_file_path 
         self.df.to_csv(file_path, index=False)
         self.statusbar.configure(text=f"Saved to: {file_path}")
 
-    def save_as(self):
+    def save_as(self, event=None):
         """Save file as."""
         self.get_rbutton_values()
         file_path = filedialog.asksaveasfilename()
