@@ -154,7 +154,7 @@ class Application(tk.Frame):
         thumbnail_size = tuple(map(lambda x: int(x/5), self.size))
         thumbnail_img = Image.new('RGB', thumbnail_size, (64, 64, 64))
         thumbnail_img.paste(img, (int((thumbnail_size[0] - img.size[0]) / 2), int((thumbnail_size[1] - img.size[1]) / 2)))
-        new_img.paste(thumbnail_img)
+        new_img.paste(thumbnail_img, (self.size[0] - thumbnail_size[0], 0))
         
         return new_img
 
