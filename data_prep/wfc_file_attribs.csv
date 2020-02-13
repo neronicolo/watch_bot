@@ -18,8 +18,8 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 900,900,nomos_1/nomos/_without_model/nomos_glashutte_metro_chronometer-2.jpg,1.0,0.0,1.0
 900,900,nomos_1/nomos/_without_model/nomos_glashutte_metro_chronometer-3.jpg,1.0,0.0,1.0
 900,900,nomos_1/nomos/_without_model/nomos_glashutte_metro_chronometer-4.jpg,0.0,0.0,1.0
-900,900,nomos_1/nomos/_without_model/nomos_glashutte_metro_chronometer-5.jpg,0.0,0.0,1.0
-900,900,nomos_1/nomos/_without_model/nomos_glashutte_metro_chronometer-6.jpg,0.0,0.0,1.0
+900,900,nomos_1/nomos/_without_model/nomos_glashutte_metro_chronometer-5.jpg,1.0,0.0,1.0
+900,900,nomos_1/nomos/_without_model/nomos_glashutte_metro_chronometer-6.jpg,1.0,0.0,1.0
 900,900,nomos_1/nomos/_without_model/nomos_glashutte_metro_chronometer-7.jpg,0.0,0.0,1.0
 1280,960,nomos_1/nomos/_without_model/nomos_glashütte-1.jpg,1.0,0.0,1.0
 1280,960,nomos_1/nomos/_without_model/nomos_glashütte-10.jpg,0.0,0.0,1.0
@@ -35,7 +35,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,960,nomos_1/nomos/_without_model/nomos_glashütte-6.jpg,0.0,0.0,1.0
 1280,960,nomos_1/nomos/_without_model/nomos_glashütte-7.jpg,0.0,0.0,1.0
 1280,960,nomos_1/nomos/_without_model/nomos_glashütte-8.jpg,1.0,0.0,1.0
-1280,960,nomos_1/nomos/_without_model/nomos_glashütte-9.jpg,1.0,0.0,1.0
+1280,960,nomos_1/nomos/_without_model/nomos_glashütte-9.jpg,0.0,0.0,1.0
 640,480,nomos_1/nomos/_without_model/nomos_glashütte_14kt_585_gold_savonette_sprungdeckel_taschenuhr_selten_rar-1.jpg,1.0,0.0,1.0
 640,480,nomos_1/nomos/_without_model/nomos_glashütte_14kt_585_gold_savonette_sprungdeckel_taschenuhr_selten_rar-10.jpg,1.0,0.0,1.0
 640,480,nomos_1/nomos/_without_model/nomos_glashütte_14kt_585_gold_savonette_sprungdeckel_taschenuhr_selten_rar-11.jpg,1.0,0.0,1.0
@@ -284,7 +284,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1066,960,nomos_1/nomos/ahoi_atlantik/nomos_ahoi_atlantik_552-11.jpg,1.0,0.0,1.0
 1066,960,nomos_1/nomos/ahoi_atlantik/nomos_ahoi_atlantik_552-12.jpg,0.0,0.0,1.0
 1066,960,nomos_1/nomos/ahoi_atlantik/nomos_ahoi_atlantik_552-13.jpg,0.0,0.0,1.0
-1066,960,nomos_1/nomos/ahoi_atlantik/nomos_ahoi_atlantik_552-14.jpg,0.0,0.0,1.0
+1066,960,nomos_1/nomos/ahoi_atlantik/nomos_ahoi_atlantik_552-14.jpg,1.0,0.0,1.0
 878,960,nomos_1/nomos/ahoi_atlantik/nomos_ahoi_atlantik_552-2.jpg,1.0,0.0,1.0
 1198,960,nomos_1/nomos/ahoi_atlantik/nomos_ahoi_atlantik_552-3.jpg,1.0,0.0,1.0
 769,960,nomos_1/nomos/ahoi_atlantik/nomos_ahoi_atlantik_552-4.jpg,1.0,0.0,1.0
@@ -560,7 +560,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,834,nomos_1/nomos/ahoi_neomatik/nomos_ahoi_neomatik_signalrot_563-5.jpg,1.0,0.0,1.0
 1280,952,nomos_1/nomos/ahoi_neomatik/nomos_ahoi_neomatik_signalrot_563-6.jpg,0.0,0.0,1.0
 1280,892,nomos_1/nomos/ahoi_neomatik/nomos_ahoi_neomatik_signalrot_563-7.jpg,1.0,0.0,1.0
-619,827,nomos_1/nomos/ahoi_neomatik/nomos_ahoi_neomatik_signalweiß-1.jpg,0.0,0.0,1.0
+619,827,nomos_1/nomos/ahoi_neomatik/nomos_ahoi_neomatik_signalweiß-1.jpg,1.0,0.0,1.0
 960,960,nomos_1/nomos/ahoi_neomatik/nomos_ahoi_neomatik_signalweiß_ref._564-1.jpg,1.0,0.0,1.0
 1279,847,nomos_1/nomos/ahoi_neomatik/nomos_ahoi_neomatik_signalweiß_ref._564-2.jpg,1.0,0.0,1.0
 1279,847,nomos_1/nomos/ahoi_neomatik/nomos_ahoi_neomatik_signalweiß_ref._564-3.jpg,1.0,0.0,1.0
@@ -783,7 +783,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 920,960,nomos_1/nomos/autobahn/nomos_men's_1302_autobahn_neomatik_41_date_watch-12.jpg,1.0,1.0,1.0
 920,960,nomos_1/nomos/autobahn/nomos_men's_1302_autobahn_neomatik_41_date_watch-13.jpg,1.0,1.0,1.0
 900,900,nomos_1/nomos/autobahn/nomos_men's_1302_autobahn_neomatik_41_date_watch-14.jpg,1.0,0.0,1.0
-900,900,nomos_1/nomos/autobahn/nomos_men's_1302_autobahn_neomatik_41_date_watch-15.jpg,0.0,0.0,1.0
+900,900,nomos_1/nomos/autobahn/nomos_men's_1302_autobahn_neomatik_41_date_watch-15.jpg,0.0,1.0,1.0
 960,960,nomos_1/nomos/autobahn/nomos_men's_1302_autobahn_neomatik_41_date_watch-16.jpg,0.0,1.0,1.0
 960,960,nomos_1/nomos/autobahn/nomos_men's_1302_autobahn_neomatik_41_date_watch-17.jpg,1.0,1.0,1.0
 920,960,nomos_1/nomos/autobahn/nomos_men's_1302_autobahn_neomatik_41_date_watch-18.jpg,1.0,0.0,1.0
@@ -815,9 +815,9 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 672,960,nomos_1/nomos/club_(submodel)/nomos_club_date_brown_leather_strap_zeta_movement_711.2-1.jpg,1.0,1.0,1.0
 1000,700,nomos_1/nomos/club_(submodel)/nomos_club_date_brown_leather_strap_zeta_movement_711.2-2.jpg,1.0,0.0,1.0
 1000,700,nomos_1/nomos/club_(submodel)/nomos_club_date_brown_leather_strap_zeta_movement_711.2-3.jpg,1.0,0.0,1.0
-1000,700,nomos_1/nomos/club_(submodel)/nomos_club_date_brown_leather_strap_zeta_movement_711.2-4.jpg,0.0,0.0,1.0
-1000,700,nomos_1/nomos/club_(submodel)/nomos_club_date_brown_leather_strap_zeta_movement_711.2-5.jpg,0.0,0.0,1.0
-1000,700,nomos_1/nomos/club_(submodel)/nomos_club_date_brown_leather_strap_zeta_movement_711.2-6.jpg,1.0,0.0,1.0
+1000,700,nomos_1/nomos/club_(submodel)/nomos_club_date_brown_leather_strap_zeta_movement_711.2-4.jpg,0.0,0.0,0.0
+1000,700,nomos_1/nomos/club_(submodel)/nomos_club_date_brown_leather_strap_zeta_movement_711.2-5.jpg,0.0,0.0,0.0
+1000,700,nomos_1/nomos/club_(submodel)/nomos_club_date_brown_leather_strap_zeta_movement_711.2-6.jpg,1.0,0.0,0.0
 1000,700,nomos_1/nomos/club_(submodel)/nomos_club_date_brown_leather_strap_zeta_movement_711.2-7.jpg,0.0,0.0,1.0
 1000,700,nomos_1/nomos/club_(submodel)/nomos_club_date_brown_leather_strap_zeta_movement_711.2-8.jpg,1.0,0.0,1.0
 360,480,nomos_1/nomos/club_(submodel)/nomos_glashütte_club-1.jpg,1.0,0.0,1.0
@@ -859,8 +859,8 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 619,827,nomos_1/nomos/club_automat/nomos_club_automat-2.jpg,1.0,0.0,1.0
 619,827,nomos_1/nomos/club_automat/nomos_club_automat-3.jpg,1.0,0.0,1.0
 538,959,nomos_1/nomos/club_automat/nomos_club_automat-4.jpg,0.0,0.0,1.0
-538,960,nomos_1/nomos/club_automat/nomos_club_automat-5.jpg,0.0,0.0,0.0
-538,960,nomos_1/nomos/club_automat/nomos_club_automat-6.jpg,0.0,0.0,0.0
+538,960,nomos_1/nomos/club_automat/nomos_club_automat-5.jpg,1.0,0.0,0.0
+538,960,nomos_1/nomos/club_automat/nomos_club_automat-6.jpg,1.0,0.0,0.0
 1280,960,nomos_1/nomos/club_automat/nomos_club_automat-7.jpg,1.0,0.0,1.0
 960,960,nomos_1/nomos/club_automat/nomos_club_automat-8.jpg,1.0,0.0,1.0
 960,960,nomos_1/nomos/club_automat/nomos_club_automat-9.jpg,0.0,0.0,1.0
