@@ -2119,7 +2119,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 960,960,nomos_1/nomos/ludwig_neomatik/nomos_ludwig_neomatik_41_datum_260-1.jpg,1.0,1.0,1.0
 400,480,"nomos_1/nomos/ludwig_neomatik/nomos_ludwig_neomatik_41_datum_achtung_20,4_%_gespart-1.jpg",1.0,0.0,1.0
 400,480,"nomos_1/nomos/ludwig_neomatik/nomos_ludwig_neomatik_41_datum_achtung_20,4_%_gespart-2.jpg",1.0,1.0,1.0
-400,480,"nomos_1/nomos/ludwig_neomatik/nomos_ludwig_neomatik_41_datum_achtung_20,4_%_gespart-3.jpg",0.0,0.0,1.0
+400,480,"nomos_1/nomos/ludwig_neomatik/nomos_ludwig_neomatik_41_datum_achtung_20,4_%_gespart-3.jpg",0.0,1.0,1.0
 400,480,"nomos_1/nomos/ludwig_neomatik/nomos_ludwig_neomatik_41_datum_achtung_20,4_%_gespart-4.jpg",0.0,0.0,1.0
 960,960,nomos_1/nomos/ludwig_neomatik/nomos_ludwig_neomatik_41_datum_saphirglasboden_-neu--1.jpg,1.0,1.0,1.0
 670,798,nomos_1/nomos/ludwig_neomatik/nomos_ludwig_neomatik_automatik_282-1.jpg,1.0,0.0,1.0
@@ -2227,7 +2227,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1024,768,"nomos_1/nomos/metro_(submodel)/nomos_glashütte_metro_datum_gangreserve_stahl_handaufzug_glasboden_37mm_ref.1101_box&pap._full_set_neu_mit_zertifikat_über_2.980,-€-1.jpg",1.0,0.0,1.0
 1024,768,"nomos_1/nomos/metro_(submodel)/nomos_glashütte_metro_datum_gangreserve_stahl_handaufzug_glasboden_37mm_ref.1101_box&pap._full_set_neu_mit_zertifikat_über_2.980,-€-2.jpg",0.0,0.0,1.0
 1024,768,"nomos_1/nomos/metro_(submodel)/nomos_glashütte_metro_datum_gangreserve_stahl_handaufzug_glasboden_37mm_ref.1101_box&pap._full_set_neu_mit_zertifikat_über_2.980,-€-3.jpg",1.0,0.0,1.0
-1024,768,"nomos_1/nomos/metro_(submodel)/nomos_glashütte_metro_datum_gangreserve_stahl_handaufzug_glasboden_37mm_ref.1101_box&pap._full_set_neu_mit_zertifikat_über_2.980,-€-4.jpg",1.0,0.0,1.0
+1024,768,"nomos_1/nomos/metro_(submodel)/nomos_glashütte_metro_datum_gangreserve_stahl_handaufzug_glasboden_37mm_ref.1101_box&pap._full_set_neu_mit_zertifikat_über_2.980,-€-4.jpg",0.0,0.0,1.0
 1024,768,"nomos_1/nomos/metro_(submodel)/nomos_glashütte_metro_datum_gangreserve_stahl_handaufzug_glasboden_37mm_ref.1101_box&pap._full_set_neu_mit_zertifikat_über_2.980,-€-5.jpg",0.0,0.0,1.0
 1024,768,"nomos_1/nomos/metro_(submodel)/nomos_glashütte_metro_datum_gangreserve_stahl_handaufzug_glasboden_37mm_ref.1101_box&pap._full_set_neu_mit_zertifikat_über_2.980,-€-6.jpg",0.0,0.0,1.0
 720,960,nomos_1/nomos/metro_(submodel)/nomos_glashütte_metro_handaufzug_ref._1101-1.jpg,1.0,0.0,1.0
@@ -2277,7 +2277,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 960,960,nomos_1/nomos/metro_(submodel)/nomos_metro-5.jpg,0.0,0.0,1.0
 677,960,nomos_1/nomos/metro_(submodel)/nomos_metro-6.jpg,1.0,0.0,1.0
 588,960,nomos_1/nomos/metro_(submodel)/nomos_metro-7.jpg,1.0,0.0,1.0
-730,960,nomos_1/nomos/metro_(submodel)/nomos_metro-8.jpg,0.0,0.0,1.0
+730,960,nomos_1/nomos/metro_(submodel)/nomos_metro-8.jpg,1.0,0.0,1.0
 726,960,nomos_1/nomos/metro_(submodel)/nomos_metro-9.jpg,0.0,0.0,1.0
 720,960,nomos_1/nomos/metro_(submodel)/nomos_metro_1101-1.jpg,1.0,0.0,1.0
 720,960,nomos_1/nomos/metro_(submodel)/nomos_metro_1101-2.jpg,1.0,0.0,1.0
@@ -2379,7 +2379,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 960,960,nomos_1/nomos/metro_38/nomos_metro_38_saphirglasboden_-neu--1.jpg,1.0,1.0,1.0
 1280,853,nomos_1/nomos/metro_38/nomos_metro_38_stadtschwartz-1.jpg,1.0,1.0,1.0
 1280,853,nomos_1/nomos/metro_38/nomos_metro_38_stadtschwartz-2.jpg,0.0,0.0,1.0
-1280,853,nomos_1/nomos/metro_38/nomos_metro_38_stadtschwartz-3.jpg,0.0,0.0,1.0
+1280,853,nomos_1/nomos/metro_38/nomos_metro_38_stadtschwartz-3.jpg,1.0,0.0,1.0
 1280,719,nomos_1/nomos/metro_38/nomos_metro_38_stadtschwarz-1.jpg,1.0,0.0,1.0
 1280,719,nomos_1/nomos/metro_38/nomos_metro_38_stadtschwarz-2.jpg,1.0,0.0,1.0
 1280,719,nomos_1/nomos/metro_38/nomos_metro_38_stadtschwarz-3.jpg,1.0,0.0,1.0
@@ -2409,7 +2409,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 960,960,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-10.jpg,1.0,1.0,1.0
 603,602,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-11.jpg,1.0,0.0,1.0
 649,650,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-12.jpg,1.0,0.0,1.0
-743,743,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-13.jpg,1.0,0.0,1.0
+743,743,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-13.jpg,0.0,0.0,1.0
 960,960,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-14.jpg,0.0,0.0,1.0
 1024,576,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-15.jpg,1.0,1.0,1.0
 1024,725,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-16.jpg,1.0,1.0,1.0
@@ -2417,7 +2417,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1024,725,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-18.jpg,1.0,1.0,1.0
 960,960,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-19.jpg,1.0,1.0,1.0
 603,602,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-2.jpg,1.0,0.0,1.0
-960,960,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-20.jpg,0.0,1.0,1.0
+960,960,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-20.jpg,1.0,1.0,1.0
 649,650,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-3.jpg,1.0,0.0,1.0
 743,743,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-4.jpg,0.0,0.0,1.0
 960,960,nomos_1/nomos/metro_38_datum/nomos_glashütte_men's_1102_metro_38_datum_manual_winding-5.jpg,0.0,1.0,1.0
@@ -2504,8 +2504,8 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 672,960,nomos_1/nomos/metro_38_datum/nomos_metro_38_datum_stadtschwarz_steel-1.jpg,1.0,0.0,1.0
 1000,700,nomos_1/nomos/metro_38_datum/nomos_metro_38_datum_stadtschwarz_steel-2.jpg,1.0,0.0,1.0
 1000,700,nomos_1/nomos/metro_38_datum/nomos_metro_38_datum_stadtschwarz_steel-3.jpg,1.0,0.0,1.0
-1000,700,nomos_1/nomos/metro_38_datum/nomos_metro_38_datum_stadtschwarz_steel-4.jpg,0.0,0.0,1.0
-1000,700,nomos_1/nomos/metro_38_datum/nomos_metro_38_datum_stadtschwarz_steel-5.jpg,0.0,0.0,1.0
+1000,700,nomos_1/nomos/metro_38_datum/nomos_metro_38_datum_stadtschwarz_steel-4.jpg,1.0,0.0,1.0
+1000,700,nomos_1/nomos/metro_38_datum/nomos_metro_38_datum_stadtschwarz_steel-5.jpg,1.0,0.0,1.0
 1000,700,nomos_1/nomos/metro_38_datum/nomos_metro_38_datum_stadtschwarz_steel-6.jpg,1.0,0.0,1.0
 1000,700,nomos_1/nomos/metro_38_datum/nomos_metro_38_datum_stadtschwarz_steel-7.jpg,0.0,0.0,1.0
 1000,700,nomos_1/nomos/metro_38_datum/nomos_metro_38_datum_stadtschwarz_steel-8.jpg,1.0,0.0,1.0
@@ -2558,7 +2558,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1024,725,nomos_1/nomos/metro_neomatik/nomos_glashütte_men's_1114_metro_neomatik_39_silvercut-3.jpg,1.0,0.0,1.0
 1024,725,nomos_1/nomos/metro_neomatik/nomos_glashütte_men's_1114_metro_neomatik_39_silvercut-4.jpg,1.0,0.0,1.0
 960,960,nomos_1/nomos/metro_neomatik/nomos_glashütte_men's_1114_metro_neomatik_39_silvercut-5.jpg,0.0,0.0,1.0
-960,960,nomos_1/nomos/metro_neomatik/nomos_glashütte_men's_1114_metro_neomatik_39_silvercut-6.jpg,1.0,0.0,1.0
+960,960,nomos_1/nomos/metro_neomatik/nomos_glashütte_men's_1114_metro_neomatik_39_silvercut-6.jpg,0.0,0.0,1.0
 857,564,nomos_1/nomos/metro_neomatik/nomos_glashütte_men's_1114_metro_neomatik_39_silvercut-7.jpg,1.0,0.0,1.0
 960,960,nomos_1/nomos/metro_neomatik/nomos_glashütte_men's_1114_metro_neomatik_39_silvercut-8.jpg,1.0,0.0,1.0
 960,960,nomos_1/nomos/metro_neomatik/nomos_glashütte_men's_1114_metro_neomatik_39_silvercut-9.jpg,0.0,0.0,1.0
@@ -2603,7 +2603,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 945,960,nomos_1/nomos/metro_neomatik/nomos_glashütte_metro_neomatik_night_blue-3.jpg,1.0,0.0,1.0
 973,845,nomos_1/nomos/metro_neomatik/nomos_glashütte_metro_neomatik_night_blue-4.jpg,1.0,0.0,1.0
 925,960,nomos_1/nomos/metro_neomatik/nomos_glashütte_metro_neomatik_night_blue-5.jpg,0.0,0.0,1.0
-974,631,nomos_1/nomos/metro_neomatik/nomos_glashütte_metro_neomatik_night_blue-6.jpg,1.0,0.0,1.0
+974,631,nomos_1/nomos/metro_neomatik/nomos_glashütte_metro_neomatik_night_blue-6.jpg,0.0,0.0,1.0
 960,960,nomos_1/nomos/metro_neomatik/nomos_glashütte_metro_neomatik_saphirglasboden_-neu--1.jpg,1.0,0.0,1.0
 960,960,nomos_1/nomos/metro_neomatik/nomos_glashütte_metro_neomatik_saphirglasboden_-neu--2.jpg,1.0,0.0,1.0
 960,960,nomos_1/nomos/metro_neomatik/nomos_glashütte_metro_neomatik_saphirglasboden_-neu--3.jpg,1.0,0.0,1.0
@@ -2698,16 +2698,16 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 672,960,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_silvercut_steel-1.jpg,1.0,0.0,1.0
 1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_silvercut_steel-2.jpg,1.0,1.0,1.0
 1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_silvercut_steel-3.jpg,1.0,1.0,1.0
-1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_silvercut_steel-4.jpg,0.0,0.0,1.0
-1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_silvercut_steel-5.jpg,0.0,0.0,1.0
+1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_silvercut_steel-4.jpg,1.0,0.0,1.0
+1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_silvercut_steel-5.jpg,1.0,0.0,1.0
 1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_silvercut_steel-6.jpg,1.0,1.0,1.0
 1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_silvercut_steel-7.jpg,0.0,0.0,1.0
 1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_silvercut_steel-8.jpg,1.0,0.0,1.0
 672,960,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_steel-1.jpg,1.0,0.0,1.0
 1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_steel-2.jpg,1.0,1.0,1.0
 1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_steel-3.jpg,1.0,1.0,1.0
-1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_steel-4.jpg,0.0,0.0,1.0
-1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_steel-5.jpg,0.0,0.0,1.0
+1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_steel-4.jpg,1.0,0.0,1.0
+1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_steel-5.jpg,1.0,0.0,1.0
 1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_steel-6.jpg,1.0,1.0,1.0
 1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_steel-7.jpg,0.0,0.0,1.0
 1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_39_steel-8.jpg,1.0,0.0,1.0
@@ -2739,7 +2739,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,857,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_nachtblau_(1110)-11.jpg,1.0,0.0,1.0
 1280,918,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_nachtblau_(1110)-12.jpg,1.0,0.0,1.0
 1280,960,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_nachtblau_(1110)-13.jpg,0.0,0.0,1.0
-1280,933,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_nachtblau_(1110)-14.jpg,1.0,0.0,1.0
+1280,933,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_nachtblau_(1110)-14.jpg,0.0,0.0,1.0
 1280,960,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_nachtblau_(1110)-2.jpg,1.0,0.0,1.0
 1280,960,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_nachtblau_(1110)-3.jpg,1.0,0.0,0.0
 1280,857,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_nachtblau_(1110)-4.jpg,1.0,0.0,1.0
@@ -2824,7 +2824,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 960,960,nomos_1/nomos/minimatik/nomos_glashütte_minimatik_champagner_saphirglasboden_-neu--2.jpg,1.0,0.0,1.0
 960,960,nomos_1/nomos/minimatik/nomos_glashütte_minimatik_champagner_saphirglasboden_-neu--3.jpg,1.0,0.0,1.0
 960,960,nomos_1/nomos/minimatik/nomos_glashütte_minimatik_champagner_saphirglasboden_-neu--4.jpg,1.0,0.0,1.0
-960,960,nomos_1/nomos/minimatik/nomos_glashütte_minimatik_champagner_saphirglasboden_-neu--5.jpg,1.0,0.0,1.0
+960,960,nomos_1/nomos/minimatik/nomos_glashütte_minimatik_champagner_saphirglasboden_-neu--5.jpg,0.0,0.0,1.0
 522,959,nomos_1/nomos/minimatik/nomos_glashütte_minimatik_nachtblau-1.jpg,1.0,0.0,1.0
 960,960,nomos_1/nomos/minimatik/nomos_glashütte_minimatik_nachtblau_saphirglasboden_-neu--1.jpg,1.0,1.0,1.0
 1024,768,"nomos_1/nomos/minimatik/nomos_glashütte_minimatik_nachtblau_stahl_automatik_glasboden_36mm_neu_mit_zertifikat_über_3.000,-€-1.jpg",1.0,0.0,1.0
@@ -3036,7 +3036,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashütte_orion_weiß_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_über_1.820,-€-1.jpg",1.0,0.0,1.0
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashütte_orion_weiß_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_über_1.820,-€-2.jpg",0.0,0.0,1.0
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashütte_orion_weiß_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_über_1.820,-€-3.jpg",1.0,0.0,1.0
-1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashütte_orion_weiß_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_über_1.820,-€-4.jpg",0.0,0.0,1.0
+1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashütte_orion_weiß_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_über_1.820,-€-4.jpg",1.0,0.0,1.0
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashütte_orion_weiß_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_über_1.820,-€-5.jpg",0.0,0.0,1.0
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashütte_orion_weiß_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_über_1.820,-€-6.jpg",0.0,0.0,1.0
 1279,960,nomos_1/nomos/orion_(submodel)/nomos_orion-1.jpg,1.0,0.0,1.0
