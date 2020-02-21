@@ -4325,7 +4325,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,854,nomos_1/nomos/tangente_(submodel)/nomos_tangente_sport_glasboden_revision_012019_neuwertig-6.jpg,0.0,1.0,1.0
 1280,854,nomos_1/nomos/tangente_(submodel)/nomos_tangente_sport_glasboden_revision_012019_neuwertig-7.jpg,1.0,1.0,1.0
 1280,854,nomos_1/nomos/tangente_(submodel)/nomos_tangente_sport_glasboden_revision_012019_neuwertig-8.jpg,1.0,0.0,1.0
-720,960,nomos_1/nomos/tangente_(submodel)/nomos_tangente_sport_glashutte_sa-1.jpg,1.0,0.0,1.0
+720,960,nomos_1/nomos/tangente_(submodel)/nomos_tangente_sport_glashutte_sa-1.jpg,1.0,0.0,0.0
 720,960,nomos_1/nomos/tangente_(submodel)/nomos_tangente_sport_glashutte_sa-2.jpg,0.0,0.0,1.0
 720,960,nomos_1/nomos/tangente_(submodel)/nomos_tangente_sport_glashutte_sa-3.jpg,1.0,0.0,1.0
 720,960,nomos_1/nomos/tangente_(submodel)/nomos_tangente_sport_glashutte_sa-4.jpg,0.0,0.0,1.0
@@ -4351,7 +4351,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,913,nomos_1/nomos/tangente_33/nomos_glashütte_tangente_126_karat-4.jpg,1.0,1.0,1.0
 1280,915,nomos_1/nomos/tangente_33/nomos_glashütte_tangente_126_karat-5.jpg,1.0,1.0,1.0
 1280,920,nomos_1/nomos/tangente_33/nomos_glashütte_tangente_126_karat-6.jpg,0.0,1.0,1.0
-1280,958,nomos_1/nomos/tangente_33/nomos_glashütte_tangente_126_karat-7.jpg,1.0,1.0,1.0
+1280,958,nomos_1/nomos/tangente_33/nomos_glashütte_tangente_126_karat-7.jpg,0.0,1.0,1.0
 1280,895,nomos_1/nomos/tangente_33/nomos_glashütte_tangente_126_karat-8.jpg,1.0,1.0,1.0
 480,640,nomos_1/nomos/tangente_33/nomos_glashütte_tangente_33-1.jpg,1.0,1.0,1.0
 480,480,nomos_1/nomos/tangente_33/nomos_glashütte_tangente_33-2.jpg,1.0,1.0,1.0
@@ -4399,7 +4399,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,926,nomos_1/nomos/tangente_33/nomos_glashütte_tangente_33_karat_saphirglasboden_-neu--3.jpg,1.0,1.0,1.0
 834,960,nomos_1/nomos/tangente_33/nomos_glashütte_tangente_33_karat_saphirglasboden_-neu--4.jpg,0.0,1.0,1.0
 1024,768,"nomos_1/nomos/tangente_33/nomos_glashütte_tangente_33_karat_stahl_handaufzug_glasboden_33mm_neu_box&pap._full_set_mit_zertifikat_über_1.640,-€-1.jpg",1.0,1.0,1.0
-1024,768,"nomos_1/nomos/tangente_33/nomos_glashütte_tangente_33_karat_stahl_handaufzug_glasboden_33mm_neu_box&pap._full_set_mit_zertifikat_über_1.640,-€-2.jpg",1.0,0.0,1.0
+1024,768,"nomos_1/nomos/tangente_33/nomos_glashütte_tangente_33_karat_stahl_handaufzug_glasboden_33mm_neu_box&pap._full_set_mit_zertifikat_über_1.640,-€-2.jpg",0.0,0.0,1.0
 1024,768,"nomos_1/nomos/tangente_33/nomos_glashütte_tangente_33_karat_stahl_handaufzug_glasboden_33mm_neu_box&pap._full_set_mit_zertifikat_über_1.640,-€-3.jpg",1.0,1.0,1.0
 1024,768,"nomos_1/nomos/tangente_33/nomos_glashütte_tangente_33_karat_stahl_handaufzug_glasboden_33mm_neu_box&pap._full_set_mit_zertifikat_über_1.640,-€-4.jpg",1.0,1.0,1.0
 1024,768,"nomos_1/nomos/tangente_33/nomos_glashütte_tangente_33_karat_stahl_handaufzug_glasboden_33mm_neu_box&pap._full_set_mit_zertifikat_über_1.640,-€-5.jpg",0.0,1.0,1.0
@@ -4458,7 +4458,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 619,827,nomos_1/nomos/tangente_33/nomos_tangente_33_champagner-3.jpg,1.0,1.0,1.0
 619,827,nomos_1/nomos/tangente_33/nomos_tangente_33_grau-1.jpg,1.0,1.0,1.0
 960,960,nomos_1/nomos/tangente_33/nomos_tangente_33_grau-2.jpg,1.0,1.0,1.0
-960,960,nomos_1/nomos/tangente_33/nomos_tangente_33_grau-3.jpg,1.0,1.0,1.0
+960,960,nomos_1/nomos/tangente_33/nomos_tangente_33_grau-3.jpg,0.0,1.0,1.0
 619,827,nomos_1/nomos/tangente_33/nomos_tangente_33_karat-1.jpg,1.0,1.0,1.0
 720,960,nomos_1/nomos/tangente_33/nomos_tangente_33mm_for_doctors_without_borders_uk_33mm-1.jpg,1.0,1.0,1.0
 960,960,nomos_1/nomos/tangente_33/nomos_tangente_sondermodell_120_jahre_juwelier_depperich-1.jpg,1.0,1.0,1.0
@@ -4480,8 +4480,8 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1024,725,nomos_1/nomos/tangente_38/nomos_glashütte_men's_164_tangente_38-15.jpg,1.0,1.0,1.0
 960,960,nomos_1/nomos/tangente_38/nomos_glashütte_men's_164_tangente_38-16.jpg,0.0,1.0,1.0
 900,900,nomos_1/nomos/tangente_38/nomos_glashütte_men's_164_tangente_38-2.jpg,0.0,1.0,1.0
-1024,576,nomos_1/nomos/tangente_38/nomos_glashütte_men's_164_tangente_38-3.jpg,0.0,1.0,1.0
-1024,725,nomos_1/nomos/tangente_38/nomos_glashütte_men's_164_tangente_38-4.jpg,0.0,1.0,1.0
+1024,576,nomos_1/nomos/tangente_38/nomos_glashütte_men's_164_tangente_38-3.jpg,1.0,1.0,1.0
+1024,725,nomos_1/nomos/tangente_38/nomos_glashütte_men's_164_tangente_38-4.jpg,1.0,1.0,1.0
 960,960,nomos_1/nomos/tangente_38/nomos_glashütte_men's_164_tangente_38-5.jpg,0.0,1.0,1.0
 1024,725,nomos_1/nomos/tangente_38/nomos_glashütte_men's_164_tangente_38-6.jpg,1.0,1.0,1.0
 1024,725,nomos_1/nomos/tangente_38/nomos_glashütte_men's_164_tangente_38-7.jpg,1.0,1.0,1.0
@@ -4490,7 +4490,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 720,960,nomos_1/nomos/tangente_38/nomos_glashütte_tangent_limited_edition_singapore_'red_dot'-1.jpg,1.0,0.0,1.0
 720,960,nomos_1/nomos/tangente_38/nomos_glashütte_tangent_limited_edition_singapore_'red_dot'-2.jpg,1.0,0.0,1.0
 720,960,nomos_1/nomos/tangente_38/nomos_glashütte_tangent_limited_edition_singapore_'red_dot'-3.jpg,0.0,0.0,1.0
-720,960,nomos_1/nomos/tangente_38/nomos_glashütte_tangent_limited_edition_singapore_'red_dot'-4.jpg,0.0,0.0,1.0
+720,960,nomos_1/nomos/tangente_38/nomos_glashütte_tangent_limited_edition_singapore_'red_dot'-4.jpg,0.0,0.0,0.0
 720,960,nomos_1/nomos/tangente_38/nomos_glashütte_tangent_limited_edition_singapore_'red_dot'-5.jpg,1.0,0.0,1.0
 720,960,nomos_1/nomos/tangente_38/nomos_glashütte_tangent_limited_edition_singapore_'red_dot'-6.jpg,1.0,0.0,1.0
 1280,947,nomos_1/nomos/tangente_38/nomos_glashütte_tangente_164_-_glasboden-1.jpg,1.0,1.0,1.0
@@ -4512,7 +4512,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,853,nomos_1/nomos/tangente_38/nomos_glashütte_tangente_38_164_-_glasboden-4.jpg,1.0,1.0,1.0
 1280,853,nomos_1/nomos/tangente_38/nomos_glashütte_tangente_38_164_-_glasboden-5.jpg,1.0,1.0,1.0
 639,960,nomos_1/nomos/tangente_38/nomos_glashütte_tangente_38_164_-_glasboden-6.jpg,1.0,0.0,1.0
-1280,853,nomos_1/nomos/tangente_38/nomos_glashütte_tangente_38_164_-_glasboden-7.jpg,1.0,0.0,1.0
+1280,853,nomos_1/nomos/tangente_38/nomos_glashütte_tangente_38_164_-_glasboden-7.jpg,0.0,0.0,1.0
 959,960,nomos_1/nomos/tangente_38/nomos_glashütte_tangente_38_edelstahlboden_-neu--1.jpg,1.0,0.0,1.0
 1280,857,nomos_1/nomos/tangente_38/nomos_glashütte_tangente_38_edelstahlboden_-neu--2.jpg,1.0,0.0,1.0
 1280,825,nomos_1/nomos/tangente_38/nomos_glashütte_tangente_38_edelstahlboden_-neu--3.jpg,1.0,1.0,1.0
@@ -4528,7 +4528,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1024,768,"nomos_1/nomos/tangente_38/nomos_glashütte_tangente_stahl_handaufzug_glasboden_armband_leder_38mm_ref.164_box&pap._full_set_neu_mit_zertifikat_über_1.840,-€-2.jpg",0.0,0.0,1.0
 1024,768,"nomos_1/nomos/tangente_38/nomos_glashütte_tangente_stahl_handaufzug_glasboden_armband_leder_38mm_ref.164_box&pap._full_set_neu_mit_zertifikat_über_1.840,-€-3.jpg",1.0,1.0,1.0
 1024,768,"nomos_1/nomos/tangente_38/nomos_glashütte_tangente_stahl_handaufzug_glasboden_armband_leder_38mm_ref.164_box&pap._full_set_neu_mit_zertifikat_über_1.840,-€-4.jpg",1.0,1.0,1.0
-1024,768,"nomos_1/nomos/tangente_38/nomos_glashütte_tangente_stahl_handaufzug_glasboden_armband_leder_38mm_ref.164_box&pap._full_set_neu_mit_zertifikat_über_1.840,-€-5.jpg",1.0,1.0,1.0
+1024,768,"nomos_1/nomos/tangente_38/nomos_glashütte_tangente_stahl_handaufzug_glasboden_armband_leder_38mm_ref.164_box&pap._full_set_neu_mit_zertifikat_über_1.840,-€-5.jpg",0.0,1.0,1.0
 1024,768,"nomos_1/nomos/tangente_38/nomos_glashütte_tangente_stahl_handaufzug_glasboden_armband_leder_38mm_ref.164_box&pap._full_set_neu_mit_zertifikat_über_1.840,-€-6.jpg",0.0,1.0,1.0
 931,960,nomos_1/nomos/tangente_38/nomos_tangente_164_watch_with_leather_bracelet_and_stainless_steel_bezel-1.jpg,1.0,1.0,1.0
 960,960,nomos_1/nomos/tangente_38/nomos_tangente_164_watch_with_leather_bracelet_and_stainless_steel_bezel-2.jpg,1.0,1.0,1.0
@@ -4815,7 +4815,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 960,960,nomos_1/nomos/tangente_neomatik/nomos_glashütte_180_tangente_neomatik_41_update_mens_watch_with_box&papers_41mm-4.jpg,1.0,1.0,1.0
 960,960,nomos_1/nomos/tangente_neomatik/nomos_glashütte_180_tangente_neomatik_41_update_mens_watch_with_box&papers_41mm-5.jpg,1.0,1.0,1.0
 960,960,nomos_1/nomos/tangente_neomatik/nomos_glashütte_180_tangente_neomatik_41_update_mens_watch_with_box&papers_41mm-6.jpg,0.0,0.0,1.0
-960,960,nomos_1/nomos/tangente_neomatik/nomos_glashütte_180_tangente_neomatik_41_update_mens_watch_with_box&papers_41mm-7.jpg,0.0,0.0,1.0
+960,960,nomos_1/nomos/tangente_neomatik/nomos_glashütte_180_tangente_neomatik_41_update_mens_watch_with_box&papers_41mm-7.jpg,1.0,0.0,1.0
 679,960,nomos_1/nomos/tangente_neomatik/nomos_glashütte_180_tangente_neomatik_41_update_mens_watch_with_box&papers_41mm-8.jpg,1.0,0.0,1.0
 960,960,nomos_1/nomos/tangente_neomatik/nomos_glashütte_men's_180_tangente_neomatik_41_update-1.jpg,1.0,1.0,1.0
 960,960,nomos_1/nomos/tangente_neomatik/nomos_glashütte_men's_180_tangente_neomatik_41_update-2.jpg,0.0,1.0,1.0
@@ -5031,7 +5031,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 672,960,nomos_1/nomos/tangente_neomatik/nomos_tangente_neomatik_39_steel-1.jpg,1.0,1.0,1.0
 1000,700,nomos_1/nomos/tangente_neomatik/nomos_tangente_neomatik_39_steel-2.jpg,1.0,1.0,1.0
 1000,700,nomos_1/nomos/tangente_neomatik/nomos_tangente_neomatik_39_steel-3.jpg,1.0,1.0,1.0
-1000,700,nomos_1/nomos/tangente_neomatik/nomos_tangente_neomatik_39_steel-4.jpg,0.0,1.0,1.0
+1000,700,nomos_1/nomos/tangente_neomatik/nomos_tangente_neomatik_39_steel-4.jpg,1.0,1.0,1.0
 1000,700,nomos_1/nomos/tangente_neomatik/nomos_tangente_neomatik_39_steel-5.jpg,1.0,1.0,1.0
 1000,700,nomos_1/nomos/tangente_neomatik/nomos_tangente_neomatik_39_steel-6.jpg,1.0,1.0,1.0
 1000,700,nomos_1/nomos/tangente_neomatik/nomos_tangente_neomatik_39_steel-7.jpg,0.0,1.0,1.0
@@ -5158,7 +5158,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,856,nomos_1/nomos/tangomat_(submodel)/nomos_glashütte_tangomat_saphirglasboden_-_neu--3.jpg,1.0,1.0,1.0
 1280,856,nomos_1/nomos/tangomat_(submodel)/nomos_glashütte_tangomat_saphirglasboden_-_neu--4.jpg,0.0,1.0,1.0
 1024,768,"nomos_1/nomos/tangomat_(submodel)/nomos_glashütte_tangomat_stahl_automatik_38mm_ref.641_box&pap.full_set_neu_mit_zertifikat_über_2.260,-€-1.jpg",1.0,1.0,1.0
-1024,768,"nomos_1/nomos/tangomat_(submodel)/nomos_glashütte_tangomat_stahl_automatik_38mm_ref.641_box&pap.full_set_neu_mit_zertifikat_über_2.260,-€-2.jpg",1.0,1.0,1.0
+1024,768,"nomos_1/nomos/tangomat_(submodel)/nomos_glashütte_tangomat_stahl_automatik_38mm_ref.641_box&pap.full_set_neu_mit_zertifikat_über_2.260,-€-2.jpg",0.0,1.0,1.0
 1024,768,"nomos_1/nomos/tangomat_(submodel)/nomos_glashütte_tangomat_stahl_automatik_38mm_ref.641_box&pap.full_set_neu_mit_zertifikat_über_2.260,-€-3.jpg",1.0,1.0,1.0
 1024,768,"nomos_1/nomos/tangomat_(submodel)/nomos_glashütte_tangomat_stahl_automatik_38mm_ref.641_box&pap.full_set_neu_mit_zertifikat_über_2.260,-€-4.jpg",1.0,1.0,1.0
 1024,768,"nomos_1/nomos/tangomat_(submodel)/nomos_glashütte_tangomat_stahl_automatik_38mm_ref.641_box&pap.full_set_neu_mit_zertifikat_über_2.260,-€-5.jpg",0.0,1.0,1.0
@@ -5212,7 +5212,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 480,640,nomos_1/nomos/tangomat_(submodel)/nomos_tangomat_edelstahl_automatik_ref._601-1.jpg,1.0,1.0,1.0
 480,640,nomos_1/nomos/tangomat_(submodel)/nomos_tangomat_edelstahl_automatik_ref._601-2.jpg,1.0,1.0,1.0
 1200,800,nomos_1/nomos/tangomat_(submodel)/nomos_tangomat_glashütte_stahl_automatik_herrenuhr_glasboden-1.jpg,1.0,1.0,1.0
-1200,800,nomos_1/nomos/tangomat_(submodel)/nomos_tangomat_glashütte_stahl_automatik_herrenuhr_glasboden-10.jpg,0.0,0.0,1.0
+1200,800,nomos_1/nomos/tangomat_(submodel)/nomos_tangomat_glashütte_stahl_automatik_herrenuhr_glasboden-10.jpg,1.0,0.0,1.0
 1200,800,nomos_1/nomos/tangomat_(submodel)/nomos_tangomat_glashütte_stahl_automatik_herrenuhr_glasboden-11.jpg,1.0,1.0,1.0
 1200,800,nomos_1/nomos/tangomat_(submodel)/nomos_tangomat_glashütte_stahl_automatik_herrenuhr_glasboden-12.jpg,1.0,1.0,1.0
 1200,800,nomos_1/nomos/tangomat_(submodel)/nomos_tangomat_glashütte_stahl_automatik_herrenuhr_glasboden-13.jpg,0.0,0.0,1.0
@@ -5288,7 +5288,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,960,nomos_1/nomos/tangomat_datum/nomos_tangomat_date_602_zeta_box_&_papers_2008-9.jpg,1.0,0.0,1.0
 578,480,"nomos_1/nomos/tangomat_datum/nomos_tangomat_datum,_ref._602-1.jpg",1.0,1.0,1.0
 720,960,nomos_1/nomos/tangomat_datum/nomos_tangomat_datum-1.jpg,1.0,0.0,1.0
-1280,853,nomos_1/nomos/tangomat_datum/nomos_tangomat_datum-10.jpg,1.0,0.0,0.0
+1280,853,nomos_1/nomos/tangomat_datum/nomos_tangomat_datum-10.jpg,0.0,0.0,0.0
 1280,853,nomos_1/nomos/tangomat_datum/nomos_tangomat_datum-11.jpg,1.0,0.0,0.0
 1280,853,nomos_1/nomos/tangomat_datum/nomos_tangomat_datum-12.jpg,1.0,1.0,1.0
 700,700,nomos_1/nomos/tangomat_datum/nomos_tangomat_datum-13.jpg,1.0,1.0,1.0
@@ -5343,7 +5343,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 400,480,nomos_1/nomos/tangomat_datum/nomos_tangomat_mit_datum_-_achtung_32%_gespart-3.jpg,0.0,1.0,1.0
 400,480,nomos_1/nomos/tangomat_datum/nomos_tangomat_mit_datum_-_achtung_32%_gespart-4.jpg,0.0,0.0,1.0
 900,900,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-1.jpg,1.0,1.0,1.0
-960,960,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-10.jpg,0.0,1.0,1.0
+960,960,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-10.jpg,1.0,1.0,1.0
 900,900,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-11.jpg,1.0,1.0,1.0
 900,900,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-12.jpg,1.0,1.0,1.0
 900,900,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-13.jpg,0.0,1.0,1.0
@@ -5355,8 +5355,8 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1024,725,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-19.jpg,1.0,1.0,1.0
 900,900,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-2.jpg,1.0,1.0,1.0
 1024,725,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-20.jpg,1.0,1.0,1.0
-960,960,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-21.jpg,0.0,1.0,1.0
-900,900,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-3.jpg,1.0,1.0,1.0
+960,960,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-21.jpg,1.0,1.0,1.0
+900,900,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-3.jpg,0.0,1.0,1.0
 960,960,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-4.jpg,0.0,1.0,1.0
 960,960,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-5.jpg,1.0,1.0,1.0
 1024,724,nomos_1/nomos/tangomat_gmt/nomos_glashütte_men's_635_tangomat_gmt-6.jpg,1.0,1.0,1.0
@@ -5456,7 +5456,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 480,480,nomos_1/nomos/tangomat_ruthenium/nomos_glashütte_tangomat_ruthenium-3.jpg,0.0,1.0,1.0
 480,640,nomos_1/nomos/tangomat_ruthenium/nomos_glashütte_tangomat_ruthenium_datum-1.jpg,1.0,1.0,1.0
 480,640,nomos_1/nomos/tangomat_ruthenium/nomos_glashütte_tangomat_ruthenium_datum-2.jpg,1.0,1.0,1.0
-640,480,nomos_1/nomos/tangomat_ruthenium/nomos_glashütte_tangomat_ruthenium_datum-3.jpg,1.0,1.0,1.0
+640,480,nomos_1/nomos/tangomat_ruthenium/nomos_glashütte_tangomat_ruthenium_datum-3.jpg,0.0,1.0,1.0
 960,960,nomos_1/nomos/tangomat_ruthenium/nomos_glashütte_tangomat_ruthenium_datum_saphirglasboden_-_neu--1.jpg,1.0,1.0,1.0
 960,960,nomos_1/nomos/tangomat_ruthenium/nomos_glashütte_tangomat_ruthenium_datum_saphirglasboden_-_neu--2.jpg,1.0,1.0,1.0
 960,960,nomos_1/nomos/tangomat_ruthenium/nomos_glashütte_tangomat_ruthenium_datum_saphirglasboden_-_neu--3.jpg,1.0,1.0,1.0
@@ -5706,7 +5706,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 680,837,nomos_1/nomos/tetra_(submodel)/nomos_tetra2_sumpfkratzdistel-3.jpg,1.0,1.0,1.0
 680,848,nomos_1/nomos/tetra_(submodel)/nomos_tetra2_sumpfkratzdistel-4.jpg,1.0,1.0,1.0
 640,369,nomos_1/nomos/tetra_(submodel)/nomos_tetra2_sumpfkratzdistel-6.jpg,0.0,1.0,1.0
-680,744,nomos_1/nomos/tetra_(submodel)/nomos_tetra2_sumpfkratzdistel-7.jpg,1.0,1.0,1.0
+680,744,nomos_1/nomos/tetra_(submodel)/nomos_tetra2_sumpfkratzdistel-7.jpg,0.0,1.0,1.0
 549,480,nomos_1/nomos/tetra_(submodel)/nomos_tetra2_sumpfkratzdistel-8.jpg,0.0,1.0,1.0
 486,960,nomos_1/nomos/tetra_(submodel)/nomos_tetra2_sumpfkratzdistel-9.jpg,0.0,0.0,1.0
 466,960,nomos_1/nomos/tetra_(submodel)/nomos_tetra_29.5mm_square_406_sapphire_crystal_back-1.jpg,1.0,1.0,1.0
@@ -5780,8 +5780,8 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 892,960,nomos_1/nomos/tetra_(submodel)/nomos_tetra_nachtijall-2.jpg,1.0,0.0,1.0
 781,960,nomos_1/nomos/tetra_(submodel)/nomos_tetra_nachtijall-3.jpg,1.0,0.0,1.0
 1148,960,nomos_1/nomos/tetra_(submodel)/nomos_tetra_nachtijall-4.jpg,1.0,0.0,1.0
-983,960,nomos_1/nomos/tetra_(submodel)/nomos_tetra_nachtijall-5.jpg,1.0,1.0,1.0
-1280,654,nomos_1/nomos/tetra_(submodel)/nomos_tetra_nachtijall-6.jpg,1.0,1.0,1.0
+983,960,nomos_1/nomos/tetra_(submodel)/nomos_tetra_nachtijall-5.jpg,0.0,1.0,1.0
+1280,654,nomos_1/nomos/tetra_(submodel)/nomos_tetra_nachtijall-6.jpg,0.0,1.0,1.0
 1280,960,nomos_1/nomos/tetra_(submodel)/nomos_tetra_nachtijall-7.jpg,1.0,1.0,1.0
 960,960,nomos_1/nomos/tetra_(submodel)/nomos_tetra_nachtijall-8.jpg,1.0,1.0,1.0
 960,960,nomos_1/nomos/tetra_(submodel)/nomos_tetra_nachtijall-9.jpg,0.0,1.0,1.0
