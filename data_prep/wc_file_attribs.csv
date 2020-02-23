@@ -7097,7 +7097,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1200,800,sinn_1/sinn/104/sinn_104st_klassische_fliegeruhr_day-date_automatik_104.010_glasboden-3.jpg,1.0,1.0,1.0
 1200,800,sinn_1/sinn/104/sinn_104st_klassische_fliegeruhr_day-date_automatik_104.010_glasboden-4.jpg,1.0,1.0,1.0
 1200,800,sinn_1/sinn/104/sinn_104st_klassische_fliegeruhr_day-date_automatik_104.010_glasboden-5.jpg,1.0,1.0,1.0
-1200,800,sinn_1/sinn/104/sinn_104st_klassische_fliegeruhr_day-date_automatik_104.010_glasboden-6.jpg,1.0,1.0,1.0
+1200,800,sinn_1/sinn/104/sinn_104st_klassische_fliegeruhr_day-date_automatik_104.010_glasboden-6.jpg,0.0,1.0,1.0
 1200,800,sinn_1/sinn/104/sinn_104st_klassische_fliegeruhr_day-date_automatik_104.010_glasboden-7.jpg,0.0,1.0,1.0
 1200,800,sinn_1/sinn/104/sinn_104st_klassische_fliegeruhr_day-date_automatik_104.010_glasboden-8.jpg,0.0,0.0,1.0
 1200,800,sinn_1/sinn/104/sinn_104st_klassische_fliegeruhr_day-date_automatik_104.010_glasboden-9.jpg,0.0,1.0,1.0
@@ -7381,7 +7381,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 720,960,sinn_1/sinn/142/sinn_142_titan_ref._142.041-4.jpg,1.0,1.0,1.0
 1280,960,sinn_1/sinn/142/sinn_142_titan_ref._142.041-5.jpg,0.0,1.0,1.0
 1280,960,sinn_1/sinn/142/sinn_142_titan_ref._142.041-6.jpg,0.0,1.0,1.0
-720,960,sinn_1/sinn/142/sinn_142_titan_ref._142.041-7.jpg,1.0,0.0,1.0
+720,960,sinn_1/sinn/142/sinn_142_titan_ref._142.041-7.jpg,0.0,0.0,1.0
 850,850,sinn_1/sinn/142/sinn_142_titan_ref._142.041-8.jpg,0.0,0.0,1.0
 1280,959,sinn_1/sinn/142/sinn_142_weltraumchronograph-1.jpg,1.0,1.0,1.0
 1280,960,sinn_1/sinn/142/sinn_142_weltraumchronograph-10.jpg,0.0,0.0,1.0
@@ -7529,10 +7529,10 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 508,480,sinn_1/sinn/144/sinn_gmt_144_world_time_automatic_aviator_steel_men's_chronograph-16.jpg,1.0,0.0,1.0
 626,960,sinn_1/sinn/144/sinn_gmt_144_world_time_automatic_aviator_steel_men's_chronograph-2.jpg,1.0,1.0,1.0
 701,960,sinn_1/sinn/144/sinn_gmt_144_world_time_automatic_aviator_steel_men's_chronograph-3.jpg,1.0,1.0,1.0
-1280,960,sinn_1/sinn/144/sinn_gmt_144_world_time_automatic_aviator_steel_men's_chronograph-4.jpg,0.0,0.0,1.0
+1280,960,sinn_1/sinn/144/sinn_gmt_144_world_time_automatic_aviator_steel_men's_chronograph-4.jpg,1.0,0.0,1.0
 736,960,sinn_1/sinn/144/sinn_gmt_144_world_time_automatic_aviator_steel_men's_chronograph-5.jpg,0.0,0.0,1.0
 702,960,sinn_1/sinn/144/sinn_gmt_144_world_time_automatic_aviator_steel_men's_chronograph-6.jpg,0.0,0.0,1.0
-963,960,sinn_1/sinn/144/sinn_gmt_144_world_time_automatic_aviator_steel_men's_chronograph-7.jpg,0.0,0.0,1.0
+963,960,sinn_1/sinn/144/sinn_gmt_144_world_time_automatic_aviator_steel_men's_chronograph-7.jpg,1.0,0.0,1.0
 687,960,sinn_1/sinn/144/sinn_gmt_144_world_time_automatic_aviator_steel_men's_chronograph-8.jpg,1.0,1.0,1.0
 798,960,sinn_1/sinn/144/sinn_gmt_144_world_time_automatic_aviator_steel_men's_chronograph-9.jpg,1.0,1.0,1.0
 720,960,sinn_1/sinn/144/sinn_modell_144_st_s_jubiläum-1.jpg,1.0,0.0,1.0
@@ -7954,7 +7954,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 738,960,sinn_1/sinn/243/sinn_243_tw66_wg_k-8.jpg,0.0,1.0,1.0
 738,960,sinn_1/sinn/243/sinn_243_tw66_wg_k-9.jpg,0.0,1.0,1.0
 619,827,sinn_1/sinn/243/sinn_243_tw66_wg_m-1.jpg,1.0,1.0,1.0
-738,960,sinn_1/sinn/243/sinn_243_tw66_wg_m-10.jpg,1.0,1.0,1.0
+738,960,sinn_1/sinn/243/sinn_243_tw66_wg_m-10.jpg,0.0,1.0,1.0
 742,960,sinn_1/sinn/243/sinn_243_tw66_wg_m-11.jpg,1.0,1.0,1.0
 619,827,sinn_1/sinn/243/sinn_243_tw66_wg_m-12.jpg,1.0,1.0,1.0
 619,827,sinn_1/sinn/243/sinn_243_tw66_wg_m-2.jpg,1.0,1.0,1.0
@@ -8015,7 +8015,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 720,960,sinn_1/sinn/303/sinn_303_kristal_fulda_yukon_chronograph-1.jpg,1.0,1.0,1.0
 720,960,sinn_1/sinn/303/sinn_303_kristal_fulda_yukon_chronograph-2.jpg,1.0,1.0,1.0
 720,960,sinn_1/sinn/303/sinn_303_kristal_fulda_yukon_chronograph-3.jpg,1.0,1.0,1.0
-720,960,sinn_1/sinn/303/sinn_303_kristal_fulda_yukon_chronograph-4.jpg,0.0,1.0,1.0
+720,960,sinn_1/sinn/303/sinn_303_kristal_fulda_yukon_chronograph-4.jpg,1.0,1.0,1.0
 720,960,sinn_1/sinn/303/sinn_303_kristal_fulda_yukon_chronograph-5.jpg,0.0,0.0,1.0
 720,960,sinn_1/sinn/303/sinn_303_kristal_fulda_yukon_chronograph-6.jpg,1.0,1.0,1.0
 720,960,sinn_1/sinn/303/sinn_303_kristal_fulda_yukon_chronograph-7.jpg,1.0,0.0,1.0
@@ -8026,7 +8026,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 408,480,sinn_1/sinn/303/sinn_chronograph_day-date_limited_edition-5.jpg,1.0,0.0,1.0
 960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-1.jpg",1.0,1.0,1.0
 960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-10.jpg",1.0,0.0,1.0
-960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-11.jpg",1.0,0.0,1.0
+960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-11.jpg",0.0,0.0,1.0
 960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-12.jpg",1.0,0.0,1.0
 960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-2.jpg",1.0,1.0,1.0
 960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-3.jpg",1.0,1.0,1.0
@@ -8221,7 +8221,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 640,480,sinn_1/sinn/358/sinn_358_diapal_klassischer_chronograph-8.jpg,0.0,1.0,1.0
 640,480,sinn_1/sinn/358/sinn_358_diapal_klassischer_chronograph-9.jpg,0.0,0.0,1.0
 720,960,sinn_1/sinn/358/sinn_358_flieger-1.jpg,1.0,0.0,0.0
-719,960,sinn_1/sinn/358/sinn_358_flieger-2.jpg,1.0,0.0,0.0
+719,960,sinn_1/sinn/358/sinn_358_flieger-2.jpg,1.0,0.0,1.0
 719,960,sinn_1/sinn/358/sinn_358_flieger-3.jpg,1.0,0.0,0.0
 720,960,sinn_1/sinn/358/sinn_358_flieger-4.jpg,1.0,0.0,0.0
 720,960,sinn_1/sinn/358/sinn_358_flieger-5.jpg,1.0,0.0,0.0
@@ -8261,7 +8261,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 738,960,sinn_1/sinn/456/sinn_456_st_i-10.jpg,1.0,1.0,1.0
 720,960,sinn_1/sinn/456/sinn_456_st_i-11.jpg,1.0,0.0,1.0
 1280,960,sinn_1/sinn/456/sinn_456_st_i-12.jpg,1.0,0.0,1.0
-1280,960,sinn_1/sinn/456/sinn_456_st_i-13.jpg,1.0,0.0,1.0
+1280,960,sinn_1/sinn/456/sinn_456_st_i-13.jpg,0.0,0.0,1.0
 1280,948,sinn_1/sinn/456/sinn_456_st_i-14.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/456/sinn_456_st_i-15.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/456/sinn_456_st_i-16.jpg,1.0,0.0,1.0
@@ -8280,7 +8280,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 624,960,sinn_1/sinn/456/sinn_456_st_i_schwarz_massivarmband-1.jpg,1.0,0.0,1.0
 580,960,sinn_1/sinn/456/sinn_456_st_i_schwarz_massivarmband-2.jpg,1.0,0.0,0.0
 480,960,sinn_1/sinn/456/sinn_456_st_i_schwarz_massivarmband-3.jpg,1.0,0.0,0.0
-480,960,sinn_1/sinn/456/sinn_456_st_i_schwarz_massivarmband-4.jpg,1.0,0.0,0.0
+480,960,sinn_1/sinn/456/sinn_456_st_i_schwarz_massivarmband-4.jpg,0.0,0.0,0.0
 480,960,sinn_1/sinn/456/sinn_456_st_i_schwarz_massivarmband-5.jpg,1.0,0.0,1.0
 480,960,sinn_1/sinn/456/sinn_456_st_i_schwarz_massivarmband-6.jpg,1.0,0.0,0.0
 720,960,sinn_1/sinn/456/sinn_456_st_mother-of-pearl_w-1.jpg,1.0,0.0,1.0
@@ -8289,7 +8289,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 720,960,sinn_1/sinn/456/sinn_456_st_mother-of-pearl_w-4.jpg,0.0,0.0,1.0
 1280,720,sinn_1/sinn/456/sinn_456_st_perlmutt-1.jpg,1.0,0.0,1.0
 1280,720,sinn_1/sinn/456/sinn_456_st_perlmutt-2.jpg,0.0,0.0,1.0
-540,960,sinn_1/sinn/456/sinn_456_st_perlmutt-3.jpg,0.0,0.0,1.0
+540,960,sinn_1/sinn/456/sinn_456_st_perlmutt-3.jpg,1.0,0.0,1.0
 1280,720,sinn_1/sinn/456/sinn_456_st_perlmutt-4.jpg,0.0,0.0,1.0
 540,960,sinn_1/sinn/456/sinn_456_st_perlmutt-5.jpg,1.0,0.0,1.0
 540,960,sinn_1/sinn/456/sinn_456_st_perlmutt-6.jpg,1.0,0.0,1.0
@@ -8620,7 +8620,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,960,sinn_1/sinn/656_-_657/sinn_656-3.jpg,1.0,0.0,1.0
 1280,960,sinn_1/sinn/656_-_657/sinn_656-4.jpg,1.0,0.0,1.0
 1280,960,sinn_1/sinn/656_-_657/sinn_656-5.jpg,1.0,0.0,1.0
-1280,960,sinn_1/sinn/656_-_657/sinn_656-6.jpg,1.0,0.0,1.0
+1280,960,sinn_1/sinn/656_-_657/sinn_656-6.jpg,0.0,0.0,1.0
 1280,960,sinn_1/sinn/656_-_657/sinn_656-7.jpg,1.0,0.0,1.0
 1280,960,sinn_1/sinn/656_-_657/sinn_656-8.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/656_-_657/sinn_656__657-1.jpg,1.0,0.0,1.0
@@ -8629,7 +8629,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 720,960,sinn_1/sinn/656_-_657/sinn_656__657-4.jpg,1.0,0.0,1.0
 1200,800,sinn_1/sinn/656_-_657/sinn_fliegeruhr_ref.657_bj.2007_+papiere_+_box+_band-1.jpg,1.0,0.0,1.0
 729,960,sinn_1/sinn/656_-_657/sinn_fliegeruhr_ref.657_bj.2007_+papiere_+_box+_band-2.jpg,1.0,0.0,1.0
-1200,936,sinn_1/sinn/656_-_657/sinn_fliegeruhr_ref.657_bj.2007_+papiere_+_box+_band-3.jpg,0.0,0.0,1.0
+1200,936,sinn_1/sinn/656_-_657/sinn_fliegeruhr_ref.657_bj.2007_+papiere_+_box+_band-3.jpg,1.0,0.0,1.0
 1158,960,sinn_1/sinn/656_-_657/sinn_fliegeruhr_ref.657_bj.2007_+papiere_+_box+_band-4.jpg,0.0,0.0,1.0
 1200,800,sinn_1/sinn/656_-_657/sinn_fliegeruhr_ref.657_bj.2007_+papiere_+_box+_band-5.jpg,1.0,0.0,1.0
 1200,800,sinn_1/sinn/656_-_657/sinn_fliegeruhr_ref.657_bj.2007_+papiere_+_box+_band-6.jpg,1.0,0.0,1.0
@@ -8642,7 +8642,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 619,827,sinn_1/sinn/756_-_757/sinn_756-15.jpg,1.0,1.0,1.0
 619,827,sinn_1/sinn/756_-_757/sinn_756-16.jpg,1.0,1.0,1.0
 1280,960,sinn_1/sinn/756_-_757/sinn_756-17.jpg,1.0,0.0,1.0
-1280,960,sinn_1/sinn/756_-_757/sinn_756-18.jpg,0.0,0.0,1.0
+1280,960,sinn_1/sinn/756_-_757/sinn_756-18.jpg,1.0,0.0,1.0
 1280,960,sinn_1/sinn/756_-_757/sinn_756-19.jpg,1.0,0.0,1.0
 619,827,sinn_1/sinn/756_-_757/sinn_756-2.jpg,1.0,1.0,1.0
 1280,960,sinn_1/sinn/756_-_757/sinn_756-20.jpg,1.0,1.0,1.0
@@ -8701,7 +8701,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,853,sinn_1/sinn/756_-_757/sinn_756_duochronograph_leather_strap_new-3.jpg,0.0,0.0,1.0
 1280,853,sinn_1/sinn/756_-_757/sinn_756_duochronograph_leather_strap_new-4.jpg,0.0,0.0,1.0
 1280,960,sinn_1/sinn/756_-_757/sinn_756_duograph-1.jpg,1.0,0.0,1.0
-1279,960,sinn_1/sinn/756_-_757/sinn_756_duograph-2.jpg,1.0,0.0,1.0
+1279,960,sinn_1/sinn/756_-_757/sinn_756_duograph-2.jpg,0.0,0.0,1.0
 1279,960,sinn_1/sinn/756_-_757/sinn_756_duograph-3.jpg,1.0,0.0,1.0
 1279,960,sinn_1/sinn/756_-_757/sinn_756_duograph-4.jpg,1.0,0.0,1.0
 1279,960,sinn_1/sinn/756_-_757/sinn_756_duograph-5.jpg,1.0,0.0,1.0
@@ -8710,7 +8710,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1279,847,sinn_1/sinn/756_-_757/sinn_756_ii-2.jpg,1.0,0.0,1.0
 1280,853,sinn_1/sinn/756_-_757/sinn_756_ii._limited_edition-1.jpg,1.0,0.0,1.0
 1280,853,sinn_1/sinn/756_-_757/sinn_756_ii._limited_edition-2.jpg,1.0,0.0,1.0
-1280,853,sinn_1/sinn/756_-_757/sinn_756_ii._limited_edition-3.jpg,1.0,0.0,1.0
+1280,853,sinn_1/sinn/756_-_757/sinn_756_ii._limited_edition-3.jpg,0.0,0.0,1.0
 608,960,sinn_1/sinn/756_-_757/sinn_756_iii-1.jpg,1.0,1.0,1.0
 1280,853,sinn_1/sinn/756_-_757/sinn_756_iii_limited_edition-1.jpg,1.0,0.0,1.0
 1280,853,sinn_1/sinn/756_-_757/sinn_756_iii_limited_edition-2.jpg,1.0,0.0,1.0
@@ -8852,7 +8852,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 720,960,sinn_1/sinn/756_-_757/sinn_duochronograph_757_diapal-6.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/756_-_757/sinn_duochronograph_757_diapal-7.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/756_-_757/sinn_duochronograph_757_diapal-8.jpg,1.0,0.0,1.0
-720,960,sinn_1/sinn/756_-_757/sinn_duochronograph_757_diapal-9.jpg,1.0,0.0,1.0
+720,960,sinn_1/sinn/756_-_757/sinn_duochronograph_757_diapal-9.jpg,0.0,0.0,1.0
 1280,960,sinn_1/sinn/756_-_757/sinn_ezm7-756-1.jpg,1.0,1.0,1.0
 1280,960,sinn_1/sinn/756_-_757/sinn_ezm7-756-2.jpg,1.0,0.0,1.0
 1280,960,sinn_1/sinn/756_-_757/sinn_ezm7-756-3.jpg,1.0,0.0,1.0
@@ -8929,7 +8929,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,960,sinn_1/sinn/856_-_857/sinn_856__857_magnetfeldgeschützte_fliegeruhr-1.jpg,1.0,0.0,1.0
 1280,960,sinn_1/sinn/856_-_857/sinn_856__857_magnetfeldgeschützte_fliegeruhr-2.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/856_-_857/sinn_856__857_magnetfeldgeschützte_fliegeruhr-3.jpg,0.0,0.0,1.0
-720,960,sinn_1/sinn/856_-_857/sinn_856__857_magnetfeldgeschützte_fliegeruhr-4.jpg,0.0,0.0,1.0
+720,960,sinn_1/sinn/856_-_857/sinn_856__857_magnetfeldgeschützte_fliegeruhr-4.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/856_-_857/sinn_856__857_magnetfeldgeschützte_fliegeruhr-5.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/856_-_857/sinn_856__857_magnetfeldgeschützte_fliegeruhr-6.jpg,1.0,0.0,1.0
 619,827,sinn_1/sinn/856_-_857/sinn_856_b-uhr-1.jpg,1.0,1.0,1.0
@@ -8972,7 +8972,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,960,sinn_1/sinn/856_-_857/sinn_856_die_beobachtungsuhr_inzahlungnahme_möglich-2.jpg,1.0,1.0,1.0
 989,960,sinn_1/sinn/856_-_857/sinn_856_die_beobachtungsuhr_inzahlungnahme_möglich-3.jpg,1.0,1.0,1.0
 1280,960,sinn_1/sinn/856_-_857/sinn_856_die_beobachtungsuhr_inzahlungnahme_möglich-4.jpg,1.0,1.0,1.0
-904,960,sinn_1/sinn/856_-_857/sinn_856_die_beobachtungsuhr_inzahlungnahme_möglich-5.jpg,0.0,0.0,1.0
+904,960,sinn_1/sinn/856_-_857/sinn_856_die_beobachtungsuhr_inzahlungnahme_möglich-5.jpg,1.0,0.0,1.0
 1024,960,sinn_1/sinn/856_-_857/sinn_856_die_beobachtungsuhr_inzahlungnahme_möglich-6.jpg,1.0,1.0,1.0
 967,960,sinn_1/sinn/856_-_857/sinn_856_die_beobachtungsuhr_inzahlungnahme_möglich-7.jpg,0.0,0.0,1.0
 1280,836,sinn_1/sinn/856_-_857/sinn_856_die_beobachtungsuhr_inzahlungnahme_möglich-8.jpg,1.0,1.0,1.0
@@ -9048,7 +9048,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 619,827,sinn_1/sinn/856_-_857/sinn_856_utc-6.jpg,1.0,1.0,1.0
 720,960,sinn_1/sinn/856_-_857/sinn_856_utc-7.jpg,1.0,0.0,1.0
 807,605,sinn_1/sinn/856_-_857/sinn_856_utc-8.jpg,1.0,0.0,1.0
-1280,960,sinn_1/sinn/856_-_857/sinn_856_utc-9.jpg,0.0,0.0,1.0
+1280,960,sinn_1/sinn/856_-_857/sinn_856_utc-9.jpg,1.0,0.0,1.0
 1280,853,sinn_1/sinn/856_-_857/sinn_856_utc_pilot_watch_magnetic_field_protection_with_bracelet_new-1.jpg,1.0,0.0,1.0
 1280,853,sinn_1/sinn/856_-_857/sinn_856_utc_pilot_watch_magnetic_field_protection_with_bracelet_new-2.jpg,1.0,0.0,1.0
 1280,853,sinn_1/sinn/856_-_857/sinn_856_utc_pilot_watch_magnetic_field_protection_with_leather_strap_new-1.jpg,1.0,0.0,1.0
@@ -9329,7 +9329,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,960,sinn_1/sinn/903/sinn_903-11.jpg,1.0,1.0,1.0
 1024,768,sinn_1/sinn/903/sinn_903-12.jpg,1.0,0.0,1.0
 1024,768,sinn_1/sinn/903/sinn_903-13.jpg,0.0,0.0,0.0
-1024,768,sinn_1/sinn/903/sinn_903-14.jpg,0.0,0.0,0.0
+1024,768,sinn_1/sinn/903/sinn_903-14.jpg,1.0,0.0,0.0
 1024,768,sinn_1/sinn/903/sinn_903-15.jpg,0.0,0.0,0.0
 1024,768,sinn_1/sinn/903/sinn_903-16.jpg,1.0,0.0,0.0
 1024,768,sinn_1/sinn/903/sinn_903-17.jpg,1.0,0.0,0.0
@@ -9463,8 +9463,8 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 720,960,sinn_1/sinn/903/sinn_903_st_navigation_chronograph-1.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/903/sinn_903_st_navigation_chronograph-2.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/903/sinn_903_st_navigation_chronograph-3.jpg,1.0,0.0,1.0
-720,960,sinn_1/sinn/903/sinn_903_st_navigation_chronograph-4.jpg,1.0,0.0,1.0
-720,960,sinn_1/sinn/903/sinn_903_st_navigation_chronograph-5.jpg,1.0,0.0,1.0
+720,960,sinn_1/sinn/903/sinn_903_st_navigation_chronograph-4.jpg,0.0,0.0,1.0
+720,960,sinn_1/sinn/903/sinn_903_st_navigation_chronograph-5.jpg,0.0,0.0,1.0
 1280,853,sinn_1/sinn/903/sinn_903_st_navigation_chronograph_bracelet_new-1.jpg,1.0,0.0,1.0
 1280,853,sinn_1/sinn/903/sinn_903_st_navigation_chronograph_bracelet_new-2.jpg,1.0,1.0,1.0
 1280,853,sinn_1/sinn/903/sinn_903_st_navigation_chronograph_leather_strap_new-1.jpg,1.0,0.0,1.0
@@ -9536,8 +9536,8 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 684,912,sinn_1/sinn/903/sinn_navigationschronograph_903_gold-6.jpg,1.0,0.0,1.0
 1060,960,sinn_1/sinn/903/sinn_navigationschronograph_903st-1.jpg,1.0,0.0,1.0
 1200,800,sinn_1/sinn/903/sinn_navigationschronograph_903st-2.jpg,0.0,0.0,1.0
-1200,800,sinn_1/sinn/903/sinn_navigationschronograph_903st-3.jpg,0.0,0.0,1.0
-1200,800,sinn_1/sinn/903/sinn_navigationschronograph_903st-4.jpg,0.0,0.0,1.0
+1200,800,sinn_1/sinn/903/sinn_navigationschronograph_903st-3.jpg,1.0,0.0,1.0
+1200,800,sinn_1/sinn/903/sinn_navigationschronograph_903st-4.jpg,1.0,0.0,1.0
 850,960,"sinn_1/sinn/903/sinn_navigationsuhr_903_pl_chronograph_41,5_mm_lemania_1873_vergoldet_extrem_rar-1.jpg",1.0,1.0,1.0
 1240,960,"sinn_1/sinn/903/sinn_navigationsuhr_903_pl_chronograph_41,5_mm_lemania_1873_vergoldet_extrem_rar-10.jpg",0.0,1.0,1.0
 1139,960,"sinn_1/sinn/903/sinn_navigationsuhr_903_pl_chronograph_41,5_mm_lemania_1873_vergoldet_extrem_rar-11.jpg",1.0,1.0,1.0
@@ -9796,7 +9796,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 720,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-2.jpg,1.0,1.0,1.0
 720,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-3.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-4.jpg,1.0,0.0,1.0
-720,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-5.jpg,0.0,0.0,1.0
+720,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-5.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-6.jpg,0.0,0.0,1.0
 1280,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-7.jpg,0.0,0.0,1.0
 720,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-8.jpg,1.0,0.0,1.0
@@ -9856,7 +9856,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 637,480,sinn_1/sinn/_without_model/sinn_3006_jagduhr-2.jpg,1.0,1.0,1.0
 640,480,sinn_1/sinn/_without_model/sinn_3006_jagduhr-3.jpg,1.0,0.0,1.0
 640,480,sinn_1/sinn/_without_model/sinn_3006_jagduhr-4.jpg,1.0,1.0,1.0
-640,480,sinn_1/sinn/_without_model/sinn_3006_jagduhr-5.jpg,0.0,0.0,1.0
+640,480,sinn_1/sinn/_without_model/sinn_3006_jagduhr-5.jpg,1.0,0.0,1.0
 636,480,sinn_1/sinn/_without_model/sinn_3006_jagduhr-6.jpg,1.0,1.0,1.0
 639,480,sinn_1/sinn/_without_model/sinn_3006_jagduhr-7.jpg,1.0,0.0,1.0
 637,480,sinn_1/sinn/_without_model/sinn_3006_jagduhr-8.jpg,0.0,0.0,1.0
@@ -9968,7 +9968,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1257,960,sinn_1/sinn/_without_model/sinn_556_jubiläum-8.jpg,1.0,0.0,1.0
 1280,806,sinn_1/sinn/_without_model/sinn_556_jubiläum-9.jpg,1.0,0.0,0.0
 720,960,sinn_1/sinn/_without_model/sinn_6026_pl_m-1.jpg,1.0,0.0,1.0
-720,960,sinn_1/sinn/_without_model/sinn_6026_pl_m-2.jpg,0.0,0.0,1.0
+720,960,sinn_1/sinn/_without_model/sinn_6026_pl_m-2.jpg,1.0,0.0,1.0
 1280,960,sinn_1/sinn/_without_model/sinn_6026_pl_m-3.jpg,1.0,0.0,1.0
 1280,960,sinn_1/sinn/_without_model/sinn_6026_pl_m-4.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/_without_model/sinn_6026_pl_m-5.jpg,1.0,0.0,1.0
