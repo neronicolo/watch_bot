@@ -7,7 +7,7 @@
 ###
 
 """
-    usage: unrar_recur.py [-h] [src_path] [dest_path]
+    usage: unzip_recur.py [-h] [src_path] [dest_path]
 
     Recursively extracts files inside given folder.
 
