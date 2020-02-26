@@ -19,18 +19,18 @@
       -h, --help  show this help message and exit
 """
 
-from pathlib import Path
-import rarfile
 import argparse
-import sys
 import itertools
-from tqdm import tqdm
+import sys
+from pathlib import Path
+
+import rarfile
 
 # TODO: Combina zip and rar into one program
 #   https://stackoverflow.com/questions/18653025/python-zip-extraction-exception
 
 # creating ArgumentParser object
-parser = argparse.ArgumentParser(description='Recursively extracts files inside given folder.')
+parser = argparse.ArgumentParser(description='Recursively extracts files from given directory.')
 # adding positional arguments
 parser.add_argument('src_path', nargs='?', default=Path.cwd(), help='set source path, if not cwd() wiil be used')
 parser.add_argument('dest_path', nargs='?', default=Path.cwd(), help='set destination path, if not cwd() wiil be used')
