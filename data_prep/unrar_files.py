@@ -32,8 +32,8 @@ import rarfile
 # creating ArgumentParser object
 parser = argparse.ArgumentParser(description='Recursively extracts files from given directory.')
 # adding positional arguments
-parser.add_argument('src_path', nargs='?', default=Path.cwd(), help='set source path, if not cwd() wiil be used')
-parser.add_argument('dest_path', nargs='?', default=Path.cwd(), help='set destination path, if not cwd() wiil be used')
+parser.add_argument('src_path', nargs='?', default=Path.cwd(), help='source path, if omitted cdw() will be used')
+parser.add_argument('dest_path', nargs='?', default=Path.cwd(), help='destination path, if omitted cdw() will be used'')
 # parsing arguments
 args = parser.parse_args()
 
