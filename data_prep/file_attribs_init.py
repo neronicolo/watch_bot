@@ -8,7 +8,7 @@ from tqdm import tqdm
 #   file_attrib(source folder(starting folder for recursion), csv_path(where to save), **kwargs(column for labelin))
 
 # save csv to
-csv_file_path = Path.home()/'programming/projects/watch_bot/data_prep/wc_file_attribs.csv'
+csv_file_path = Path.home()/'programming/projects/watch_bot/data_prep/file_attribs.csv'
 # directory path where images are stored
 imgs_dir_path = Path.home()/'programming/data/watch_bot/'
 
