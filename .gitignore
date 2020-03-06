@@ -2,5 +2,5 @@
 .vscode/launch.json
 .vscode/.ropeproject/config.py
 .vscode/.ropeproject/objectdb
+.ipynb_checkpoints
 data_prep/__pycache__/check.cpython-37.pyc
-
