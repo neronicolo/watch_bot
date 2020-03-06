@@ -1,7 +1,6 @@
 import pandas as pd
 from pathlib import Path
 
-# TODO: remove umlaut, @!%^&*...etc.
 def remove_umlaut(string):
     """
     Removes umlauts from strings and replaces them with the letter+e convention
@@ -28,8 +27,7 @@ def remove_umlaut(string):
     string = string.decode('utf-8')
     return string
 
-path_csv = Path.home()/'programming/projects/watch_bot/data_prep/file_attribs.csv'
-df = pd.read_csv(path_csv)
-df = df.iloc[9955:9965]['name']
-
-print(df.apply(remove_umlaut))
+csv_file_path = Path.home()/'programming/projects/watch_bot/data_prep/file_attribs.csv'
+df = pd.read_csv(csv_file_path)
+df['name'] = df['name'].apply(remove_umlaut)
+df.to_csv(csv_file_path, index=False)
