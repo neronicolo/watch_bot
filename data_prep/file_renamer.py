@@ -4,12 +4,40 @@ import sys
 from pathlib import Path
 from tqdm import tqdm
 
-def replace_path(path, pattern, replace):
-    """Return the pathlib Path object obtained by replacing occurrences of 'pattern' in string by the 'replace'. Converts path to lower key. Meant to be used on files and directories"""
+def remove_umlaut(string):
+    """
+    Removes umlauts from strings and replaces them with the letter+e convention
+    :param string: string to remove umlauts from
+    :return: unumlauted string
+    """
+    u = 'ü'.encode()
+    U = 'Ü'.encode()
+    a = 'ä'.encode()
+    A = 'Ä'.encode()
+    o = 'ö'.encode()
+    O = 'Ö'.encode()
+    ss = 'ß'.encode()
+
+    string = string.encode()
+    string = string.replace(u, b'ue')
+    string = string.replace(U, b'Ue')
+    string = string.replace(a, b'ae')
+    string = string.replace(A, b'Ae')
+    string = string.replace(o, b'oe')
+    string = string.replace(O, b'Oe')
+    string = string.replace(ss, b'ss')
+
+    string = string.decode('utf-8')
+    return string
+
+def replace_path(path, pattern, replace, replace_umlaut=True):
+    """Return the pathlib Path object obtained by replacing occurrences of 'pattern' in string by the 'replace'. Converts path to lower key. Replaces umlaut by default."""
     current_path = path.resolve()
     current_name = str(current_path.name)
     regex_pattern = re.compile(pattern, re.I)
     new_name = regex_pattern.sub(replace, current_name)
+    if replace_umlaut:
+        new_name = remove_umlaut(new_name)
     new_path = current_path.with_name(new_name.lower())
     # if path doesn't exist
     if not new_path.exists():
@@ -38,14 +66,15 @@ def gen_check(iterable, iter_limit=None):
 
 if __name__ == "__main__":
     imgs_dir_path = Path.home()/'programming/data/watch_bot/'
-    file_iterator = gen_check(imgs_dir_path.rglob('*'))
+    file_list = imgs_dir_path.rglob('*')
 
-    for file in tqdm(file_iterator):
+    for file in tqdm(file_list):
         # replace "spaces" in path with "_" and also make everything lower key
         replace_path(file, r'\s', '_')
-        # remove dashes from version 
-        rm_version = replace_name(file.stem, r'(\s|-|\.)?(\d+$)', '')
         
+        # remove dashes from version 
+        #rm_version = replace_name(file.stem, r'(\s|-|\.)?(\d+$)', '')
+
         # TODO: Add comments to the lines below
         #words = r'(brand|new|mint|unworn|neue|bnib|nib|rare|box|papers|b&p|&gt|bracelet|strap|leather|rubber|silicone|oem|excellent|condition|and|or|with)?(\s|-|\+|,|:|;|"|\\|/)?'
         #rm_words = replace_name(rm_version, words, '')
