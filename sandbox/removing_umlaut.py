@@ -31,4 +31,5 @@ def remove_umlaut(string):
 path_csv = Path.home()/'programming/projects/watch_bot/data_prep/file_attribs.csv'
 df = pd.read_csv(path_csv)
 df = df.iloc[9955:9965]['name']
-print(df) 
+
+print(df.apply(remove_umlaut))
