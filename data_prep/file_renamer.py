@@ -30,6 +30,10 @@ def remove_umlaut(string):
     string = string.decode('utf-8')
     return string
 
+def fix_unicode(string):
+    string = string.encode('ascii', 'ignore').decode('ascii')
+    return string
+
 def replace_path(path, pattern, replace, replace_umlaut=True):
     """Return the pathlib Path object obtained by replacing occurrences of 'pattern' in string by the 'replace'. Converts path to lower key. Replaces umlaut by default."""
     current_path = path.resolve()
@@ -38,6 +42,7 @@ def replace_path(path, pattern, replace, replace_umlaut=True):
     new_name = regex_pattern.sub(replace, current_name)
     if replace_umlaut:
         new_name = remove_umlaut(new_name)
+        new_name = fix_unicode(new_name)
     new_path = current_path.with_name(new_name.lower())
     # if path doesn't exist
     if not new_path.exists():
