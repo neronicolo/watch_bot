@@ -27,7 +27,12 @@ def remove_umlaut(string):
     string = string.decode('utf-8')
     return string
 
+def fix_unicode(string):
+    string = string.encode('ascii', 'ignore').decode('ascii')
+    return string
+
 csv_file_path = Path.home()/'programming/projects/watch_bot/data_prep/file_attribs.csv'
 df = pd.read_csv(csv_file_path)
 df['name'] = df['name'].apply(remove_umlaut)
+df['name'] = df['name'].apply(fix_unicode)
 df.to_csv(csv_file_path, index=False)
