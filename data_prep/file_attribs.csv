@@ -2727,7 +2727,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_galvanized_champagne_dial_steel_leather_strap_1107_new-2.jpg,1.0,1.0,1.0
 1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_galvanized_champagne_dial_steel_leather_strap_1107_new-3.jpg,1.0,1.0,1.0
 1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_galvanized_champagne_dial_steel_leather_strap_1107_new-4.jpg,0.0,1.0,1.0
-1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_galvanized_champagne_dial_steel_leather_strap_1107_new-5.jpg,1.0,0.0,1.0
+1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_galvanized_champagne_dial_steel_leather_strap_1107_new-5.jpg,0.0,0.0,1.0
 1000,700,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_galvanized_champagne_dial_steel_leather_strap_1107_new-6.jpg,0.0,0.0,1.0
 912,512,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_nachtblau-1.jpg,1.0,0.0,1.0
 912,512,nomos_1/nomos/metro_neomatik/nomos_metro_neomatik_nachtblau-2.jpg,1.0,0.0,1.0
@@ -7426,7 +7426,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 840,910,sinn_1/sinn/144/sinn_144_early_helmut_sinn_execution-8.jpg,1.0,1.0,1.0
 840,449,sinn_1/sinn/144/sinn_144_early_helmut_sinn_execution-9.jpg,0.0,1.0,1.0
 720,960,sinn_1/sinn/144/sinn_144_gmt_st-1.jpg,1.0,0.0,1.0
-720,960,sinn_1/sinn/144/sinn_144_gmt_st-2.jpg,1.0,0.0,1.0
+720,960,sinn_1/sinn/144/sinn_144_gmt_st-2.jpg,0.0,0.0,1.0
 720,960,sinn_1/sinn/144/sinn_144_gmt_st-3.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/144/sinn_144_gmt_st-4.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/144/sinn_144_gmt_st-5.jpg,1.0,0.0,1.0
@@ -8030,7 +8030,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-12.jpg",1.0,0.0,1.0
 960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-2.jpg",1.0,1.0,1.0
 960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-3.jpg",1.0,1.0,1.0
-960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-4.jpg",1.0,1.0,1.0
+960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-4.jpg",0.0,1.0,1.0
 960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-5.jpg",1.0,1.0,1.0
 960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-6.jpg",1.0,1.0,1.0
 960,960,"sinn_1/sinn/303/sinn_chronograph_limited_edition_888__mazda__-stahl_stahl,_box+papiere-7.jpg",0.0,1.0,1.0
@@ -8081,7 +8081,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 933,960,sinn_1/sinn/356/sinn_356_flieger_full_set_box_and_papers-5.jpg,1.0,0.0,1.0
 1280,960,sinn_1/sinn/356/sinn_356_flieger_sa_ii_copper-1.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/356/sinn_356_flieger_sa_ii_copper-2.jpg,0.0,0.0,1.0
-720,960,sinn_1/sinn/356/sinn_356_flieger_sa_ii_copper-3.jpg,0.0,0.0,1.0
+720,960,sinn_1/sinn/356/sinn_356_flieger_sa_ii_copper-3.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/356/sinn_356_flieger_sa_ii_copper-4.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/356/sinn_356_flieger_sa_ii_copper-5.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/356/sinn_356_flieger_sa_ii_copper-6.jpg,1.0,0.0,0.0
