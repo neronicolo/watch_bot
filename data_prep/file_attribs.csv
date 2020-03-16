@@ -697,7 +697,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1024,725,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_date_sports_gray-4.jpg,1.0,1.0,1.0
 1024,725,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_date_sports_gray-5.jpg,1.0,1.0,1.0
 1024,725,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_date_sports_gray-6.jpg,1.0,1.0,1.0
-960,960,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_date_sports_gray-7.jpg,1.0,1.0,1.0
+960,960,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_date_sports_gray-7.jpg,0.0,1.0,1.0
 961,960,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_date_sports_gray-8.jpg,1.0,0.0,1.0
 958,960,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_date_sports_gray-9.jpg,1.0,0.0,1.0
 619,827,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_datum-1.jpg,1.0,0.0,1.0
@@ -1360,7 +1360,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 960,960,nomos_1/nomos/club_neomatik/nomos_club_neomatik_37mm_742_watch_with_nylon_bracelet_and_stainless_steel_bezel-3.jpg,1.0,0.0,1.0
 960,960,nomos_1/nomos/club_neomatik/nomos_club_neomatik_37mm_742_watch_with_nylon_bracelet_and_stainless_steel_bezel-4.jpg,0.0,0.0,1.0
 960,960,nomos_1/nomos/club_neomatik/nomos_club_neomatik_37mm_742_watch_with_nylon_bracelet_and_stainless_steel_bezel-5.jpg,1.0,0.0,1.0
-960,960,nomos_1/nomos/club_neomatik/nomos_club_neomatik_37mm_742_watch_with_nylon_bracelet_and_stainless_steel_bezel-6.jpg,1.0,0.0,1.0
+960,960,nomos_1/nomos/club_neomatik/nomos_club_neomatik_37mm_742_watch_with_nylon_bracelet_and_stainless_steel_bezel-6.jpg,0.0,0.0,1.0
 509,960,nomos_1/nomos/club_neomatik/nomos_club_neomatik_37mm_743_signalrot-1.jpg,1.0,0.0,1.0
 503,960,nomos_1/nomos/club_neomatik/nomos_club_neomatik_37mm_744-1.jpg,1.0,0.0,1.0
 1280,957,nomos_1/nomos/club_neomatik/nomos_club_neomatik_740-1.jpg,1.0,0.0,1.0
@@ -2988,7 +2988,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 480,480,nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_anthrazit-3.jpg,0.0,1.0,1.0
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_anthrazit_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_ueber_1.860,--1.jpg",1.0,1.0,1.0
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_anthrazit_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_ueber_1.860,--2.jpg",1.0,0.0,1.0
-1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_anthrazit_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_ueber_1.860,--3.jpg",1.0,0.0,1.0
+1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_anthrazit_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_ueber_1.860,--3.jpg",0.0,0.0,1.0
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_anthrazit_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_ueber_1.860,--4.jpg",0.0,1.0,1.0
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_anthrazit_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_ueber_1.860,--5.jpg",0.0,0.0,1.0
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_nachtblau_stahl_handaufzug_armband_leder_33mm_ref.329_box&pap._full_set_neu_mit_zertifikat_ueber_1.680,--1.jpg",1.0,0.0,1.0
@@ -3036,7 +3036,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_weiss_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_ueber_1.820,--1.jpg",1.0,0.0,1.0
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_weiss_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_ueber_1.820,--2.jpg",0.0,0.0,1.0
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_weiss_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_ueber_1.820,--3.jpg",1.0,0.0,1.0
-1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_weiss_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_ueber_1.820,--4.jpg",1.0,0.0,1.0
+1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_weiss_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_ueber_1.820,--4.jpg",0.0,0.0,1.0
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_weiss_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_ueber_1.820,--5.jpg",0.0,0.0,1.0
 1024,768,"nomos_1/nomos/orion_(submodel)/nomos_glashuette_orion_weiss_stahl_handaufzug_glasboden_35mm_neu_mit_zertifikat_ueber_1.820,--6.jpg",0.0,0.0,1.0
 1279,960,nomos_1/nomos/orion_(submodel)/nomos_orion-1.jpg,1.0,0.0,1.0
@@ -6257,7 +6257,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1024,717,nomos_1/nomos/zuerich_weltzeit/nomos_807_zuerich_weltzeit_nachtblau_blue-25.jpg,0.0,0.0,1.0
 900,900,nomos_1/nomos/zuerich_weltzeit/nomos_807_zuerich_weltzeit_nachtblau_blue-3.jpg,0.0,1.0,1.0
 960,960,nomos_1/nomos/zuerich_weltzeit/nomos_807_zuerich_weltzeit_nachtblau_blue-4.jpg,1.0,1.0,1.0
-960,960,nomos_1/nomos/zuerich_weltzeit/nomos_807_zuerich_weltzeit_nachtblau_blue-5.jpg,1.0,1.0,1.0
+960,960,nomos_1/nomos/zuerich_weltzeit/nomos_807_zuerich_weltzeit_nachtblau_blue-5.jpg,0.0,1.0,1.0
 1024,724,nomos_1/nomos/zuerich_weltzeit/nomos_807_zuerich_weltzeit_nachtblau_blue-6.jpg,1.0,1.0,1.0
 1024,725,nomos_1/nomos/zuerich_weltzeit/nomos_807_zuerich_weltzeit_nachtblau_blue-7.jpg,1.0,1.0,1.0
 480,480,nomos_1/nomos/zuerich_weltzeit/nomos_807_zuerich_weltzeit_nachtblau_blue-8.jpg,1.0,1.0,1.0
@@ -6593,7 +6593,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 619,827,sinn_1/sinn/103/sinn_103_st_diapal-19.jpg,1.0,1.0,1.0
 738,960,sinn_1/sinn/103/sinn_103_st_diapal-2.jpg,0.0,1.0,1.0
 619,827,sinn_1/sinn/103/sinn_103_st_diapal-20.jpg,1.0,1.0,1.0
-738,960,sinn_1/sinn/103/sinn_103_st_diapal-3.jpg,1.0,1.0,1.0
+738,960,sinn_1/sinn/103/sinn_103_st_diapal-3.jpg,0.0,1.0,1.0
 738,960,sinn_1/sinn/103/sinn_103_st_diapal-4.jpg,1.0,1.0,1.0
 619,827,sinn_1/sinn/103/sinn_103_st_diapal-5.jpg,1.0,1.0,1.0
 619,827,sinn_1/sinn/103/sinn_103_st_diapal-6.jpg,1.0,1.0,1.0
@@ -7070,7 +7070,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 738,960,sinn_1/sinn/104/sinn_104_st_sa_i_w-28.jpg,1.0,1.0,1.0
 619,827,sinn_1/sinn/104/sinn_104_st_sa_i_w-29.jpg,1.0,1.0,1.0
 738,960,sinn_1/sinn/104/sinn_104_st_sa_i_w-3.jpg,0.0,1.0,1.0
-555,960,sinn_1/sinn/104/sinn_104_st_sa_i_w-30.jpg,0.0,1.0,1.0
+555,960,sinn_1/sinn/104/sinn_104_st_sa_i_w-30.jpg,1.0,1.0,1.0
 738,960,sinn_1/sinn/104/sinn_104_st_sa_i_w-4.jpg,0.0,1.0,1.0
 738,960,sinn_1/sinn/104/sinn_104_st_sa_i_w-5.jpg,0.0,1.0,1.0
 738,960,sinn_1/sinn/104/sinn_104_st_sa_i_w-6.jpg,1.0,1.0,1.0
@@ -7198,7 +7198,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 720,960,sinn_1/sinn/104/sinn_the_classic_pilot_104_st_sa_i_w_bracelet-1.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/104/sinn_the_classic_pilot_104_st_sa_i_w_bracelet-2.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/104/sinn_the_classic_pilot_104_st_sa_i_w_bracelet-3.jpg,0.0,0.0,1.0
-720,960,sinn_1/sinn/104/sinn_the_classic_pilot_104_st_sa_i_w_bracelet-4.jpg,0.0,0.0,1.0
+720,960,sinn_1/sinn/104/sinn_the_classic_pilot_104_st_sa_i_w_bracelet-4.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/104/sinn_unworn_bnib_sinn_104_st_sa_i_pilot_watch-1.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/104/sinn_unworn_bnib_sinn_104_st_sa_i_pilot_watch-2.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/104/sinn_unworn_bnib_sinn_104_st_sa_i_pilot_watch-3.jpg,0.0,0.0,1.0
@@ -7548,7 +7548,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,853,sinn_1/sinn/144/sinn_world_time_chronograph_144_st_diapal_bracelet_new-1.jpg,1.0,1.0,1.0
 1280,853,sinn_1/sinn/144/sinn_world_time_chronograph_144_st_diapal_bracelet_new-2.jpg,0.0,1.0,1.0
 1280,853,sinn_1/sinn/144/sinn_world_time_chronograph_144_st_diapal_bracelet_new-3.jpg,0.0,1.0,1.0
-1280,853,sinn_1/sinn/144/sinn_world_time_chronograph_144_st_diapal_bracelet_new-4.jpg,1.0,1.0,1.0
+1280,853,sinn_1/sinn/144/sinn_world_time_chronograph_144_st_diapal_bracelet_new-4.jpg,0.0,1.0,1.0
 1280,853,sinn_1/sinn/144/sinn_world_time_chronograph_144_st_diapal_bracelet_new-5.jpg,1.0,1.0,1.0
 1280,853,sinn_1/sinn/144/sinn_world_time_chronograph_144_st_diapal_leather_strap_new-1.jpg,1.0,1.0,1.0
 533,800,sinn_1/sinn/156/sinn_-_ref._86505_-_chronograph_-_lemania_5100_-_edelstahlmessing_-_sondermodell_-_einzelstueck_-_aaw-1.jpg,1.0,1.0,1.0
@@ -8929,7 +8929,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,960,sinn_1/sinn/856_-_857/sinn_856__857_magnetfeldgeschuetzte_fliegeruhr-1.jpg,1.0,0.0,1.0
 1280,960,sinn_1/sinn/856_-_857/sinn_856__857_magnetfeldgeschuetzte_fliegeruhr-2.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/856_-_857/sinn_856__857_magnetfeldgeschuetzte_fliegeruhr-3.jpg,0.0,0.0,1.0
-720,960,sinn_1/sinn/856_-_857/sinn_856__857_magnetfeldgeschuetzte_fliegeruhr-4.jpg,1.0,0.0,1.0
+720,960,sinn_1/sinn/856_-_857/sinn_856__857_magnetfeldgeschuetzte_fliegeruhr-4.jpg,0.0,0.0,1.0
 720,960,sinn_1/sinn/856_-_857/sinn_856__857_magnetfeldgeschuetzte_fliegeruhr-5.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/856_-_857/sinn_856__857_magnetfeldgeschuetzte_fliegeruhr-6.jpg,1.0,0.0,1.0
 619,827,sinn_1/sinn/856_-_857/sinn_856_b-uhr-1.jpg,1.0,1.0,1.0
@@ -9537,7 +9537,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1060,960,sinn_1/sinn/903/sinn_navigationschronograph_903st-1.jpg,1.0,0.0,1.0
 1200,800,sinn_1/sinn/903/sinn_navigationschronograph_903st-2.jpg,0.0,0.0,1.0
 1200,800,sinn_1/sinn/903/sinn_navigationschronograph_903st-3.jpg,1.0,0.0,1.0
-1200,800,sinn_1/sinn/903/sinn_navigationschronograph_903st-4.jpg,1.0,0.0,1.0
+1200,800,sinn_1/sinn/903/sinn_navigationschronograph_903st-4.jpg,0.0,0.0,1.0
 850,960,"sinn_1/sinn/903/sinn_navigationsuhr_903_pl_chronograph_41,5_mm_lemania_1873_vergoldet_extrem_rar-1.jpg",1.0,1.0,1.0
 1240,960,"sinn_1/sinn/903/sinn_navigationsuhr_903_pl_chronograph_41,5_mm_lemania_1873_vergoldet_extrem_rar-10.jpg",0.0,1.0,1.0
 1139,960,"sinn_1/sinn/903/sinn_navigationsuhr_903_pl_chronograph_41,5_mm_lemania_1873_vergoldet_extrem_rar-11.jpg",1.0,1.0,1.0
@@ -9668,7 +9668,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1280,854,sinn_1/sinn/956/sinn_956_der_rallyechronograph_956.010-8.jpg,1.0,1.0,1.0
 720,960,sinn_1/sinn/956/sinn_956_fulda_jubilaeumschronograph-1.jpg,1.0,0.0,1.0
 1280,960,sinn_1/sinn/956/sinn_956_fulda_jubilaeumschronograph-2.jpg,0.0,0.0,1.0
-720,960,sinn_1/sinn/956/sinn_956_fulda_jubilaeumschronograph-3.jpg,0.0,0.0,1.0
+720,960,sinn_1/sinn/956/sinn_956_fulda_jubilaeumschronograph-3.jpg,1.0,0.0,1.0
 1280,960,sinn_1/sinn/956/sinn_956_fulda_jubilaeumschronograph-4.jpg,0.0,0.0,1.0
 1280,960,sinn_1/sinn/956/sinn_956_fulda_jubilaeumschronograph-5.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/956/sinn_956_fulda_jubilaeumschronograph-6.jpg,1.0,0.0,1.0
@@ -9796,7 +9796,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 720,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-2.jpg,1.0,1.0,1.0
 720,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-3.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-4.jpg,1.0,0.0,1.0
-720,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-5.jpg,1.0,0.0,1.0
+720,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-5.jpg,0.0,0.0,1.0
 720,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-6.jpg,0.0,0.0,1.0
 1280,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-7.jpg,0.0,0.0,1.0
 720,960,sinn_1/sinn/_without_model/sinn_1746_klassik_42_mm_b+p+revision-8.jpg,1.0,0.0,1.0
@@ -10215,7 +10215,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 720,960,sinn_1/sinn/_without_model/sinn_910_srs_flyback_chronograph-2.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/_without_model/sinn_910_srs_flyback_chronograph-3.jpg,1.0,0.0,1.0
 720,960,sinn_1/sinn/_without_model/sinn_910_srs_flyback_chronograph-4.jpg,0.0,0.0,1.0
-720,960,sinn_1/sinn/_without_model/sinn_910_srs_flyback_chronograph-5.jpg,0.0,0.0,1.0
+720,960,sinn_1/sinn/_without_model/sinn_910_srs_flyback_chronograph-5.jpg,1.0,0.0,1.0
 738,960,sinn_1/sinn/_without_model/sinn_910_srs_flyback_chronograph-6.jpg,1.0,1.0,1.0
 1280,853,sinn_1/sinn/_without_model/sinn_910_srs_the_ratchet_wheel_chronograph_with_flyback_function_bracelet_new-1.jpg,1.0,1.0,1.0
 1280,853,sinn_1/sinn/_without_model/sinn_910_srs_the_ratchet_wheel_chronograph_with_flyback_function_bracelet_new-2.jpg,1.0,1.0,1.0
