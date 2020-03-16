@@ -568,7 +568,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 672,960,nomos_1/nomos/ahoi_neomatik/nomos_ahoi_neomatik_siren_white_steel_36_mm-1.jpg,1.0,0.0,1.0
 1000,676,nomos_1/nomos/ahoi_neomatik/nomos_ahoi_neomatik_siren_white_steel_36_mm-2.jpg,0.0,0.0,1.0
 672,960,nomos_1/nomos/ahoi_neomatik/nomos_ahoi_neomatik_steel_36.3_mm-1.jpg,1.0,0.0,1.0
-1000,676,nomos_1/nomos/ahoi_neomatik/nomos_ahoi_neomatik_steel_36.3_mm-2.jpg,1.0,0.0,1.0
+1000,676,nomos_1/nomos/ahoi_neomatik/nomos_ahoi_neomatik_steel_36.3_mm-2.jpg,0.0,0.0,1.0
 900,900,nomos_1/nomos/ahoi_neomatik/nomos_glashutte_unisex_562_ahoi_neomatik_siren_blue_watch-1.jpg,1.0,0.0,1.0
 900,900,nomos_1/nomos/ahoi_neomatik/nomos_glashutte_unisex_562_ahoi_neomatik_siren_blue_watch-2.jpg,1.0,0.0,1.0
 900,900,nomos_1/nomos/ahoi_neomatik/nomos_glashutte_unisex_562_ahoi_neomatik_siren_blue_watch-3.jpg,1.0,0.0,1.0
@@ -698,7 +698,7 @@ image_size_x,image_size_y,name,dial_visibility,like,image_quality
 1024,725,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_date_sports_gray-5.jpg,1.0,1.0,1.0
 1024,725,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_date_sports_gray-6.jpg,1.0,1.0,1.0
 960,960,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_date_sports_gray-7.jpg,0.0,1.0,1.0
-961,960,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_date_sports_gray-8.jpg,1.0,0.0,1.0
+961,960,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_date_sports_gray-8.jpg,0.0,0.0,1.0
 958,960,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_date_sports_gray-9.jpg,1.0,0.0,1.0
 619,827,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_datum-1.jpg,1.0,0.0,1.0
 1024,725,nomos_1/nomos/autobahn/nomos_autobahn_neomatik_41_datum-2.jpg,1.0,1.0,1.0
