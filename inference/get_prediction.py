@@ -13,7 +13,7 @@ file_attribs = defaultdict(list)
 learn = load_learner(data_path)
 learn = learn.to_fp32()
 
-for file in tqdm(files[:10]):
+for file in tqdm(files):
     try:
         img = open_image(file)
         p_class, p_idx, p = learn.predict(img)
