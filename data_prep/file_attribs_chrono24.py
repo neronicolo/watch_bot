@@ -7,10 +7,10 @@ from tqdm import tqdm
 # TODO: make cli version of this program:
 #   file_attrib(source folder(starting folder for recursion), csv_path(where to save), **kwargs(column for labelin))
 
-# save csv to
-csv_path = Path.home()/'programming/projects/chrono24/file_attribs.csv'
 # directory path where images are stored
 data_path = Path.home()/'programming/data/chrono24/'
+# save csv to
+csv_path = data_path/'file_attribs_chrono24.csv'
 
 file_list = sorted(data_path.rglob('*.jpg'))
 file_attribs = collections.defaultdict(list)
@@ -26,5 +26,4 @@ for file in tqdm(file_list):
     file_attribs['name'].append(file.relative_to(data_path))
 
 df = pd.DataFrame.from_dict(file_attribs)
-
 df.to_csv(csv_path, index=False)
