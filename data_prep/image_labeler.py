@@ -352,7 +352,7 @@ def main(imgs_path, csv_path):
 
 if __name__ == "__main__":
     imgs = Path.home()/'programming/data/watch_bot/'
-    csv = Path.home()/'programming/projects/watch_bot/data_prep/file_attribs.csv'
+    csv = Path.home()/'programming/projects/watch_bot/data_prep/file_attribs_watch_bot.csv'
     main(imgs, csv)
     
     #main(sys.argv[1], sys.argv[2])

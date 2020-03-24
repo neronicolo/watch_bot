@@ -15,6 +15,7 @@ learn = learn.to_fp32()
 
 for file in tqdm(files):
     try:
+        # TODO with open_image(file) as img - maybe it will be faster?
         img = open_image(file)
         p_class, p_idx, p = learn.predict(img)
     except OSError:
