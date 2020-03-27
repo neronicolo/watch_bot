@@ -37,18 +37,19 @@ class Application(tk.Frame):
         self._index = -1
         self._init_start = 1
         #self.size = (640, 640)
-        self.size = (540, 540)
+        self.size = (600, 600)
         self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path)
         self.df_filtered = self.df.copy()
-        
+         
         # store radiobutton values for image labels 
         self.dv_var = tk.DoubleVar(value=-1)
         self.lk_var = tk.DoubleVar(value=-1)
         self.iq_var = tk.DoubleVar(value=-1)
         
-        # store radiobutton values for filter images 
+        # store entry widget values 
         self.filter_pattern_var = tk.StringVar()
         self.jump_to_image_var = tk.StringVar()
+        self.treshold_label_var = tk.StringVar()
 
         # helper dict
         self.d = {'dial_visibility':self.dv_var,
@@ -97,7 +98,7 @@ class Application(tk.Frame):
         label_frame_outer.grid(row=0, column=1, columnspan=2)
 
         for i, text in enumerate(s['lf_txt']):
-            label_frame = tk.LabelFrame(label_frame_outer, text=text, padx=8, pady=8)
+            label_frame = tk.LabelFrame(label_frame_outer, text=text, padx=8, pady=4)
             label_frame.grid(row=i, column=1, columnspan=2)
 
             for j, value in enumerate(s['rb_val']):
@@ -108,13 +109,13 @@ class Application(tk.Frame):
         filter_frame_outer = tk.LabelFrame(self, text="Filter Images", padx=8, pady=4)
         filter_frame_outer.grid(row=3, column=1, columnspan=2)
 
-        label_pattern_label_frame = tk.LabelFrame(filter_frame_outer, text="Label Pattern:", padx=8, pady=4)
-        label_pattern_label_frame.grid(row=4, column=1, columnspan=2)            
+        pred_treshold_label_frame = tk.LabelFrame(filter_frame_outer, text="Label Pattern:", padx=8, pady=4)
+        pred_treshold_label_frame.grid(row=4, column=1, columnspan=2)            
 
-        self.label_pattern_entry = tk.Entry(label_pattern_label_frame, width=14, textvariable=self.filter_pattern_var)
+        self.label_pattern_entry = tk.Entry(pred_treshold_label_frame, width=14, textvariable=self.filter_pattern_var)
         self.label_pattern_entry.grid(row=5, column=1, columnspan=2, pady=4)
 
-        self.label_filter_button = tk.Button(label_pattern_label_frame, text="Filter", command=self.filter_df)
+        self.label_filter_button = tk.Button(pred_treshold_label_frame, text="Filter", command=self.filter_df)
         self.label_filter_button.grid(row=6, column=1, columnspan=2)
 
         # jump to image
@@ -127,9 +128,19 @@ class Application(tk.Frame):
         self.jump_button = tk.Button(jump_to_image_label_frame, text="Jump", command=self.jump_to_image)
         self.jump_button.grid(row=9, column=1, columnspan=2)
 
+        # filter by prediction treshold
+        pred_treshold_label_frame = tk.LabelFrame(filter_frame_outer, text="Treshold, Label:", padx=8, pady=4)
+        pred_treshold_label_frame.grid(row=10, column=1, columnspan=2)            
+
+        self.pred_treshold_entry = tk.Entry(pred_treshold_label_frame, width=14, textvariable=self.treshold_label_var)
+        self.pred_treshold_entry.grid(row=11, column=1, columnspan=2, pady=4)
+
+        self.pred_treshold_button = tk.Button(pred_treshold_label_frame, text="Filter", command=self.filter_by_prediction)
+        self.pred_treshold_button.grid(row=12, column=1, columnspan=2)
+
         # reset to initial image
         self.reset_filter_button = tk.Button(filter_frame_outer, text="Reset", command=self.reset_filter_df)
-        self.reset_filter_button.grid(row=11, column=1, columnspan=2, pady=4)
+        self.reset_filter_button.grid(row=13, column=1, columnspan=2, pady=4)
 
         # previous, next button
         self.previous_button = tk.Button(self, text="Previous", command=self.display_previous)
@@ -289,6 +300,7 @@ class Application(tk.Frame):
         return self.df_filtered['name'].size
 
     def filter_df(self):
+        '''Filter images based on their label values'''
         # test notebook for this can be found ../sandbox/pandas
         # column names to use when comparing against filter values
         filter_columns = list(self.d.keys())
@@ -306,8 +318,9 @@ class Application(tk.Frame):
             return
         finally:
             self.focus()
+            #self.label_pattern_entry.delete(0,'end')
             self.jump_to_image_entry.delete(0,'end')            
-            self.label_pattern_entry.delete(0,'end') 
+            self.pred_treshold_entry.delete(0,'end') 
         # filtered dataframe
         self.df_filtered = self.df.loc[df_filtered]
         if not self.df_filtered.empty:
@@ -318,15 +331,6 @@ class Application(tk.Frame):
         else: 
             self.statusbar.configure(text=f"Invalid Filter Pattern")
             return
-
-    def reset_filter_df(self, event=None):
-        self.df_filtered = self.df.copy()
-        self.resume()
-        self.display_next()
-
-        self.focus()
-        self.label_pattern_entry.delete(0,'end')
-        self.jump_to_image_entry.delete(0,'end')
 
     def jump_to_image(self):
         '''Jump to image number'''
@@ -342,7 +346,44 @@ class Application(tk.Frame):
         finally:
             self.focus()
             self.label_pattern_entry.delete(0,'end')
-            self.jump_to_image_entry.delete(0,'end')
+            #self.jump_to_image_entry.delete(0,'end')
+            self.pred_treshold_entry.delete(0,'end') 
+
+    def filter_by_prediction(self):
+        '''Filter images based on prediction value treshold'''
+        treshold,label = tuple(self.treshold_label_var.get().split(','))
+        try:
+            if (int(label) == 0):
+                self.df_filtered = self.df[(self.df['dial_visibility_p_0'] < float(treshold)) & (self.df['dial_visibility_p_1'] < float(treshold))]
+            elif (int(label) == 1):
+                self.df_filtered = self.df[(self.df['dial_visibility_p_0'] < float(treshold)) & (self.df['dial_visibility_p_1'] < float(treshold))]
+        except (ValueError):
+            self.pred_treshold_entry.delete(0,'end')
+            self.statusbar.configure(text=f"Invalid Filter Pattern")
+            return
+        finally:
+            self.focus()
+            self.jump_to_image_entry.delete(0,'end')            
+            self.label_pattern_entry.delete(0,'end')
+            #self.pred_treshold_entry.delete(0,'end') 
+        if not self.df_filtered.empty:
+            # reset to the first image and display it
+            self._init_start = 1
+            self._index = -1
+            self.display_next()
+            print(self.df_filtered.head())
+        else: 
+            self.statusbar.configure(text=f"Invalid Filter Pattern")
+            return
+
+    def reset_filter_df(self, event=None):
+        self.df_filtered = self.df.copy()
+        self.resume()
+        self.display_next()
+
+        self.focus()
+        self.label_pattern_entry.delete(0,'end')
+        self.jump_to_image_entry.delete(0,'end')
 
 def main(imgs_path, csv_path):
     root = tk.Tk()
