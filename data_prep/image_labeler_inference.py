@@ -345,9 +345,9 @@ class Application(tk.Frame):
             return
         finally:
             self.focus()
-            self.label_pattern_entry.delete(0,'end')
-            #self.jump_to_image_entry.delete(0,'end')
-            self.pred_threshold_entry.delete(0,'end') 
+            #self.label_pattern_entry.delete(0,'end')
+            self.jump_to_image_entry.delete(0,'end')
+            #self.pred_threshold_entry.delete(0,'end') 
 
     def filter_by_prediction(self):
         '''Filter images based on prediction value threshold'''
