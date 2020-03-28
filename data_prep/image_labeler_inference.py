@@ -334,7 +334,7 @@ class Application(tk.Frame):
 
     def jump_to_image(self):
         '''Jump to image number'''
-        self.df_filtered = self.df.copy()
+        #self.df_filtered = self.df.copy()
         image_value = self.jump_to_image_var.get()
         try:
             self._init_start = 1
