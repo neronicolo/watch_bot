@@ -383,7 +383,8 @@ class Application(tk.Frame):
         self.focus()
         self.label_pattern_entry.delete(0,'end')
         self.jump_to_image_entry.delete(0,'end')
-
+        self.pred_threshold_entry.delete(0,'end')
+        
 def main(imgs_path, csv_path):
     root = tk.Tk()
     Application(master=root, imgs_dir_path=imgs_path, csv_file_path=csv_path)
