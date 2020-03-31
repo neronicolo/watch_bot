@@ -129,7 +129,7 @@ class Application(tk.Frame):
         self.jump_button.grid(row=9, column=1, columnspan=2)
 
         # filter by prediction threshold
-        pred_threshold_label_frame = tk.LabelFrame(filter_frame_outer, text="Threshold, Label:", padx=8, pady=4)
+        pred_threshold_label_frame = tk.LabelFrame(filter_frame_outer, text="Threshold; Label:", padx=8, pady=4)
         pred_threshold_label_frame.grid(row=10, column=1, columnspan=2)            
 
         self.pred_threshold_entry = tk.Entry(pred_threshold_label_frame, width=14, textvariable=self.threshold_label_var)
@@ -351,12 +351,14 @@ class Application(tk.Frame):
 
     def filter_by_prediction(self):
         '''Filter images based on prediction value threshold'''
-        threshold,label = tuple(self.threshold_label_var.get().split(','))
+        threshold,label = tuple(self.threshold_label_var.get().split(';'))
+        thresh_min, thresh_max = tuple(threshold.split('-'))
         try:
             if (int(label) == 0):
-                self.df_filtered = self.df[(self.df['dial_visibility_p_0'] < float(threshold)) & (self.df['dial_visibility_p_1'] < float(threshold))]
+                self.df_filtered = self.df[self.df[['dial_visibility_p_0', 'dial_visibility_p_1']].max(1) > float(thresh_min)]
+                self.df_filtered = self.df_filtered[self.df_filtered[['dial_visibility_p_0', 'dial_visibility_p_1']].max(1) < float(thresh_max)] 
             elif (int(label) == 1):
-                self.df_filtered = self.df[(self.df['dial_visibility_p_0'] < float(threshold)) & (self.df['dial_visibility_p_1'] < float(threshold))]
+                pass
         except (ValueError):
             self.pred_threshold_entry.delete(0,'end')
             self.statusbar.configure(text=f"Invalid Filter Pattern")
