@@ -395,7 +395,7 @@ def main(imgs_path, csv_path):
 
 if __name__ == "__main__":
     data_path = Path.home()/'programming/data/chrono24'
-    csv_path = data_path/'file_attribs_chrono24_inference.csv'
+    csv_path = data_path/'file_attribs_chrono24_add_inference.csv'
     main(data_path, csv_path)
     
     #main(sys.argv[1], sys.argv[2])
