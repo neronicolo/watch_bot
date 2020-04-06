@@ -26,4 +26,14 @@ for file in tqdm(file_list):
     file_attribs['name'].append(file.relative_to(data_path))
 
 df = pd.DataFrame.from_dict(file_attribs)
+
+# Adding columns 
+df['dial_visibility'] = -1
+df['dial_visibility_p_0'] = -1
+df['dial_visibility_p_1'] = -1
+df['like'] = -1 
+df['like_p_0'] = -1
+df['like_p_1'] = -1
+df['image_quality'] = -1
+
 df.to_csv(csv_path, index=False)
