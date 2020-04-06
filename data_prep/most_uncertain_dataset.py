@@ -2,6 +2,8 @@ import shutil
 from pathlib import Path
 
 import pandas as pd
+from tqdm import tqdm
+
 
 def filter_by_prediction(df, thresh_min, thresh_max, label):
     '''Filter images based on prediction thresh_min, thresh_max, value mad label. Return dataframe'''
@@ -28,9 +30,15 @@ save_csv_path = Path.home()/'programming/projects/watch_bot/data_prep/chrono24_d
 
 df = pd.read_csv(read_csv_path)
 df = filter_by_prediction(df, 0.5, 0.6, 0)
-#df.to_csv(save_csv_path, index=False)
-files = filter_by_image_size(df, 300)
-dataset_path.mkdir(exist_ok=True)
+file_list = filter_by_image_size(df, 300)
 
-for file in files[:10]:
-    shutil.copy(data_path/file, dataset_path)
+for file in tqdm(file_list):
+    file_name = Path(file).name
+    file_parent = Path(file).parent
+    file_path = dataset_path/file_parent
+    file_path.mkdir(parents=True, exist_ok=True)
+    
+    shutil.copy(data_path/file, file_path/file_name)
+
+df['name'] = str(dataset_path.name) + "/" + df['name']
+df.to_csv(save_csv_path, index=False)
