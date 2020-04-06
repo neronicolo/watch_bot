@@ -36,8 +36,8 @@ class Application(tk.Frame):
         self.csv_file_path = Path(csv_file_path).resolve(strict=True)
         self._index = -1
         self._init_start = 1
-        #self.size = (640, 640)
-        self.size = (600, 600)
+        self.size = (640, 640)
+        #self.size = (600, 600)
         self.df = pd.read_csv(self.imgs_dir_path/self.csv_file_path)
         self.df_filtered = self.df.copy()
          
@@ -129,7 +129,7 @@ class Application(tk.Frame):
         self.jump_button.grid(row=9, column=1, columnspan=2)
 
         # filter by prediction threshold
-        pred_threshold_label_frame = tk.LabelFrame(filter_frame_outer, text="Threshold, Label:", padx=8, pady=4)
+        pred_threshold_label_frame = tk.LabelFrame(filter_frame_outer, text="Threshold; Label:", padx=8, pady=4)
         pred_threshold_label_frame.grid(row=10, column=1, columnspan=2)            
 
         self.pred_threshold_entry = tk.Entry(pred_threshold_label_frame, width=14, textvariable=self.threshold_label_var)
@@ -334,7 +334,7 @@ class Application(tk.Frame):
 
     def jump_to_image(self):
         '''Jump to image number'''
-        self.df_filtered = self.df.copy()
+        #self.df_filtered = self.df.copy()
         image_value = self.jump_to_image_var.get()
         try:
             self._init_start = 1
@@ -345,18 +345,20 @@ class Application(tk.Frame):
             return
         finally:
             self.focus()
-            self.label_pattern_entry.delete(0,'end')
-            #self.jump_to_image_entry.delete(0,'end')
-            self.pred_threshold_entry.delete(0,'end') 
+            #self.label_pattern_entry.delete(0,'end')
+            self.jump_to_image_entry.delete(0,'end')
+            #self.pred_threshold_entry.delete(0,'end') 
 
     def filter_by_prediction(self):
         '''Filter images based on prediction value threshold'''
-        threshold,label = tuple(self.threshold_label_var.get().split(','))
+        threshold,label = tuple(self.threshold_label_var.get().split(';'))
+        thresh_min, thresh_max = tuple(threshold.split('-'))
         try:
             if (int(label) == 0):
-                self.df_filtered = self.df[(self.df['dial_visibility_p_0'] < float(threshold)) & (self.df['dial_visibility_p_1'] < float(threshold))]
+                self.df_filtered = self.df[self.df[['dial_visibility_p_0', 'dial_visibility_p_1']].max(1) > float(thresh_min)]
+                self.df_filtered = self.df_filtered[self.df_filtered[['dial_visibility_p_0', 'dial_visibility_p_1']].max(1) < float(thresh_max)] 
             elif (int(label) == 1):
-                self.df_filtered = self.df[(self.df['dial_visibility_p_0'] < float(threshold)) & (self.df['dial_visibility_p_1'] < float(threshold))]
+                pass
         except (ValueError):
             self.pred_threshold_entry.delete(0,'end')
             self.statusbar.configure(text=f"Invalid Filter Pattern")
@@ -383,7 +385,8 @@ class Application(tk.Frame):
         self.focus()
         self.label_pattern_entry.delete(0,'end')
         self.jump_to_image_entry.delete(0,'end')
-
+        self.pred_threshold_entry.delete(0,'end')
+        
 def main(imgs_path, csv_path):
     root = tk.Tk()
     Application(master=root, imgs_dir_path=imgs_path, csv_file_path=csv_path)
@@ -392,7 +395,7 @@ def main(imgs_path, csv_path):
 
 if __name__ == "__main__":
     data_path = Path.home()/'programming/data/chrono24'
-    csv_path = data_path/'file_attribs_chrono24_merged.csv'
+    csv_path = data_path/'file_attribs_chrono24_inference.csv'
     main(data_path, csv_path)
     
     #main(sys.argv[1], sys.argv[2])
