@@ -36,5 +36,4 @@ df['like_p_0'] = -1
 df['like_p_1'] = -1
 df['image_quality'] = -1
 
-print(f'initial dataframe shape: {shape_init}, new dataframe shape: {df.shape}')
 df.to_csv(csv_path, index=False)
