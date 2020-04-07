@@ -12,7 +12,8 @@ def filter_by_prediction(df, thresh_min, thresh_max, label):
             df_filtered = df[df[['dial_visibility_p_0', 'dial_visibility_p_1']].max(1) > thresh_min]
             df_filtered = df_filtered[df_filtered[['dial_visibility_p_0', 'dial_visibility_p_1']].max(1) < thresh_max] 
         elif (label == 1):
-            pass
+            df_filtered = df[df[['like_p_0', 'like_p_1']].max(1) > thresh_min]
+            df_filtered = df_filtered[df_filtered[['like_p_0', 'like_p_1']].max(1) < thresh_max] 
         return df_filtered
     except (ValueError):
         print("Invalid Filter Pattern")
@@ -24,8 +25,9 @@ def filter_by_image_size(df, size):
     return df['name'].to_list()
 
 data_path = Path.home()/'programming/data/chrono24'
-dataset_path = Path.home()/'programming/data/watch_bot/chrono24_dial_visibility_most_uncertain/'
 read_csv_path = Path.home()/'programming/data/chrono24/file_attribs_chrono24_add_inference.csv'
+# Change path for 'like' label!
+dataset_path = Path.home()/'programming/data/watch_bot/chrono24_dial_visibility_most_uncertain/'
 save_csv_path = Path.home()/'programming/projects/watch_bot/data_prep/chrono24_dial_visibility_most_uncertain.csv'
 
 df = pd.read_csv(read_csv_path)
