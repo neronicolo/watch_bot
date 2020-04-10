@@ -22,7 +22,7 @@ def filter_by_prediction(df, thresh_min, thresh_max, label):
 def filter_by_image_size(df, size):
     '''Fiter images based on size. Return file list'''
     df = df[(df['image_size_x'] > size) & (df['image_size_y'] > size)]
-    return df['name'].to_list()
+    return df
 
 data_path = Path.home()/'programming/data/chrono24'
 read_csv_path = Path.home()/'programming/data/chrono24/file_attribs_chrono24_add_inference.csv'
@@ -32,7 +32,8 @@ save_csv_path = Path.home()/'programming/projects/watch_bot/data_prep/chrono24_d
 
 df = pd.read_csv(read_csv_path)
 df = filter_by_prediction(df, 0.5, 0.6, 0)
-file_list = filter_by_image_size(df, 300)
+df = filter_by_image_size(df, 300)
+file_list = df['name'].to_list()
 
 for file in tqdm(file_list):
     file_name = Path(file).name
