@@ -5,12 +5,12 @@ from tqdm import tqdm
 #   file_attrib(source folder(starting folder for recursion), csv_path(where to save), **kwargs(column for labelin))
 
 data_path =  Path.home()/'programming/data/chrono24/'
-csv_path = data_path/'chrono24_dial_visibility_inference.csv'
+csv_path = data_path/'chrono24_dial_visibility_inference_2.csv'
 
 files = sorted(data_path.rglob('*.jpg'))
 file_attribs = defaultdict(list)
 
-learn = load_learner(data_path, file='dial_visibility_export.pkl')
+learn = load_learner(data_path, file='dial_visibility_export_2.pkl')
 learn = learn.to_fp32()
 
 for file in tqdm(files):
